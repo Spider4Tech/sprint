@@ -1,0 +1,23 @@
+<html> 
+   <head> 
+      <script type="text/javascript">
+      
+      function chk(){
+        var x=document.forms[0].elements[0].value;
+        var y=x.length
+      if(y>=8){
+        alert('mot de masse de longeur' + x);
+      }else{
+        alert('mdp trop court');
+      }
+      }
+      
+      </script>
+   </head> 
+   <body>
+   <form id="mon_form">
+      <p><input type="text" name="mdp"></p>
+      <p><input type="button" value="check" onClick="chk()"></p>
+   </form>
+   </body> 
+</html>
