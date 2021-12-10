@@ -1,8 +1,18 @@
 <?php
 function afficherStart(){
-  require_once('gabaritDef.php')
+  require_once('gabaritDef.php');
 }
-
+function afficherGabarit($rang){
+  if ($rang==1){
+    require_once('gabaritdirec.php');
+  }
+  elseif ($rang==2) {
+    require_once('gabaritconseil.php');
+  }
+  elseif ($rang==3) {
+    require_once('gabaritagent.php');
+  }
+}
 
 function afficherErreur($erreur){
     $contenuAffichage="<fieldset>";

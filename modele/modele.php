@@ -6,3 +6,18 @@ function getConnect(){
     $connexion->query('SET NAMES UTF8');
     return $connexion;
 }
+function ajouterClient($nom,$prenom,$addresse,$telephone,$situation,$conseiller){
+    $connexion=getConnect();
+    $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$addresse','$telephone','$situation','$conseiller')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function rechercheRang($login,$mdp){
+    $connexion=getConnect();
+    $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $rang=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $rang;
+}

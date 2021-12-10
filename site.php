@@ -1,10 +1,12 @@
 <?php
 require_once('controleur/controleur.php');
 try{
-  if(){
-
+  if(isset($_POST['envoie'])){
+    $login=$_POST['login'];
+    $mdp=$_POST['mdp'];
+    ctlGestion($login,$mdp);
   }
-  else 
+  else
     ctlStart();
 }
 catch(Exception $e){

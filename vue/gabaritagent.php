@@ -10,7 +10,7 @@
 
 
       <?php
-        echo $contenu;
+        echo 'agent';
       ?>
   	</body>
  </html>
