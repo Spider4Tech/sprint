@@ -8,6 +8,20 @@ function ctlGestion($login,$mdp){
     $rang=rechercheRang($login,$mdp);
     afficherGabarit($rang);
 }
+function ctlAfficherClient($idclient){
+    $client=rechercheClient($idclient);
+    affichageClient($client);
+}
+
+
+
+
+
+
+
+
+
+
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }

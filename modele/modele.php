@@ -22,3 +22,12 @@ function rechercheRang($login,$mdp){
     $resultat->closeCursor();
     return $selection->rang;
 }
+function rechercheClient($idclient){
+    $connexion=getConnect();
+    $requete="SELECT * from client where id='$idclient'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $client=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $client;
+}
