@@ -7,10 +7,10 @@
     </head>
   	<body>
 
-
+        <p>agent</p>
 
       <?php
-        echo 'agent';
+        echo $contenu;
       ?>
   	</body>
  </html>

@@ -17,7 +17,8 @@ function rechercheRang($login,$mdp){
     $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
-    $rang=$resultat->fetchall();
+    $rang=$resultat;
+    $selection=$rang->fetch();
     $resultat->closeCursor();
-    return $rang;
+    return $selection->rang;
 }

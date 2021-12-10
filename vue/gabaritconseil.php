@@ -7,10 +7,10 @@
     </head>
   	<body>
 
-
+        <p>conseil</p>
 
       <?php
-        echo 'conseil';
+        echo $contenu;
       ?>
   	</body>
  </html>

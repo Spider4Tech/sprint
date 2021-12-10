@@ -5,8 +5,8 @@ function ctlStart(){
     afficherStart();
 }
 function ctlGestion($login,$mdp){
-    rang=rechercheRang($login,$mdp);
-    afficherGabarit($rang)
+    $rang=rechercheRang($login,$mdp);
+    afficherGabarit($rang);
 }
 function ctlErreur($erreur){
     afficherErreur($erreur);

@@ -7,10 +7,10 @@
     </head>
   	<body>
 
-
+          <p>directeur</p>
 
       <?php
-        echo 'direct';
+        echo $contenu;
       ?>
   	</body>
  </html>
