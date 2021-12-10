@@ -1,5 +1,7 @@
 <?php
-
+function afficherStart(){
+  require_once('gabaritDef.php')
+}
 
 
 function afficherErreur($erreur){

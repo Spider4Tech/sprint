@@ -2,4 +2,4 @@
 	define("SERVEUR","localhost");
 	define("USER","root");
 	define("PASSWORD","");
-	define("BDD","ACOMPLETER");
+	define("BDD","Bank");
