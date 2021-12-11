@@ -12,17 +12,36 @@ function ajouterClient($nom,$prenom,$addresse,$telephone,$situation,$conseiller)
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+// function rechercheRang($login,$mdp){
+//     $connexion=getConnect();
+//     echo "<p>Mot de passe :".$mdp."</p>";
+//     $option = [
+//       'cost' => 12,
+//     ];
+//     $hashpass = password_hash($mdp, PASSWORD_BCRYPT, $option);
+//     echo "<p>hash : ".$hashpass."</p>";
+//     $requete="SELECT login,rang,mdp from compte where login='$login'";
+//     $resultat=$connexion->query($requete);
+//     $resultat->setFetchMode(PDO::FETCH_OBJ);
+//     $selection=$resultat->fetch();
+//     echo $selection->rang;
+//     if (password_verify($mdp,$hashpass)){
+//         $resultat->closeCursor();
+//         echo "<p>fcontionne ?</p>";
+//         echo hash('ripemd160', 'Le rapide goupil brun sauta par dessus le chien paresseux.');
+//         //return $selection->rang;
+//     }else {
+//       echo "<p>fcontionne pas</p>";
+//     }
+// }
 function rechercheRang($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT * from compte where login='$login'";
+    $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
-    $rang=$resultat;
-    $selection=$rang->fetch();
-    if (password_verify($mdp,$selection['mdp'])){
-        $resultat->closeCursor();
-        return $selection->rang;
-    }
+    $selection=$resultat->fetch();
+    $resultat->closeCursor();
+    return $selection->rang;
 }
 function rechercheClient($idclient){
     $connexion=getConnect();
@@ -35,15 +54,20 @@ function rechercheClient($idclient){
 }
 function ajouterEmployée($login,$mdp,$rang){
     $connexion=getConnect();
-    $option = [
-      'cost' => 12,
-    ];
-    $hashpass = password_hash($mdp, PASSWORD_BCRYPT, $option);
-    $requete="INSERT INTO compte VALUES(0,'$login','$hashpass','$rang')";
+    $requete="INSERT INTO compte VALUES(0,'$login','$mdp','$rang')";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-
+// function ajouterEmployée($login,$mdp,$rang){
+//     $connexion=getConnect();
+//     $option = [
+//       'cost' => 12,
+//     ];
+//     $hashpass = password_hash($mdp, PASSWORD_BCRYPT, $option);
+//     $requete="INSERT INTO compte VALUES(0,'$login','$hashpass','$rang')";
+//     $resultat=$connexion->query($requete);
+//     $resultat->closeCursor();
+// }
 function rechercherTousConseillers(){
   $connexion=getConnect();
   $requete="SELECT nom, prenom from conseiller";

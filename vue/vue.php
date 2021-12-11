@@ -33,7 +33,7 @@ function afficherConseillersSelect($conseillers){
       $contenuselect.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenuselect.='</select>';
-    require_once('gabaritconseil');    
+    require_once('gabaritconseil.php');    
 }
 
 
