@@ -31,3 +31,13 @@ function rechercheClient($idclient){
     $resultat->closeCursor();
     return $client;
 }
+function ajouterEmployée($login,$mdp,$rang){
+    $connexion=getConnect();
+    $option = [
+      'cost' => 12,
+    ];
+    $hashpass = password_hash($mdp, PASSWORD_BCRYPT, $option);
+    $requete="INSERT INTO compte VALUES(0,'$login','$hashpass','$rang')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}

@@ -11,18 +11,18 @@
           <fieldset>
             <legend>Ajout d'Employée</legend>
             <p>
-              Nom : <input type="text" name="nomcompte"/>
+              login : <input type="text" name="logincompte"/>
             </p>
             <p>
               Mot de passe : <input type="password" name="mdp"/>
             </p>
             <p>
-              Rang : <select name="Rang">
+              Rang : <select name="rang">
                 <option value="Agent">Agent</option>
                 <option value="Conseiller">Conseiller</option>
             </p>
             <p>
-              <input type="submit" value="Ajouter" name="editclient"/>
+              <input type="submit" value="Ajouter" name="ajoutemployer"/>
             </p>
           </fieldset>
         </form>

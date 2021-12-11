@@ -5,24 +5,21 @@ function ctlStart(){
     afficherStart();
 }
 function ctlGestion($login,$mdp){
-  if(!empty($login)$$!empty($mdp)){
-    $option = [
-      'cost' => 12,
-    ];
-    $hashpass = password_hash($mdp, PASSWORD_BCRYPT, $options);
-    $rang=rechercheRang($login,$mdp);
-    afficherGabarit($rang);    
-  }
-  else {
-    throw new Exception("Entrée des données non valides");
-  }
-    
+        $rang=rechercheRang($login,$mdp);
+        afficherGabarit($rang);
 }
 function ctlAfficherClient($idclient){
     $client=rechercheClient($idclient);
     affichageClient($client);
 }
-
+function ctlAjouterEmployée($login,$mdp,$rang){
+    if(!empty($login)&&!empty($mdp)&&!empty($rang)){
+        ajouterEmployée($login,$mdp,$rang);
+    }
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
+}
 
 
 

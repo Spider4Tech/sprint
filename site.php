@@ -10,10 +10,13 @@ try{
         $idclient=$_POST['idclient'];
         ctlAfficherClient($idclient);
     }
-    elsif(isset($_POST['editclient'])){
-
+    elseif(isset($_POST['ajoutemployer'])){
+        $login=$_POST['logincompte'];
+        $mdp=$_POST['mdp'];
+        $rang=$_POST['rang'];
+        ctlAjouterEmployée($login,$mdp,$rang);
     }
-  else
+    else
         ctlStart();
 }
 catch(Exception $e){
