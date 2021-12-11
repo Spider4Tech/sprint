@@ -27,6 +27,11 @@ function affichageClient($client){
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
+function afficherConseillersSelect($conseillers){
+    $contenu='<select name="les conseillers">
+
+    </select>'
+}
 
 
 
