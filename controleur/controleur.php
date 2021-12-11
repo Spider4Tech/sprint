@@ -1,12 +1,14 @@
 <?php
 require_once('modele/modele.php');
 require_once('vue/vue.php');
+session_start();
 function ctlStart(){
     afficherStart();
 }
 function ctlGestion($login,$mdp){
         $rang=rechercheRang($login,$mdp);
-        afficherGabarit($rang);
+        $_SESSION['rang']=$rang;
+        ctlGabarit();
 }
 function ctlAfficherClient($idclient){
     $client=rechercheClient($idclient);
@@ -20,7 +22,9 @@ function ctlAjouterEmployée($login,$mdp,$rang){
         throw new Exception("Entrée des données non valides");
     }
 }
-
+function ctlGabarit(){
+    afficherGabarit($_SESSION['rang']);
+}
 
 
 
