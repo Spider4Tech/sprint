@@ -41,3 +41,13 @@ function ajouterEmployée($login,$mdp,$rang){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+
+function rechercherTousConseillers(){
+  $connexion=getConnect();
+  $requete="SELECT * from conseiller";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $conseillers=$resultat->fetchall();
+  $resultat->closeCursor();
+  return $conseillers;
+}
