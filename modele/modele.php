@@ -44,7 +44,7 @@ function ajouterEmployée($login,$mdp,$rang){
 
 function rechercherTousConseillers(){
   $connexion=getConnect();
-  $requete="SELECT * from conseiller";
+  $requete="SELECT nom, prenom from conseiller";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $conseillers=$resultat->fetchall();
