@@ -28,9 +28,12 @@ function affichageClient($client){
     require_once('gabaritagent.php');
 }
 function afficherConseillersSelect($conseillers){
-    $contenu='<select name="les conseillers">
-
-    </select>'
+    $contenuselect='<select name="les conseillers">';
+    foreach($conseillers as $ligne){
+      $contenuselect.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
+    }
+    $contenuselect.='</select>';
+    require_once('gabaritconseil');    
 }
 
 
