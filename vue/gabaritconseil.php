@@ -8,11 +8,13 @@
   	<body>
 
       <fieldset>
-        <legend>Planning des conseillers</legend>
+        <legend>Consulter un planning</legend>
         <form method="post" action="site.php">
+          <input type="radio" name="selection" value="edt_conseiller"/>
+          <input type="radio" name="selection" value="edt_jour"/>
         </form>
       </fieldset>
-      
+
 
       <?php
         echo $contenu;
