@@ -20,6 +20,7 @@
               Rang : <select name="rang">
                 <option value="Agent">Agent</option>
                 <option value="Conseiller">Conseiller</option>
+              </select>
             </p>
             <p>
               <input type="submit" value="Ajouter" name="ajoutemployer"/>

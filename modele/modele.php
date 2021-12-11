@@ -48,7 +48,7 @@ function rechercheClient($idclient){
     $requete="SELECT * from client where id='$idclient'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
-    $client=$resultat->fetchall();
+    $client=$resultat->fetch();
     $resultat->closeCursor();
     return $client;
 }
@@ -76,4 +76,13 @@ function rechercherTousConseillers(){
   $conseillers=$resultat->fetchall();
   $resultat->closeCursor();
   return $conseillers;
+}
+function rechercheClientNom($nom,$prenom,$birth){
+    $connexion=getConnect();
+    $requete="SELECT addresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $client=$resultat->fetch();
+    $resultat->closeCursor();
+    return $client;
 }

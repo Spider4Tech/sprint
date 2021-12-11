@@ -19,7 +19,7 @@
               Date de naissance : <input type="text" name="birthclient"/>
             </p>
             <p>
-              <input type="submit" value="Edit" name="editclient"/>
+              <input type="submit" value="Edit" name="rechercheNomClient"/>
             </p>
           </fieldset>
         </form>

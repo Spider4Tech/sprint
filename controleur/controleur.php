@@ -17,7 +17,7 @@ function ctlGestion($login,$mdp){
 }
 function ctlAfficherClient($idclient){
     $client=rechercheClient($idclient);
-    affichageClient($client);
+    syntheseClient($client);
 }
 function ctlAjouterEmployée($login,$mdp,$rang){
     if(!empty($login)&&!empty($mdp)&&!empty($rang)){
@@ -30,7 +30,10 @@ function ctlAjouterEmployée($login,$mdp,$rang){
 function ctlGabarit(){
     afficherGabarit($_SESSION['rang']);
 }
-
+function ctlAfficherClientParNom($nom,$prenom,$birth){
+    $client=rechercheClientNom($nom,$prenom,$birth);
+    affichageClient($client);
+}
 
 
 function ctlErreur($erreur){

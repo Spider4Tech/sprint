@@ -17,6 +17,15 @@ try{
         ctlAjouterEmployée($login,$mdp,$rang);
         ctlGabarit();
     }
+    elseif (isset($_POST['rechercheNomClient'])){
+        $nom=$_POST['nomclient'];
+        $prenom=$_POST['prenomclient'];
+        $birth=$_POST['birthclient'];
+        ctlAfficherClientParNom($nom,$prenom,$birth);
+    }
+    elseif (isset($_POST['editclient'])){
+
+    }
     else
         ctlStart();
 }
