@@ -7,7 +7,12 @@
     </head>
   	<body>
 
-        <p>conseil</p>
+      <fieldset>
+        <legend>Planning des conseillers</legend>
+        <form method="post" action="site.php">
+        </form>
+      </fieldset>
+      <table></table>
 
       <?php
         echo $contenu;
