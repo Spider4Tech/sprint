@@ -3,15 +3,15 @@ function afficherStart(){
   require_once('gabaritDef.php');
 }
 function afficherGabarit($rang){
-    if ($rang==1){
+    if ($rang=="Directeur"){
         $contenu="";
         require_once('gabaritdirec.php');
     }
-    elseif ($rang==2) {
+    elseif ($rang=="Conseiller") {
         $contenu="";
         require_once('gabaritconseil.php');
     }
-    elseif ($rang==3) {
+    elseif ($rang=="Agent") {
         $contenu="";
         require_once('gabaritagent.php');
     }
@@ -41,5 +41,5 @@ function afficherErreur($erreur){
     $contenu.='<legend class="Erreur">Erreur</legend>';
     $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
     $contenu.="</fieldset>";
-    require_once('vue/gabarit.php');
+    require_once('vue/gabaritdef.php');
 }

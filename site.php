@@ -10,6 +10,9 @@ try{
         $idclient=$_POST['idclient'];
         ctlAfficherClient($idclient);
     }
+    elsif(isset($_POST['editclient'])){
+
+    }
   else
         ctlStart();
 }
