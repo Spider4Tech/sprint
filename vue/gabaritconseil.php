@@ -12,7 +12,7 @@
         <form method="post" action="site.php">
         </form>
       </fieldset>
-      <table></table>
+      
 
       <?php
         echo $contenu;
