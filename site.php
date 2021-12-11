@@ -9,7 +9,6 @@ try{
     elseif(isset($_POST['rechid'])){
         $idclient=$_POST['idclient'];
         ctlAfficherClient($idclient);
-        ctlGabarit();
     }
     elseif(isset($_POST['ajoutemployer'])){
         $login=$_POST['logincompte'];

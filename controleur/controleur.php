@@ -6,9 +6,14 @@ function ctlStart(){
     afficherStart();
 }
 function ctlGestion($login,$mdp){
+    if(!empty($login)&&!empty($mdp)){
         $rang=rechercheRang($login,$mdp);
         $_SESSION['rang']=$rang;
         ctlGabarit();
+    }
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAfficherClient($idclient){
     $client=rechercheClient($idclient);

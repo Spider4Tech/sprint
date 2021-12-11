@@ -14,13 +14,15 @@ function ajouterClient($nom,$prenom,$addresse,$telephone,$situation,$conseiller)
 }
 function rechercheRang($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
+    $requete="SELECT * from compte where login='$login'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $rang=$resultat;
     $selection=$rang->fetch();
-    $resultat->closeCursor();
-    return $selection->rang;
+    if (password_verify($mdp,$selection['mdp'])){
+        $resultat->closeCursor();
+        return $selection->rang;
+    }
 }
 function rechercheClient($idclient){
     $connexion=getConnect();
