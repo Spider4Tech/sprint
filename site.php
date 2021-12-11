@@ -9,12 +9,14 @@ try{
     elseif(isset($_POST['rechid'])){
         $idclient=$_POST['idclient'];
         ctlAfficherClient($idclient);
+        ctlGabarit();
     }
     elseif(isset($_POST['ajoutemployer'])){
         $login=$_POST['logincompte'];
         $mdp=$_POST['mdp'];
         $rang=$_POST['rang'];
         ctlAjouterEmployée($login,$mdp,$rang);
+        ctlGabarit();
     }
     else
         ctlStart();
