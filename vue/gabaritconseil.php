@@ -13,7 +13,7 @@
           <input type="radio" name="selection" value="edt_conseiller"/>
           <input type="radio" name="selection" value="edt_jour"/>
         </form>
-      </fieldset>
+      </fieldset>s
 
 
       <?php
