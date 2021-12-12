@@ -11,8 +11,8 @@
         <legend>Consulter un planning</legend>
         <form method="post" action="site.php">
           <label for="edt_cons">Consulter l'EDT d'un conseilller<input type="radio" id="edt_cons" name="selection" value="edt_conseiller"/>
-          <input type="radio" name="selection" value="edt_jour"/>
-          <input type='submit' name='validation' value="Valider choix"/>
+          <input type="radio" name="selection" value="edt_jour" required/>
+          <input type='submit' name='validation' value="Valider choix" required/>
         </form>
       </fieldset>
   <?php echo $contenuselect ?>
