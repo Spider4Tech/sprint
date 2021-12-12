@@ -81,7 +81,7 @@ function afficherConseillersSelect($conseillers){
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_conseillers">';
     foreach($conseillers as $ligne){
-      $contenu.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
+      $contenu.='<option>'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
     $contenu.='<input type="submit" name="cons_valide" value="valider"';
