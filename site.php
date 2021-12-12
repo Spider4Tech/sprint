@@ -24,7 +24,13 @@ try{
         ctlAfficherClientParNom($nom,$prenom,$birth);
     }
     elseif (isset($_POST['editclient'])){
-
+        $id=$_POST['id'];
+        $tele=$_POST['tele'];
+        $addr=$_POST['addr'];
+        $situ=$_POST['situ'];
+        $prof=$_POST['prof'];
+        $mail=$_POST['mail'];
+        ctlModifClient($id,$tele,$addr,$situ,$prof,$mail);
     }
     elseif(isset($_POST['changementcompte'])){
         $alogin=$_POST['alogin'];
@@ -32,6 +38,9 @@ try{
         $nlogin=$_POST['nlogin'];
         $nmdp=$_POST['nmdp'];
         ctlChangmentMdp($alogin,$nlogin,$amdp,$nmdp);
+        ctlGabarit();
+    }
+    elseif(isset($_POST['retour'])){
         ctlGabarit();
     }
     else

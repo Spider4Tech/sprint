@@ -38,7 +38,10 @@ function ctlChangmentMdp($alogin,$nlogin,$amdp,$nmdp){
     $id=rechercheEmployée($alogin,$amdp);
     editionEmployée($id,$nlogin,$nmdp);
 }
-
+function ctlModifClient($id,$tele,$addr,$situ,$prof,$mail){
+    $client=editionClient($id,$tele,$addr,$situ,$prof,$mail);
+    ctlAfficherClient($client);
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }

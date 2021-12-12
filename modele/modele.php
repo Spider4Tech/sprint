@@ -79,7 +79,7 @@ function rechercherTousConseillers(){
 }
 function rechercheClientNom($nom,$prenom,$birth){
     $connexion=getConnect();
-    $requete="SELECT addresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
+    $requete="SELECT id,addresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $client=$resultat->fetch();
@@ -98,8 +98,14 @@ function rechercheEmployée($login,$mdp){
 }
 function editionEmployée($id,$login,$mdp){
     $connexion=getConnect();
-    echo $login,$mdp;
     $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE idcompte='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
+}
+function editionClient($id,$tele,$addr,$situ,$prof,$mail){
+    $connexion=getConnect();
+    $requete="UPDATE client SET addresse='$addr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id='$id'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+    return $id;
 }
