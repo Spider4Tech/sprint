@@ -90,10 +90,9 @@
                 <option>solde des client</option>
               </select>
             date 1 : <input id="date" type="date" value="2021-12-14" required>
-            date 2 : <input id="date2" type="date" value="2021-12-15" required>
+            date 2 : <input id="date2" type="date" value="2021-12-15" onblur="compare();">
             </p>
             <input type="submit" name="changementcompte" id="formsend">
-            <td><button onclick="affiche()">vérifieur</button></td>
           </fieldset>
         </form>
 
