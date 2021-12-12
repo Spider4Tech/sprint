@@ -49,7 +49,7 @@ try{
     elseif(isset($_POST['solde'])){
 
     }
-    elseif(isset($_POST['selection'])){
+    elseif(isset($_POST['validation'])){
       $choix_radio=$_POST['selection'];
       if($choix_radio=='edt_conseiller'){
         ctlAfficherSelectionConseiller();
