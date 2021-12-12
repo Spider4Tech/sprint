@@ -88,16 +88,18 @@ function rechercheClientNom($nom,$prenom,$birth){
 }
 function rechercheEmployée($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT idcompte from compte where login=$login and mdp=$mdp";
+    echo $login,$mdp;
+    $requete="SELECT idcompte from compte where login='$login' and mdp='$mdp'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $selection=$resultat->fetch();
     $resultat->closeCursor();
-    return $selection->login;
+    return $selection->idcompte;
 }
 function editionEmployée($id,$login,$mdp){
     $connexion=getConnect();
-    $requete="UPDATE compte SET login='$login' and mdp='$mdp' WHERE idcompte=$id";
+    echo $login,$mdp;
+    $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE idcompte='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
