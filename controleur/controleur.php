@@ -48,6 +48,10 @@ function ctlAfficherSelectionConseiller(){
 	$conseillers=rechercherTousConseillers();
     afficherConseillersSelect($conseillers);
 }
+function ctlCompteBancaire($id){
+    $client=rechercheCompteBancaire($id);
+    affichageCompteBancaire($client);
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
