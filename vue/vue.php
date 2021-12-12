@@ -77,12 +77,14 @@ function affichageCompteBancaire($client){
 }
 
 function afficherConseillersSelect($conseillers){
-    $contenu="";
-    $contenu='<select name="les conseillers">';
+    $contenu='<fieldset><legend>Selectionnez un conseiller</legend>';
+    $contenu.='<form method="post" action="site.php"';
+    $contenu.='<select name="les conseillers">';
     foreach($conseillers as $ligne){
       $contenu.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
+    $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
 function afficherSelectionDate(){
