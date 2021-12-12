@@ -46,6 +46,9 @@ try{
     elseif(isset($_POST['disconnect'])){
         ctlStart();
     }
+    elseif(isset($_POST['solde'])){
+        
+    }
     else
         ctlStart();
 }

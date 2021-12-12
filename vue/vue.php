@@ -20,6 +20,7 @@ function affichageClient($client){
     $contenu='<form id="affichageclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Donnée personnel du Client</legend>";
+    $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
     $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"/></p>';
@@ -42,21 +43,22 @@ function syntheseClient($client){
     $contenu='<form id="syntheseclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Synthese Client</legend>";
+    $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"readonly/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'"readonly/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"readonly/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
+    $contenu.='<p><input type="submit" value="Solde" name="solde"/><input type="submit" value="Retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
 
-function vue_client($client){
+function compteBancaireClient($client){
     $contenu='<form id="vue compte client" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>vue compte Client</legend>";
