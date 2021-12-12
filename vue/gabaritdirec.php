@@ -2,12 +2,12 @@
 <html lang="fr">
   <head>
     <script type="text/javascript">
-       function affiche(date, date2)
+       function compare()
        {
-         var date1 = new Date("date");
-         var date2 = new Date("date2");
-          if(date2<date1){
-           alert ("la 2eme date doit être supérieur à la 1ere");
+         var date3 = document.getElementById("date").value;
+         var date4 = document.getElementById("date2").value;
+          if((new Date(date4).getTime() < new Date(date3).getTime())){
+            alert ("la 2eme date doit être supérieur à la 1ere");
           }
        }
 
