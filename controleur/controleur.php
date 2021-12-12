@@ -34,7 +34,10 @@ function ctlAfficherClientParNom($nom,$prenom,$birth){
     $client=rechercheClientNom($nom,$prenom,$birth);
     affichageClient($client);
 }
-
+function ctlChangmentMdp($alogin,$nlogin,$amdp,$nmdp){
+    $id=rechercheEmployée($alogin,$amdp);
+    editionEmployée($id,$nlogin,$nmdp);
+}
 
 function ctlErreur($erreur){
     afficherErreur($erreur);

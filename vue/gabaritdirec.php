@@ -4,7 +4,7 @@
     <title>Ma page</title>
       <meta charset="utf-8">
 	    <link rel="stylesheet"  href="vue/Style/style.css" />
-    </head>
+  </head>
   	<body>
       <div class="main">
         <form id="agentedit" action="site.php" method='post'>
@@ -31,12 +31,12 @@
           <fieldset>
             <legend>Changer identifiant employé</legend>
             <p>
-              <input type="text" name="login1" id="login1" placeholder="Ancien identifiant" required>
-              <input type="password" name="password2" id="password2" placeholder="ancien mdp" required>
+              <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" required>
+              <input type="password" name="amdp" id="password2" placeholder="ancien mdp" required>
             </p>
             <p>
-              <input type="text" name="login2" id="login2" placeholder="nouveau identifiant" required>
-              <input type="password" name="password1" id="password1" placeholder="nouveau mdp" required>
+              <input type="text" name="nlogin" id="login2" placeholder="nouveau identifiant" required>
+              <input type="password" name="nmdp" id="password1" placeholder="nouveau mdp" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
           </fieldset>
@@ -78,8 +78,7 @@
               	<option>nombre total de client</option>
                 <option>solde des client</option>
               </select>
-            date 1 : <input id="date" type="date" value="2021-12-14" required>
-            date 2 : <input id="date2" type="date" value="2021-12-15" required>
+            pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
           </fieldset>

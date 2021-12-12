@@ -26,6 +26,14 @@ try{
     elseif (isset($_POST['editclient'])){
 
     }
+    elseif(isset($_POST['changementcompte'])){
+        $alogin=$_POST['alogin'];
+        $amdp=$_POST['amdp'];
+        $nlogin=$_POST['nlogin'];
+        $nmdp=$_POST['nmdp'];
+        ctlChangmentMdp($alogin,$nlogin,$amdp,$nmdp);
+        ctlGabarit();
+    }
     else
         ctlStart();
 }
