@@ -9,7 +9,7 @@ function afficherGabarit($rang){
     }
     elseif ($rang=="Conseiller") {
         $contenuselect="";
-        $selectionDateu="";
+        $selectionDate="";
         $contenuEDT="";
         require_once('gabaritconseil.php');
     }
