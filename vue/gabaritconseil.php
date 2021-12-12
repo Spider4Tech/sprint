@@ -3,7 +3,7 @@
   <head>
     <title>Ma page</title>
       <meta charset="utf-8">
-	    <link rel="stylesheet"  href="vue/Style/style.css" />
+	    <link rel="stylesheet"  href="vue/style/style.css" />
     </head>
   	<body>
 
