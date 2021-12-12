@@ -52,7 +52,7 @@ function syntheseClient($client,$conseiller){
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
     $contenu.='<p>Nom du conseiller :<input type="text" value="'.$conseiller->nom.' "readonly/>Prénom :<input type="text" value="'.$conseiller->prenom.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="Changer" name="editclient"/><input type="submit" value="Retour" name="retour"/></p>';
+    $contenu.='<p><input type="submit" value="Solde" name="solde"/><input type="submit" value="Retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
