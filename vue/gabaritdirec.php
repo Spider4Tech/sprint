@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <script>
+    <script type="text/javascript">
        function affiche(date, date2)
        {
          var date1 = new Date("date");
