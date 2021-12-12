@@ -43,6 +43,9 @@ try{
     elseif(isset($_POST['retour'])){
         ctlGabarit();
     }
+    elseif(isset($_POST['disconnect'])){
+        ctlStart();
+    }
     else
         ctlStart();
 }

@@ -7,7 +7,7 @@
          var date1 = new Date("date");
          var date2 = new Date("date2");
           if(date2<date1){
-           alert ("la 2eme date doit être supérieur à la 1ere"); 
+           alert ("la 2eme date doit être supérieur à la 1ere");
           }
        }
 
@@ -100,5 +100,8 @@
       <?php
         echo $contenu;
       ?>
+      <form action="site.php" method='post'>
+        <p><input type="submit" value="Disconnect" name="disconnect"/></p>
+      </form>
   	</body>
  </html>
