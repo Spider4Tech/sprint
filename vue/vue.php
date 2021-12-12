@@ -20,13 +20,12 @@ function affichageClient($client){
     $contenu='<form id="affichageclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Donnée personnel du Client</legend>";
-    $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'" name ="addr"/></p>';
-    $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"name="tele"/></p>';
-    $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"name="mail"/></p>';
-    $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"name="prof"/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"/></p>';
+    $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"/></p>';
+    $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"/></p>';
+    $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"/></p>';
     $contenu.='<p>
-      Situation familiale : <select name="situ">
+      Situation familiale : <select name="Situation">
         <option value="célibataire" selected>célibataire</option>
         <option value="marié">marié</option>
         <option value="en couple">en couple</option>
@@ -39,56 +38,47 @@ function affichageClient($client){
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
-function syntheseClient($client,$conseiller){
+function syntheseClient($client){
     $contenu='<form id="syntheseclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Synthese Client</legend>";
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'"readonly/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"readonly/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"readonly/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
-    $contenu.='<p>Nom du conseiller :<input type="text" value="'.$conseiller->nom.' "readonly/>Prénom :<input type="text" value="'.$conseiller->prenom.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="Solde" name="solde"/><input type="submit" value="Retour" name="retour"/></p>';
+    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
+
+function vue_client($client){
+    $contenu='<form id="vue compte client" action="site.php" method="post">';
+    $contenu.="<fieldset>";
+    $contenu.="<legend>vue compte Client</legend>";
+    $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
+    $contenu.='<p>id_compte :<input type="text" value="'.$client->id_compte.'"readonly/></p>';
+    $contenu.='<p>id client :<input type="text" value="'.$client->id_client.'"readonly/></p>';
+    $contenu.='<p>Date ouverture :<input type="text" value="'.$client->date_ouverture.'"readonly/></p>';
+    $contenu.='<p>solde :<input type="text" value="'.$client->solde.'"readonly/></p>';
+    $contenu.='<p>découvert maxi:<input type="text" value="'.$client->telephone.'"readonly/></p>';
+    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
+    $contenu.="</fieldset>";
+    $contenu.="</form>";
+    require_once('gabaritagent.php');
+}
+
 function afficherConseillersSelect($conseillers){
-	$contenuselect='<fieldset><legend>Selection conseiller</legend>';
-	$contenuselect.='<form method="post" action="site.php">';
-    $contenuselect.='<select name="les_conseillers" required>';
+    $contenuselect='<select name="les conseillers">';
     foreach($conseillers as $ligne){
       $contenuselect.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenuselect.='</select>';
-	$contenuselect.='<input type="submit" name="conseiller_valide" value="valider"';
-	$contenuselect.='</form>';
-	$contenuselect.='</fieldset>';
-	$selectionDate='';
     require_once('gabaritconseil.php');
-}
-function afficherSelectionDate(){
-	$contenuselect='';
-	$selectionDate='<fieldset><legend>Selection date</legend>';
-	$selectionDate.='<form method="post" action="site.php">';
-	$selectionDate.='<input type="date" name="saisie_date"/>';
-	$selectionDate.='<input type="submit" name="date_valide" value="valider"';
-	$selectionDate.='</form></fieldset>';
-	require_once('gabaritconseil.php');
-}
-function afficherEDTConseiller($rdvs){
-	$contenuselect='';
-	$selectionDate='';
-	$contenuEDT='<fieldset><legend>Voici l emploi du temps</legend>';
-	foreach($conseillers as $ligne){
-      $contenuEDT.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'\n';
-    }
-	$contenuEDT='</fieldset>';
-	require_once('gabaritconseil.php');
 }
 
 function afficherErreur($erreur){
