@@ -27,6 +27,46 @@
             </p>
           </fieldset>
         </form>
+        <form method="post">
+        <legend>Changer identifiant employé</legend><br/>
+        <input type="text" name="login1" id="login1" placeholder="Ancien identifiant" required>
+        <input type="password" name="password2" id="password2" placeholder="ancien mdp" required><br/>
+        <input type="text" name="login2" id="login2" placeholder="nouveau identifiant" required>
+        <input type="password" name="password1" id="password1" placeholder="nouveau mdp" required><br/>
+        <input type="submit" name="formsend" id="formsend"><br/><br/>
+        </form>
+        
+        <form method="post">
+        <legend>gestion contrat</legend><br/>
+        <select name="gestionnaire ctrt">
+        	<option>suppression </option>
+        	<option>ajout</option>
+        	<option>Modification</option>
+        </select>
+        Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" required>
+        </form><br/>
+        
+        <form method="post">
+        <legend>gestion pièce contrat</legend><br/>
+        <select name="gestionnaire pièce à fournir">
+        	<option>suppression </option>
+        	<option>ajout</option>
+        	<option>Modification</option>
+        </select>
+        pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
+        </form><br/>
+        
+        <form method="post">
+        <legend>gestion capital et statistique</legend><br/>
+        <select name="gestionnaire pièce à fournir">
+        	<option>Contrat souscris </option>
+        	<option>Nombre de rdv</option>
+        	<option>nombre total de client</option>
+          <option>solde des client</option>
+        </select>
+        pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
+        </form>        
+        
       <?php
         echo $contenu;
       ?>
