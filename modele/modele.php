@@ -86,6 +86,15 @@ function rechercheConseiller($id_conseiller){
     $resultat->closeCursor();
     return $conseillers;
 }
+function rechercherTousRDV($id_conseiller){
+	$connexion=getConnect();
+	$requete="SELECT * from rdv where id='$id_conseiller'";
+	$resultat=$connexion->query($requete);
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$rdvs=$resultat->fetchall();
+	$resultat->closeCursor();
+	return $rdvs;
+}
 function rechercheClientNom($nom,$prenom,$birth){
     $connexion=getConnect();
     $requete="SELECT id,adresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";

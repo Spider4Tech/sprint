@@ -44,6 +44,17 @@ function ctlModifClient($id,$tele,$addr,$situ,$prof,$mail){
     $client=editionClient($id,$tele,$addr,$situ,$prof,$mail);
     ctlAfficherClient($client);
 }
+function ctlAfficherSelectionConseiller(){
+	$conseillers=rechercherTousConseillers();
+    afficherConseillersSelect($conseillers);
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
+}
+function ctlAfficherSelectionDate(){
+	afficherSelectionDate();
+}
+function ctlAfficherEDTConseiller($id_conseiller){
+	$rdvs=rechercherTousConseillers();
+	AfficherEDTConseiller($rdvs);
 }
