@@ -63,6 +63,7 @@ function affichageCompteBancaire($client){
     $contenu.="<fieldset>";
     $contenu.="<legend>Compte Bancaire</legend>";
     foreach($client as $ligne){
+        $contenu.='<hr>';
         $contenu.='<p>Nom :<input type="text" value="'.$ligne->nom.'"readonly/></p>';
         $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
         $contenu.='<p>Solde :<input type="text" value="'.$ligne->solde.'"readonly/></p>';
