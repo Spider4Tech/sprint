@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <script type="text/javascript">
+       function affiche(date, date2)
+       {
+         var date1 = new Date("date");
+         var date2 = new Date("date2");
+          if(date2<date1){
+           alert ("la 2eme date doit être supérieur à la 1ere"); 
+          }
+       }
+
+    </script>
     <title>Ma page</title>
       <meta charset="utf-8">
 	    <link rel="stylesheet"  href="vue/Style/style.css" />
@@ -81,6 +92,7 @@
             pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
+            <td><button onclick="affiche()">vérifieur</button></td>
           </fieldset>
         </form>
 
