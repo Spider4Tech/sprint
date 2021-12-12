@@ -48,7 +48,7 @@ function syntheseClient($client){
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"readonly/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'"readonly/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"readonly/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
