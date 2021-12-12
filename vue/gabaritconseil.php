@@ -10,8 +10,8 @@
       <fieldset>
         <legend>Consulter un planning</legend>
         <form method="post" action="site.php">
-          <label for="edt_cons">Consulter l'EDT d'un conseilller</label><input type="radio" id="edt_cons" name="selection" value="edt_conseiller" required/>
-          <label for="edt_jour">Consulter l'EDT d'un jour</label><input type="radio" name="selection" value="edt_jour" required/>
+          <label for="edt_cons">Consulter l'EDT d'un conseilller</label><input type="radio" id="edt_cons" name="selection" value="edt_conseiller" required/><br/>
+          <label for="edt_jour">Consulter l'EDT d'un jour</label><input type="radio" name="selection" value="edt_jour" required/><br/>
           <input type='submit' name='validation' value="Valider choix" />
         </form>
       </fieldset>
