@@ -10,13 +10,13 @@
         <form id="agentedit" action="site.php" method='post'>
           <fieldset>
             <p>
-              Nom : <input type="text" name="nomclient"/>
+              Nom : <input type="text" name="nomclient" required/>
             </p>
             <p>
-              prenom : <input type="text" name="prenomclient"/>
+              prenom : <input type="text" name="prenomclient"required/>
             </p>
             <p>
-              Date de naissance : <input type="text" name="birthclient"/>
+              Date de naissance : <input type="text" name="birthclient"required/>
             </p>
             <p>
               <input type="submit" value="Edit" name="rechercheNomClient"/>
@@ -26,7 +26,7 @@
         <form id="agentsynth" action="site.php" method='post'>
           <fieldset>
             <p>
-              Id du client : <input type="text" name="idclient"/>
+              Id du client : <input type="text" name="idclient" required/>
               <input type="submit" value="Synthese" name="rechid"/>
             </p>
           </fieldset>
