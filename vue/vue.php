@@ -77,8 +77,8 @@ function affichageCompteBancaire($client){
 
 function afficherConseillersSelect($conseillers){
     $contenu='<fieldset><legend>Selectionnez un conseiller</legend>';
-    $contenu.='<form method="post" action="site.php"';
-    $contenu.='<select name="les conseillers">';
+    $contenu.='<form method="post" action="site.php">';    
+    $contenu.='<select name="les_conseillers">';
     foreach($conseillers as $ligne){
       $contenu.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
