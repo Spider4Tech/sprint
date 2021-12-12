@@ -120,9 +120,9 @@ function editionEmployée($id,$login,$mdp){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function editionClient($id,$tele,$addr,$situ,$prof,$mail){
+function editionClient($id,$tele,$adrr,$situ,$prof,$mail){
     $connexion=getConnect();
-    $requete="UPDATE client SET addresse='$addr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id='$id'";
+    $requete="UPDATE client SET adresse='$adrr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
     return $id;

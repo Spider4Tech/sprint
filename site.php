@@ -26,11 +26,11 @@ try{
     elseif (isset($_POST['editclient'])){
         $id=$_POST['id'];
         $tele=$_POST['tele'];
-        $addr=$_POST['addr'];
+        $adrr=$_POST['adrr'];
         $situ=$_POST['situ'];
         $prof=$_POST['prof'];
         $mail=$_POST['mail'];
-        ctlModifClient($id,$tele,$addr,$situ,$prof,$mail);
+        ctlModifClient($id,$tele,$adrr,$situ,$prof,$mail);
     }
     elseif(isset($_POST['changementcompte'])){
         $alogin=$_POST['alogin'];
@@ -47,7 +47,7 @@ try{
         ctlStart();
     }
     elseif(isset($_POST['solde'])){
-        
+
     }
     else
         ctlStart();
