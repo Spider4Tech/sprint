@@ -22,12 +22,13 @@ function affichageClient($client){
     $contenu='<form id="affichageclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Donnée personnel du Client</legend>";
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"/></p>';
-    $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"/></p>';
-    $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"/></p>';
-    $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"/></p>';
+    $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'" name="adrr"/></p>';
+    $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"name="tele"/></p>';
+    $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"name="mail"/></p>';
+    $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"name="prof"/></p>';
     $contenu.='<p>
-      Situation familiale : <select name="Situation">
+      Situation familiale : <select name="situ">
         <option value="célibataire" selected>célibataire</option>
         <option value="marié">marié</option>
         <option value="en couple">en couple</option>
