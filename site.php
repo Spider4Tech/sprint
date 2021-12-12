@@ -46,9 +46,9 @@ try{
     elseif(isset($_POST['disconnect'])){
         ctlStart();
     }
-    elseif(isset($_POST['solde'])){
+    elseif(isset($_POST['CompteBancaire'])){
         $id=isset($_POST['id']);
-        ctlCompteBancaire($id);
+        ctlSyntheseClient($id);
     }
     elseif(isset($_POST['validation'])){
       $choix_radio=$_POST['selection'];

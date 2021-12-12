@@ -52,13 +52,71 @@ function ctlCompteBancaire($id){
     $client=rechercheCompteBancaire($id);
     affichageCompteBancaire($client);
 }
-function ctlErreur($erreur){
-    afficherErreur($erreur);
-}
 function ctlAfficherSelectionDate(){
 	afficherSelectionDate();
 }
 function ctlAfficherEDTConseiller($id_conseiller){
 	$rdvs=rechercherTousConseillers();
 	AfficherEDTConseiller($rdvs);
+}
+function ctlContratClient($id){
+    $client=rechercheContrat($id);
+    affichageContrat($client);
+}
+function ctlSyntheseClient($id) {
+    $client=rechercheCompteBancaire($id);
+    $client2=rechercheContrat($id);
+    affichageContraEtCompte($client,$client2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ctlErreur($erreur){
+    afficherErreur($erreur);
 }
