@@ -13,7 +13,7 @@ function afficherGabarit($rang){
     }
     elseif ($rang=="Agent") {
         $contenuselect="";
-        $contenuDate="";
+        $selectionDateu="";
         $contenuEDT="";
         require_once('gabaritagent.php');
     }
