@@ -58,13 +58,39 @@ function syntheseClient($client,$conseiller){
     require_once('gabaritagent.php');
 }
 function afficherConseillersSelect($conseillers){
-    $contenuselect='<select name="les conseillers">';
+	$contenuselect='<fieldset><legend>Selection conseiller</legend>';
+	$contenuselect.='<form method="post" action="site.php">';
+    $contenuselect.='<select name="les_conseillers" required>';
     foreach($conseillers as $ligne){
       $contenuselect.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenuselect.='</select>';
+	$contenuselect.='<input type="submit" name="conseiller_valide" value="valider"';
+	$contenuselect.='</form>';
+	$contenuselect.='</fieldset>';
+	$selectionDate='';
     require_once('gabaritconseil.php');
 }
+function afficherSelectionDate(){
+	$contenuselect='';
+	$selectionDate='<fieldset><legend>Selection date</legend>';
+	$selectionDate.='<form method="post" action="site.php">';
+	$selectionDate.='<input type="date" name="saisie_date"/>';
+	$selectionDate.='<input type="submit" name="date_valide" value="valider"';
+	$selectionDate.='</form></fieldset>';
+	require_once('gabaritconseil.php');
+}
+function afficherEDTConseiller($rdvs){
+	$contenuselect='';
+	$selectionDate='';
+	$contenuEDT='<fieldset><legend>Voici l emploi du temps</legend>';
+	foreach($conseillers as $ligne){
+      $contenuEDT.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'\n';
+    }
+	$contenuEDT='</fieldset>';
+	require_once('gabaritconseil.php');
+}
+
 function afficherErreur($erreur){
     $contenu="<fieldset>";
     $contenu.='<legend class="Erreur">Erreur</legend>';
