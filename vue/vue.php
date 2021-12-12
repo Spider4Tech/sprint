@@ -69,8 +69,9 @@ function affichageCompteBancaire($client){
         $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
         $contenu.='<p>Solde :<input type="text" value="'.$ligne->solde.'"readonly/></p>';
         $contenu.='<p>Découvert max :<input type="text" value="'.$ligne->decouvert_maxi.'"readonly/></p>';
+        $contenu.='<hr>';
     }
-    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
+    $contenu.='<input type="submit" value="retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
