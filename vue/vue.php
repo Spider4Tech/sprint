@@ -77,6 +77,8 @@ function affichageCompteBancaire($client){
 }
 
 function afficherConseillersSelect($conseillers){
+  $contenuEDT="";
+  $selectionDate="";
     $contenuselect='<select name="les conseillers">';
     foreach($conseillers as $ligne){
       $contenuselect.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
