@@ -60,16 +60,16 @@ function syntheseClient($client){
     require_once('gabaritagent.php');
 }
 
-function vue_client($client){
+function affichageCompteBancaire($client){
     $contenu='<form id="vue compte client" action="site.php" method="post">';
     $contenu.="<fieldset>";
-    $contenu.="<legend>vue compte Client</legend>";
-    $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
-    $contenu.='<p>id_compte :<input type="text" value="'.$client->id_compte.'"readonly/></p>';
-    $contenu.='<p>id client :<input type="text" value="'.$client->id_client.'"readonly/></p>';
-    $contenu.='<p>Date ouverture :<input type="text" value="'.$client->date_ouverture.'"readonly/></p>';
-    $contenu.='<p>solde :<input type="text" value="'.$client->solde.'"readonly/></p>';
-    $contenu.='<p>découvert maxi:<input type="text" value="'.$client->telephone.'"readonly/></p>';
+    $contenu.="<legend>Compte Bancaire</legend>";
+    foreach($client as $ligne){
+        $contenu.='<p>Nom :<input type="text" value="'.$ligne->nom.'"readonly/></p>';
+        $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
+        $contenu.='<p>Solde :<input type="text" value="'.$ligne->solde.'"readonly/></p>';
+        $contenu.='<p>Découvert max :<input type="text" value="'.$ligne->decouvert_maxi.'"readonly/></p>';
+    }
     $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";

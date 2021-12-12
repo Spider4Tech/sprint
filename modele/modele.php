@@ -127,3 +127,12 @@ function editionClient($id,$tele,$adrr,$situ,$prof,$mail){
     $resultat->closeCursor();
     return $id;
 }
+function rechercheCompteBancaire($id){
+    $connexion=getConnect();
+    $requete="SELECT * from compte_bancaire where id_client='$id'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $client=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $client;
+}
