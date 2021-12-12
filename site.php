@@ -47,7 +47,8 @@ try{
         ctlStart();
     }
     elseif(isset($_POST['solde'])){
-
+        $id=isset($_POST['id']);
+        ctlCompteBancaire($id);
     }
     elseif(isset($_POST['validation'])){
       $choix_radio=$_POST['selection'];

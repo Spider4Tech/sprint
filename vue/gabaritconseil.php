@@ -15,9 +15,8 @@
           <input type='submit' name='validation' value="Valider choix" />
         </form>
       </fieldset>
-  <?php echo $contenuselect ?>
-	<?php echo $selectionDate ?>
-	<?php echo $contenuEDT ?>
+  <?php echo $contenu ?>
+
       <form action="site.php" method='post'>
         <p><input type="submit" value="Disconnect" name="disconnect"/></p>
       </form>
