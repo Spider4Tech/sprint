@@ -17,7 +17,9 @@ function ctlGestion($login,$mdp){
 }
 function ctlAfficherClient($idclient){
     $client=rechercheClient($idclient);
-    syntheseClient($client);
+    $id_conseiller=$client->id_conseiller;
+    $conseiller=rechercheConseiller($id_conseiller);
+    syntheseClient($client,$conseiller);
 }
 function ctlAjouterEmployée($login,$mdp,$rang){
     if(!empty($login)&&!empty($mdp)&&!empty($rang)){

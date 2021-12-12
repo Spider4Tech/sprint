@@ -69,17 +69,26 @@ function ajouterEmployée($login,$mdp,$rang){
 //     $resultat->closeCursor();
 // }
 function rechercherTousConseillers(){
-  $connexion=getConnect();
-  $requete="SELECT nom, prenom from conseiller";
-  $resultat=$connexion->query($requete);
-  $resultat->setFetchMode(PDO::FETCH_OBJ);
-  $conseillers=$resultat->fetchall();
-  $resultat->closeCursor();
-  return $conseillers;
+    $connexion=getConnect();
+    $requete="SELECT nom, prenom from conseiller";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $conseillers=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $conseillers;
+}
+function rechercheConseiller($id_conseiller){
+    $connexion=getConnect();
+    $requete="SELECT nom, prenom from conseiller where id_conseiller='$id_conseiller'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $conseillers=$resultat->fetch();
+    $resultat->closeCursor();
+    return $conseillers;
 }
 function rechercheClientNom($nom,$prenom,$birth){
     $connexion=getConnect();
-    $requete="SELECT id,addresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
+    $requete="SELECT id,adresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $client=$resultat->fetch();

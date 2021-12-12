@@ -21,7 +21,7 @@ function affichageClient($client){
     $contenu.="<fieldset>";
     $contenu.="<legend>Donnée personnel du Client</legend>";
     $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'" name ="addr"/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'" name ="addr"/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"name="tele"/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"name="mail"/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"name="prof"/></p>';
@@ -39,18 +39,19 @@ function affichageClient($client){
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
-function syntheseClient($client){
+function syntheseClient($client,$conseiller){
     $contenu='<form id="syntheseclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Synthese Client</legend>";
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
-    $contenu.='<p>Adresse :<input type="text" value="'.$client->addresse.'"readonly/></p>';
+    $contenu.='<p>Adresse :<input type="text" value="'.$client->adresse.'"readonly/></p>';
     $contenu.='<p>Telephone :<input type="text" value="'.$client->telephone.'"readonly/></p>';
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
+    $contenu.='<p>Nom du conseiller :<input type="text" value="'.$conseiller->nom.' "readonly/>Prénom :<input type="text" value="'.$conseiller->prenom.' "readonly/></p>';
     $contenu.='<p><input type="submit" value="Changer" name="editclient"/><input type="submit" value="Retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
