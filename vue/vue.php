@@ -78,12 +78,13 @@ function affichageCompteBancaire($client){
 
 function afficherConseillersSelect($conseillers){
     $contenu='<fieldset><legend>Selectionnez un conseiller</legend>';
-    $contenu.='<form method="post" action="site.php">';    
+    $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_conseillers">';
     foreach($conseillers as $ligne){
       $contenu.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
+    $contenu.='<input type="submit" name="cons_valide" value="valider"';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
