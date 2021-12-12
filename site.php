@@ -49,8 +49,15 @@ try{
     elseif(isset($_POST['solde'])){
 
     }
-    else
-        ctlStart();
+    elseif(isset($_POST['selection'])){
+      $choix_radio=$_POST['selection'];
+      if($choix_radio=='edt_conseiller'){
+        ctlAfficherSelectionConseiller();
+      }else{
+        ctlAfficherSelectionDate();
+      }
+    }
+    ctlStart();
 }
 catch(Exception $e){
     $msg=$e->getMessage();
