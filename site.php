@@ -57,7 +57,8 @@ try{
         ctlAfficherSelectionDate();
       }
     }
-    ctlStart();
+    else
+      ctlStart();
 }
 catch(Exception $e){
     $msg=$e->getMessage();

@@ -36,7 +36,7 @@ function affichageClient($client){
         </select>
         Défaut : <input type="text" value="'.$client->situation.' "readonly/>
         </p>';
-    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
+    $contenu.='<p><input type="submit" value="Changer" name="editclient"/><input type="submit" value="retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
@@ -45,6 +45,7 @@ function syntheseClient($client){
     $contenu='<form id="syntheseclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Synthese Client</legend>";
+    $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
@@ -53,7 +54,7 @@ function syntheseClient($client){
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="Changer" name="editclient"/></p>';
+    $contenu.='<p><input type="submit" value="solde" name="solde"/><input type="submit" value="retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
