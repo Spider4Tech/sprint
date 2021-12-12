@@ -78,13 +78,29 @@ function affichageCompteBancaire($client){
 
 function afficherConseillersSelect($conseillers){
     $contenu="";
-
     $contenu='<select name="les conseillers">';
     foreach($conseillers as $ligne){
       $contenu.='<option>'.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
     require_once('gabaritconseil.php');
+}
+function afficherSelectionDate(){
+	$contenu='';
+	$contenu.='<fieldset><legend>Selection date</legend>';
+	$contenu.='<form method="post" action="site.php">';
+	$contenu.='<input type="date" name="saisie_date"/>';
+	$contenu.='<input type="submit" name="date_valide" value="valider"';
+	$contenu.='</form></fieldset>';
+	require_once('gabaritconseil.php');
+}
+function afficherEDTConseiller($rdvs){
+	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
+	foreach($conseillers as $ligne){
+      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'\n';
+    }
+	$contenu='</fieldset>';
+	require_once('gabaritconseil.php');
 }
 
 function afficherErreur($erreur){
