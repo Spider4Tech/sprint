@@ -7,8 +7,10 @@ function afficherGabarit($rang){
         $contenu="";
         require_once('gabaritdirec.php');
     }
-    elseif ($rang=="Conseiller") {
-        $contenu="";
+    elseif ($rang=="Conseiller") {        
+        $contenuselect="";
+        $selectionDateu="";
+        $contenuEDT="";
         require_once('gabaritconseil.php');
     }
     elseif ($rang=="Agent") {
