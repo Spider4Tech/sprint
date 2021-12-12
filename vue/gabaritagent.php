@@ -3,7 +3,11 @@
   <head>
     <title>Ma page</title>
       <meta charset="utf-8">
+<<<<<<< HEAD
 	    <link rel="stylesheet"  href="vue/style/style.css" />
+=======
+	    <link rel="stylesheet"  href="vue/style/style2.css" />
+>>>>>>> 82820c7fc5c85d4d1b27872239494405bc35d888
     </head>
     <body>
       <div class="main">
