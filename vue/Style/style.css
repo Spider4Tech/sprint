@@ -44,18 +44,7 @@ footer{
 	margin-top:5%;
 }
 
-div.logo{
-	display:inline-block;
-	margin-left:8%;
-	vertical-align:middle;
-}
 
-div.icone{
-
-	margin-left:7%;
-	display:inline-block;
-	vertical-align:middle;
-}
 div.centrale{
 	background-color:#FFF;
 	margin-left:8%;
@@ -125,12 +114,7 @@ fieldset.a{
 
 }
 
-fieldset.a:hover{
 
-	box-shadow:0pt 2px 5px rgba(105,108,109,0.7);
-	#pas réussi à faire les deux ombres
-
-}
 legend{
 	padding:0px 10px;
 	color:#237DAC;
@@ -280,14 +264,4 @@ article.bulle{
 
 input[type="number"]{
 -moz-appearance: textfield;}
-}
-
-
-label.pas_de_style:not{
-	border-radius:3px;
-	background:none;
-}
-label.pas_de_style{
-	&nbsp;
-	background:none;
 }
