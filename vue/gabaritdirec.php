@@ -61,6 +61,7 @@
               <option  value="modification">Modification</option>
               </select>
                 Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required>
+                modifieur : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="10">
             </p>
             <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>

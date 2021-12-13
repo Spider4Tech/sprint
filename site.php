@@ -85,6 +85,7 @@ try{
     }elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
         $entrée=$_POST['entrée'];
+        $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée);
         ctlGabarit();
     }
