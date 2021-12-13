@@ -10,6 +10,10 @@ try{
         $idclient=$_POST['idclient'];
         ctlAfficherClient($idclient);
     }
+    elseif(isset($_POST['Checkcompte'])){
+        $idclient=$_POST['idclient'];
+        ctlCompteBancaire($idclient);
+    }
     elseif(isset($_POST['ajoutemployer'])){
         $login=$_POST['logincompte'];
         $mdp=$_POST['mdp'];
