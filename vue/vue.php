@@ -9,6 +9,8 @@ function afficherGabarit($rang){
     }
     elseif ($rang=="Conseiller") {
         $contenu="";
+        $contenu_les_comptes="";
+
         require_once('gabaritconseil.php');
     }
     elseif ($rang=="Agent") {
@@ -130,7 +132,19 @@ function afficherConseillersSelect($conseillers){
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_conseillers">';
     foreach($conseillers as $ligne){
-      $contenu.='<option>'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
+      $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
+    }
+    $contenu.='</select>';
+    $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
+    $contenu.='</form></fieldset>';
+    require_once('gabaritconseil.php');
+}
+function afficherComptesSelect($comptes){
+    $contenu='<fieldset><legend>Selectionnez un compte</legend>';
+    $contenu.='<form method="post" action="site.php">';
+    $contenu.='<select name="les_comptes">';
+    foreach($comptes as $ligne){
+      $contenu.='<option ="'.$ligne->id_compte.'">'.$ligne->id_compte.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
     }
     $contenu.='</select>';
     $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
@@ -149,7 +163,7 @@ function afficherSelectionDate(){
 function afficherEDTConseiller($rdvs){
 	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
 	foreach($rdvs as $ligne){
-      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
+      $contenu.='objet :'.$ligne->objet.' |date : '.$ligne->date.' |debut : '.$ligne->debut.'h  |duree : '.$ligne->duree.'h<br/>';
     }
 	$contenu.='</fieldset>';
 	require_once('gabaritconseil.php');
