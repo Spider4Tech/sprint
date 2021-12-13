@@ -230,7 +230,7 @@ function supprimerContratpiece($entrée1){
     $requete="DELETE FROM piece_identité where libellé='$entrée1'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
-
+}
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
