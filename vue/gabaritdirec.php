@@ -22,10 +22,10 @@
           <fieldset>
             <legend>Ajout d'Employée</legend>
             <p>
-              login : <input type="text" name="logincompte"/>
+              login : <input type="text" name="logincompte" maxlength="12"/>
             </p>
             <p>
-              Mot de passe : <input type="password" name="mdp"/>
+              Mot de passe : <input type="password" name="mdp" maxlength="14"/>
             </p>
             <p>
               Rang : <select name="rang">
@@ -42,12 +42,12 @@
           <fieldset>
             <legend>Changer identifiant employé</legend>
             <p>
-              <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" required>
-              <input type="password" name="amdp" id="password2" placeholder="ancien mdp" required>
+              <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" maxlength="12" required>
+              <input type="password" name="amdp" id="password2" placeholder="ancien mdp" maxlength="14" required>
             </p>
             <p>
-              <input type="text" name="nlogin" id="login2" placeholder="nouveau identifiant" required>
-              <input type="password" name="nmdp" id="password1" placeholder="nouveau mdp" required>
+              <input type="text" name="nlogin" id="login2" placeholder="nouveau identifiant" maxlength="12" required>
+              <input type="password" name="nmdp" id="password1" placeholder="nouveau mdp" maxlength="14" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
           </fieldset>
@@ -60,7 +60,7 @@
               <option value="ajout">ajout</option>
               <option  value="modification">Modification</option>
               </select>
-                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" required>
+                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required>
             </p>
             <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>
@@ -74,7 +74,7 @@
               	<option>ajout</option>
               	<option>Modification</option>
               </select>
-              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
+              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
           </fieldset>

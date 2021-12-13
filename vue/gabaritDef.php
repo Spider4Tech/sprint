@@ -13,7 +13,7 @@
               Login : <input type="text" name="login" maxlength="12" required/>
             </p>
             <p>
-              Password : <input type="password" name="mdp" maxlength="16" required/>
+              Password : <input type="password" name="mdp" maxlength="14" required/>
             </p>
             <p>
               <input type="submit" value="Send" name="envoie">
