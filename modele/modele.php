@@ -86,14 +86,25 @@ function rechercheConseiller($id_conseiller){
     $resultat->closeCursor();
     return $conseillers;
 }
-function rechercherTousRDV($prenom,$nom){
+function rechercherTousRDV($id_conseiller){
 	$connexion=getConnect();
-	$requete="SELECT * from rdv where id='$id_conseiller'";
+	$requete="SELECT * from rdv natural join conseiller where id_conseiller='$id_conseiller'";
 	$resultat=$connexion->query($requete);
 	$resultat->setFetchMode(PDO::FETCH_OBJ);
 	$rdvs=$resultat->fetchall();
 	$resultat->closeCursor();
 	return $rdvs;
+}
+function rechercheEDTDate($date){
+  $connexion=getConnect();
+	$requete="SELECT * from rdv where date='$date'";
+	$resultat=$connexion->query($requete);
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$dates=$resultat->fetchall();
+	$resultat->closeCursor();
+	return $dates;
+
+
 }
 
 function rechercheClientNom($nom,$prenom,$birth){

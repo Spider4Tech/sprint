@@ -84,7 +84,7 @@ function afficherConseillersSelect($conseillers){
       $contenu.='<option>'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
-    $contenu.='<input type="submit" name="cons_valide" value="valider"';
+    $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
@@ -92,18 +92,26 @@ function afficherSelectionDate(){
 	$contenu='';
 	$contenu.='<fieldset><legend>Selection date</legend>';
 	$contenu.='<form method="post" action="site.php">';
-	$contenu.='<input type="date" name="saisie_date"/>';
-	$contenu.='<input type="submit" name="date_valide" value="valider"';
+	$contenu.='<input type="date" name="saisie_date" required/>';
+	$contenu.='<input type="submit" name="date_valide" value="valider"/>';
 	$contenu.='</form></fieldset>';
 	require_once('gabaritconseil.php');
 }
 function afficherEDTConseiller($rdvs){
 	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
-	foreach($conseillers as $ligne){
-      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'\n';
+	foreach($rdvs as $ligne){
+      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
     }
-	$contenu='</fieldset>';
+	$contenu.='</fieldset>';
 	require_once('gabaritconseil.php');
+}
+function afficherEDTDate($dates){
+  $contenu='<fieldset><legend>Emploi du temps de la date selectionnee</legend>';
+  foreach($dates as $ligne){
+      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
+    }
+  $contenu.='</fieldset>';
+  require_once('gabaritconseil.php');
 }
 
 function afficherErreur($erreur){

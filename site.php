@@ -58,8 +58,19 @@ try{
         ctlAfficherSelectionDate();
       }
     }
-    else
+    elseif(isset($_POST['cons_valide'])){
+        $cons=$_POST['les_conseillers'];
+        $cons = explode(" ", $cons);
+        ctlAfficherEDTConseiller($cons[0]);
+
+    }elseif(isset($_POST['date_valide'])){      
+      $date=$_POST['saisie_date'];
+      ctlAfficherEDTDate($date);
+    }
+    else{
       ctlStart();
+    }
+
 }
 catch(Exception $e){
     $msg=$e->getMessage();

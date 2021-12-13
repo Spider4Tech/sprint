@@ -58,7 +58,12 @@ function ctlErreur($erreur){
 function ctlAfficherSelectionDate(){
 	afficherSelectionDate();
 }
+function ctlAfficherEDTDate($date){
+  echo 'salut';
+  $dates=rechercheEDTDate($date);
+  afficherEDTDate($dates);
+}
 function ctlAfficherEDTConseiller($id_conseiller){
-	$rdvs=rechercherTousConseillers();
+  $rdvs=rechercherTousRDV($id_conseiller);
 	AfficherEDTConseiller($rdvs);
 }
