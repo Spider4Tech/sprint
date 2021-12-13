@@ -58,6 +58,12 @@ function ajouterEmployée($login,$mdp,$rang){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
+  $connexion=getConnect();
+  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons')";
+  $resultat=$connexion->query($requete);
+  $resultat->closeCursor();
+}
 // function ajouterEmployée($login,$mdp,$rang){
 //     $connexion=getConnect();
 //     $option = [
