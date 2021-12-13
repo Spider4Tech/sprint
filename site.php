@@ -82,6 +82,12 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
+    }elseif(isset($_POST['gestionnaire_ctrt'])){
+        $entrée=$_POST['entrée'];
+        $suppression=$_POST['suppression'];
+        $ajout=$_POST['ajout'];
+        $modification=$_POST['modification'];
+        ajouterContrat($entrée);
     }
     else{
       ctlStart();
