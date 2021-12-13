@@ -83,6 +83,10 @@ try{
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
     }
+    elseif(isset($_POST['choix'])){
+        $compte=$_POST['Compte'];
+        ctlDebitRetrait($compte);
+    }
     else{
       ctlStart();
     }

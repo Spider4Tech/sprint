@@ -176,3 +176,7 @@ function supprimerContrat($entrée){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function modificationSolde($compte){
+    $connexion=getConnect();
+    $requete="UPDATE ";
+}

@@ -30,7 +30,7 @@ function ctlAjouterEmployée($login,$mdp,$rang){
     }
 }
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
-  ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);    
+  ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
 }
 
 function ctlGabarit(){
@@ -77,7 +77,9 @@ function ctlSyntheseClient($id) {
     $client2=rechercheContrat($id);
     affichageContraEtCompte($client,$client2);
 }
-
+function ctlDebitRetrait($compte){
+    $compte=modificationSolde($compte);
+}
 
 
 
