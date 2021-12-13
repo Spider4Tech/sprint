@@ -185,12 +185,12 @@ function modificationSolde($compte,$solde,$id){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function checkSolde($compte,$solde,$id){
+function checkSolde($compte,$id){
   $connexion=getConnect();
-  $requete="SELECT solde+'$solde',decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
+  $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
-  $client=$resultat->fetch();
+  $select=$resultat->fetch();
   $resultat->closeCursor();
-  return $client;
+  return $select;
 }
