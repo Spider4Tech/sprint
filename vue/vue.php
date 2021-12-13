@@ -9,6 +9,8 @@ function afficherGabarit($rang){
     }
     elseif ($rang=="Conseiller") {
         $contenu="";
+        $contenu_les_comptes="";
+
         require_once('gabaritconseil.php');
     }
     elseif ($rang=="Agent") {
@@ -132,6 +134,18 @@ function afficherConseillersSelect($conseillers){
     $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
+}
+/*function afficherComptesSelect($comptes){
+    $contenu='<fieldset><legend>Selectionnez un compte</legend>';
+    $contenu.='<form method="post" action="site.php">';
+    $contenu.='<select name="les_comptes">';
+    foreach($comptes as $ligne){
+      $contenu.='<option>'.$ligne->id_compte.'</option>';
+    }
+    $contenu.='</select>';
+    $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
+    $contenu.='</form></fieldset>';
+    require_once('gabaritconseil.php');*/
 }
 function afficherSelectionDate(){
 	$contenu='';
