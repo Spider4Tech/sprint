@@ -167,16 +167,23 @@ function ctlContrat($contrat,$entrée,$modif) {
         throw new Exception("Entrée des données non valides");
       }
 }
-function ctlContratpc($contrat,$entrée,$modif) {
-    if($contrat == "del_p"){
-      supprimerContrat($entrée1);
-    }
-    elseif($contrat == "add_p"){
-      ajouterContrat($entrée1);
-    }
-    elseif($contrat == "edit_p" && !empty($modif2)){
-      editionContrat($entrée1,$modif2);
-    }
+function ctlContratpc($contrat,$entrée1,$modif2) {
+    if(!empty($contrat)&&!empty($entrée)){
+        if($contrat == "del_p"){
+          supprimerContrat($entrée1);
+        }
+        elseif($contrat == "add_p"){
+          ajouterContrat($entrée1);
+        }
+        elseif($contrat == "edit_p" && !empty($modif2)){
+          editionContrat($entrée1,$modif2);
+        }
+        else{
+            throw new Exception("Entrée des données non valides");
+        }
+    else{
+        throw new Exception("Entrée des données non valides");
+      }
 }
 
 
