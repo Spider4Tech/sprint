@@ -81,6 +81,15 @@ function rechercherTousConseillers(){
     $resultat->closeCursor();
     return $conseillers;
 }
+function rechercherTousContrats(){
+  $connexion=getConnect();
+  $requete="SELECT * from contrat";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $contrats=$resultat->fetchall();
+  $resultat->closeCursor();
+  return $contrats;
+}
 function rechercheConseiller($id_conseiller){
     $connexion=getConnect();
     $requete="SELECT nom, prenom from conseiller where id_conseiller='$id_conseiller'";
@@ -221,7 +230,7 @@ function supprimerContratpiece($entrée1){
     $requete="DELETE FROM piece_identité where libellé='$entrée1'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
-    
+
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";

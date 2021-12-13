@@ -81,10 +81,14 @@ function ctlAfficherInscription(){
 }
 function ctlResilierContrat(){
   $cbs=rechercherTousComptesBancaires();
+  afficherContratsSelect($cbs);
+}
+function ctlResilierCompte(){
+  $cbs=rechercherTousComptesBancaires();
   afficherComptesSelect($cbs);
 }
 function ctlResilierContratEffectif($compte_supp){
-  
+
 }
 function ctlModifDecouvert(){
     $cbs=rechercherTousComptesBancaires();

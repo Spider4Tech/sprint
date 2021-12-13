@@ -85,13 +85,8 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
-<<<<<<< HEAD
 
     }elseif(isset($_POST['gestionnaire_ctrt'])){
-=======
-    }elseif(isset($_POST['gestioncontrat'])){
-        $contrat=$_POST['gestionnaire_ctrt'];
->>>>>>> 08d0af1aaba8c5846f3fd0c28757cc98e72a3d8e
         $entrée=$_POST['entrée'];
         $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée,$modif);
