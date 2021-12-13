@@ -78,7 +78,13 @@ function ctlSyntheseClient($id) {
     affichageContraEtCompte($client,$client2);
 }
 function ctlDebitRetrait($compte,$solde,$id){
-    $compte=modificationSolde($compte,$solde,$id);
+    $select=checkSolde($compte,$id);
+    if ($select->solde+$solde>=-$select->decouvert_maxi){
+      $compte=modificationSolde($compte,$solde,$id);
+    }
+    else {
+      throw new Exception("Nouveau solde inférieur au découvert max");
+    }
 }
 function ctlContrat($contrat,$entrée,$modif) {
     if($contrat == "suppression"){
