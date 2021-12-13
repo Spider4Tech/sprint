@@ -185,7 +185,6 @@ function modificationSolde($compte,$solde,$id){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-<<<<<<< HEAD
 function ajouterContratpiece($entrée1){
     $connexion=getConnect();
     $requete="INSERT INTO piece_identité VALUES(0,'$entrée1')";
@@ -203,7 +202,6 @@ function supprimerContratpiece($entrée1){
     $requete="DELETE FROM piece_identité where libellé='$entrée1'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
-=======
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
@@ -212,5 +210,4 @@ function checkSolde($compte,$id){
   $select=$resultat->fetch();
   $resultat->closeCursor();
   return $select;
->>>>>>> 35eb340d0ed2a7d9e8a28cb8cca97833efda2d3f
 }
