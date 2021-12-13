@@ -130,24 +130,24 @@ function afficherConseillersSelect($conseillers){
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_conseillers">';
     foreach($conseillers as $ligne){
-      $contenu.='<option>'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
+      $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
     }
     $contenu.='</select>';
     $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
-/*function afficherComptesSelect($comptes){
+function afficherComptesSelect($comptes){
     $contenu='<fieldset><legend>Selectionnez un compte</legend>';
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_comptes">';
     foreach($comptes as $ligne){
-      $contenu.='<option>'.$ligne->id_compte.'</option>';
+      $contenu.='<option ="'.$ligne->id_compte.'">'.$ligne->id_compte.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
     }
     $contenu.='</select>';
     $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
-    require_once('gabaritconseil.php');*/
+    require_once('gabaritconseil.php');
 }
 function afficherSelectionDate(){
 	$contenu='';
@@ -161,7 +161,7 @@ function afficherSelectionDate(){
 function afficherEDTConseiller($rdvs){
 	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
 	foreach($rdvs as $ligne){
-      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
+      $contenu.='objet :'.$ligne->objet.' |date : '.$ligne->date.' |debut : '.$ligne->debut.'h  |duree : '.$ligne->duree.'h<br/>';
     }
 	$contenu.='</fieldset>';
 	require_once('gabaritconseil.php');
@@ -182,12 +182,3 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
-
-function afficherErreur($erreur){
-    $contenu="<fieldset>";
-    $contenu.='<legend class="Erreur">Erreur</legend>';
-    $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
-    $contenu.="</fieldset>";
-    require_once('vue/gabarit.php');
-}
-
