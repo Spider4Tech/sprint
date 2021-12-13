@@ -70,14 +70,15 @@
           <fieldset>
             <legend>gestion pièce contrat</legend>
             <p>
-              <select name="gestionnaire pièce à fournir">
-              	<option>suppression</option>
-              	<option>ajout</option>
-              	<option>Modification</option>
+              <select name="gestionnairepc">
+              	<option value="del_p">suppression</option>
+              	<option value="add_p">ajout</option>
+              	<option  value="edit_p">Modification</option>
               </select>
-              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required>
+              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required></br>
+              edition : <input type="text" name="modif2" id="modif2" placeholder="modifier pièce contrat" maxlength="10">
             </p>
-            <input type="submit" name="changementcompte" id="formsend">
+            <input type="submit" name="gestionpc" id="formsend">
           </fieldset>
         </form>
         <form method="post" action="site.php">

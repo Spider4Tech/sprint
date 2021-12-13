@@ -185,6 +185,24 @@ function modificationSolde($compte,$solde,$id){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function ajouterContratpiece($entrée1){
+    $connexion=getConnect();
+    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+ function editionContratpiece($entrée1, $modif2){
+     $connexion=getConnect();
+     $requete="UPDATE piece_identité SET libellé='$modif2' WHERE libellé='$entrée1'";
+     $resultat=$connexion->query($requete);
+     $resultat->closeCursor();
+}
+function supprimerContratpiece($entrée1){
+    $connexion=getConnect();
+    $requete="DELETE FROM piece_identité where libellé='$entrée1'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+    
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
