@@ -16,10 +16,15 @@ function ctlGestion($login,$mdp){
     }
 }
 function ctlAfficherClient($idclient){
-    $client=rechercheClient($idclient);
-    $id_conseiller=$client->id_conseiller;
-    $conseiller=rechercheConseiller($id_conseiller);
-    syntheseClient($client,$conseiller);
+    if(!empty($idclient)){}
+        $client=rechercheClient($idclient);
+        $id_conseiller=$client->id_conseiller;
+        $conseiller=rechercheConseiller($id_conseiller);
+        syntheseClient($client,$conseiller);
+    }
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAjouterEmployée($login,$mdp,$rang){
     if(!empty($login)&&!empty($mdp)&&!empty($rang)){
@@ -30,7 +35,12 @@ function ctlAjouterEmployée($login,$mdp,$rang){
     }
 }
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
-  ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+    if(!empty($nom)&&!empty($prenom)&&!empty($date)&&!empty($adresse)&&!empty($telephone)&&!empty($mail)&&!empty($profession)&&!empty($situation)&&!empty($cons)){
+        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+    }
+    else{
+        throw new Exception("Entrée des données non valides")
+    }
 }
 
 function ctlGabarit(){
