@@ -168,3 +168,12 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
+
+function afficherErreur($erreur){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="Erreur">Erreur</legend>';
+    $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
+    $contenu.="</fieldset>";
+    require_once('vue/gabarit.php');
+}
+
