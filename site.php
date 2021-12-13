@@ -66,14 +66,16 @@ try{
         $cons=$_POST['les_conseillers'];
         $cons = explode(" ", $cons);
         ctlAfficherEDTConseiller($cons[0]);
-
-    }elseif(isset($_POST['date_valide'])){
+    }
+    elseif(isset($_POST['date_valide'])){
       $date=$_POST['saisie_date'];
       ctlAfficherEDTDate($date);
-    }elseif(isset($_POST['demande_nouv_client'])){
+    }
+    elseif(isset($_POST['demande_nouv_client'])){
 
       ctlAfficherInscription();
-    }elseif(isset($_POST['validation_nouv_client'])){
+    }
+    elseif(isset($_POST['validation_nouv_client'])){
       $nom=$_POST['nouv_nom'];
       $prenom=$_POST['nouv_prenom'];
       $date=$_POST['nouv_date'];
@@ -85,13 +87,9 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
-<<<<<<< HEAD
-
-    }elseif(isset($_POST['gestionnaire_ctrt'])){
-=======
-    }elseif(isset($_POST['gestioncontrat'])){
+    }
+    elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
->>>>>>> 08d0af1aaba8c5846f3fd0c28757cc98e72a3d8e
         $entrée=$_POST['entrée'];
         $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée,$modif);
@@ -123,7 +121,7 @@ try{
     elseif(isset($_POST['demande_resiliation'])){
       $choix_res=$_POST['choix_supp'];
       if($choix_res=='supp_con'){
-        ctlResilierContrat();        
+        ctlResilierContrat();
       }else{
         ctlAfficherSelectionDate();
       }
