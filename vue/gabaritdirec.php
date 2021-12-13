@@ -55,10 +55,10 @@
         <form method="post" action="site.php">
           <fieldset>
             <legend>gestion contrat</legend>
-            <p> <select name="gestionnaire ctrt">
-              <option>suppression </option>
-              <option>ajout</option>
-              <option>Modification</option>
+            <p> <select name="gestionnaire_ctrt">
+              <option value="suppression">suppression </option>
+              <option value="ajout">ajout</option>
+              <option  value="modification">Modification</option>
               </select>
                 Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" required>
             </p>

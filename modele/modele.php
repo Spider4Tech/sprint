@@ -157,3 +157,26 @@ function rechercheContrat($id){
   $resultat->closeCursor();
   return $client;
 }
+
+function ajouterContrat($entrée){
+    $connexion=getConnect();
+    $requete="INSERT INTO type_contrat VALUES(0,'$entrée')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function editionContrat($entrée){
+    $connexion=getConnect();
+    $requete="UPDATE type_contrat SET entrée='$entrée' WHERE id_type_contrat='$entrée'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function supprimerContrat($entrée){
+    $connexion=getConnect();
+    $requete="DELETE FROM type_contrat where id_type_contrat='$entrée'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function modificationSolde($compte){
+    $connexion=getConnect();
+    $requete="UPDATE ";
+}

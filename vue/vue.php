@@ -64,14 +64,16 @@ function syntheseClient($client){
 function affichageCompteBancaire($client){
     $contenu='<form id="vue compte client" action="site.php" method="post">';
     $contenu.="<fieldset>";
-    $contenu.="<legend>Compte Bancaire</legend>";
+    $contenu.="<legend>Selection Compte</legend>";
     $contenu.='<p>Compte a modifier : <select name="Compte">';
     foreach($client as $ligne){
       $contenu.='
           <option value="'.$ligne->nom.'">'.$ligne->nom.'</option>';
 
     }
-    $contenu.='</select></p><input type="submit" value="retour" name="retour"/></p>';
+    $contenu.='</select></p>';
+    $contenu.='<p>Solde <input type="text" name="solde"><p>';
+    $contenu.='<p><input type="submit" value="Créditer" name="Crediter"/><input type="submit" value="Débiter" name="Debiter"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
@@ -180,3 +182,12 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
+
+function afficherErreur($erreur){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="Erreur">Erreur</legend>';
+    $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
+    $contenu.="</fieldset>";
+    require_once('vue/gabarit.php');
+}
+
