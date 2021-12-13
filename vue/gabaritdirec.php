@@ -60,8 +60,8 @@
               <option value="ajout">ajout</option>
               <option  value="modification">Modification</option>
               </select>
-                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required>
-                modifieur : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="10">
+                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required></br>
+                edition : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="10">
             </p>
             <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>
@@ -71,7 +71,7 @@
             <legend>gestion pièce contrat</legend>
             <p>
               <select name="gestionnaire pièce à fournir">
-              	<option>suppression </option>
+              	<option>suppression</option>
               	<option>ajout</option>
               	<option>Modification</option>
               </select>
