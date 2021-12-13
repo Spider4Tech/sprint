@@ -88,7 +88,7 @@ function ctlContrat($contrat,$entrée,$modif) {
       ajouterContrat($entrée);
     }
     elseif($contrat == "modification" && !empty($modif)){
-      editionContrat($entrée);
+      editionContrat($entrée,$modif);
     }
 }
 
