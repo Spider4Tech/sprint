@@ -128,18 +128,21 @@ function ctlDebitRetrait($compte,$solde,$id){
     }
 }
 function ctlContrat($contrat,$entrée,$modif) {
-  if(!empty($contrat)&&!empty($entrée)){
-      if($contrat == "suppression"){
-          supprimerContrat($entrée);
-      }
-      elseif($contrat == "ajout"){
-          ajouterContrat($entrée);
-      }
-      elseif($contrat == "modification" && !empty($modif)){
-          editionContrat($entrée,$modif);
-      }
-      else{
-          throw new Exception("Entrée des données non valides");
+    if(!empty($contrat)&&!empty($entrée)){
+        if($contrat == "suppression"){
+            supprimerContrat($entrée);
+        }
+        elseif($contrat == "ajout"){
+            ajouterContrat($entrée);
+        }
+        elseif($contrat == "modification" && !empty($modif)){
+            editionContrat($entrée,$modif);
+        }
+        else{
+            throw new Exception("Entrée des données non valides");
+        }
+    else{
+        throw new Exception("Entrée des données non valides");
       }
 }
 function ctlContratpc($contrat,$entrée,$modif) {
