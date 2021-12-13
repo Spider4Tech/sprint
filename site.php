@@ -82,9 +82,11 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
-    }elseif(isset($_POST['gestionnaire_ctrt'])){
+    }elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
-        ctlContrat($contrat);
+        $entrée=$_POST['entrée'];
+        ctlContrat($contrat,$entrée);
+        ctlGabarit();
     }
     elseif(isset($_POST['Crediter'])){
         $compte=$_POST['Compte'];

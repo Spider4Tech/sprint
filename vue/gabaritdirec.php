@@ -56,13 +56,13 @@
           <fieldset>
             <legend>gestion contrat</legend>
             <p> <select name="gestionnaire_ctrt">
-              <option value="suppression">suppression </option>
+              <option value="suppression">suppression</option>
               <option value="ajout">ajout</option>
               <option  value="modification">Modification</option>
               </select>
                 Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" required>
             </p>
-            <input type="submit" name="changementcompte" id="formsend">
+            <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>
         </form>
         <form method="post" action="site.php">

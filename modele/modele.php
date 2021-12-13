@@ -167,15 +167,15 @@ function ajouterContrat($entrée){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function editionContrat($entrée){
-    $connexion=getConnect();
-    $requete="UPDATE type_contrat SET entrée='$entrée' WHERE id_type_contrat='$entrée'";
-    $resultat=$connexion->query($requete);
-    $resultat->closeCursor();
-}
+// function editionContrat($entrée){
+//     $connexion=getConnect();
+//     $requete="UPDATE type_contrat SET entrée='$entrée' WHERE nom='$entrée'";
+//     $resultat=$connexion->query($requete);
+//     $resultat->closeCursor();
+// }
 function supprimerContrat($entrée){
     $connexion=getConnect();
-    $requete="DELETE FROM type_contrat where id_type_contrat='$entrée'";
+    $requete="DELETE FROM type_contrat where nom='$entrée'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }

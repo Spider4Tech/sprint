@@ -80,7 +80,7 @@ function ctlSyntheseClient($id) {
 function ctlDebitRetrait($compte,$solde,$id){
     $compte=modificationSolde($compte,$solde,$id);
 }
-function ctlContrat($contrat) {
+function ctlContrat($contrat,$entrée) {
     if($contrat == "suppression"){
       supprimerContrat($entrée);
     }
