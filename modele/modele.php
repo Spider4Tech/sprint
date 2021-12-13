@@ -178,5 +178,7 @@ function supprimerContrat($entrée){
 }
 function modificationSolde($compte,$solde,$id){
     $connexion=getConnect();
-    $requete="UPDATE ";
+    $requete="UPDATE compte_bancaire SET solde=solde+'$solde' where id_client='$id' and nom='$compte'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
 }

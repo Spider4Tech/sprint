@@ -94,6 +94,7 @@ try{
         $solde=$_POST['solde'];
         $id=$_POST['id'];
         ctlDebitRetrait($compte,$solde,$id);
+        ctlGabarit();
     }
     else{
       ctlStart();
