@@ -63,9 +63,20 @@ try{
         $cons = explode(" ", $cons);
         ctlAfficherEDTConseiller($cons[0]);
 
-    }elseif(isset($_POST['date_valide'])){      
+    }elseif(isset($_POST['date_valide'])){
       $date=$_POST['saisie_date'];
       ctlAfficherEDTDate($date);
+    }elseif(isset($_POST['validation_nouv_client'])){
+      $nom=$_POST['nouv_nom'];
+      $prenom=$_POST['nouv_prenom'];
+      $date=$_POST['nouv_date'];
+      $adresse=$_POST['nouv_adresse'];
+      $telephone=$_POST['nouv_telephone'];
+      $mail=$_POST['nouv_mail'];
+      $profession=$_POST['nouv_profession'];
+      $situation=$_POST['nouv_situation'];
+      $cons=$_POST['nouv_cons'];
+      ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
     }
     else{
       ctlStart();
