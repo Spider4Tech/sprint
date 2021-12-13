@@ -9,8 +9,6 @@ function afficherGabarit($rang){
     }
     elseif ($rang=="Conseiller") {
         $contenu="";
-        $contenu_les_comptes="";
-
         require_once('gabaritconseil.php');
     }
     elseif ($rang=="Agent") {
@@ -33,7 +31,7 @@ function affichageClient($client){
         <option value="célibataire" selected>célibataire</option>
         <option value="marié">marié</option>
         <option value="en couple">en couple</option>
-        <option value="non préciser">non préciser</option>
+        <option value="non préciser">non précisé</option>
         </select>
         Défaut : <input type="text" value="'.$client->situation.' "readonly/>
         </p>';
@@ -138,14 +136,15 @@ function afficherConseillersSelect($conseillers){
     require_once('gabaritconseil.php');
 }
 function afficherComptesSelect($comptes){
-    $contenu='<fieldset><legend>Selectionnez un compte</legend>';
+    $contenu='<fieldset><legend>Selectionnez un compte et le nouveau découvert</legend>';
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_comptes">';
     foreach($comptes as $ligne){
-      $contenu.='<option ="'.$ligne->id_compte.'">'.$ligne->id_compte.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
+      $contenu.='<option value="'.$ligne->id_compte.'">'.$ligne->id_compte.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
     }
     $contenu.='</select>';
-    $contenu.='<input type="submit" name="cons_valide" value="valider"/>';
+    $contenu.='<input type="number" name="nouv_decouvert" min="0" maxlength="10"/>';
+    $contenu.='<input type="submit" name="compte_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
@@ -158,6 +157,24 @@ function afficherSelectionDate(){
 	$contenu.='</form></fieldset>';
 	require_once('gabaritconseil.php');
 }
+function inscription(){
+  $contenu='<fieldset>';
+  $contenu.='<legend>Inscrire un nouveau client à la banque</legend>';
+  $contenu.='<form method="post" action="site.php">';
+  $contenu.='<p><label for="nom">nom :</label><input type="text" id="nom" name="nouv_nom" maxlength="10" required/></p>';
+  $contenu.='<p><label for="prenom">prenom :</label><input type="text" id="prenom" name="nouv_prenom" maxlength="10" required/></p>';
+  $contenu.='<p><label for="date">Date de naissance :</label><input type="date" id="date" name="nouv_date" maxlength="10" required/></p>';
+  $contenu.='<p><label for="adresse">Adresse :</label><input type="text" id="adresse" name="nouv_adresse" maxlength="10" required/></p>';
+  $contenu.='<p><label for="telephone">Telephone :</label><input type="text" id="telephone" name="nouv_telephone" maxlength="10" required/></p>';
+  $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="10" required/></p>';
+  $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="10" required/></p>';
+  $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="10" required/></p>';
+  $contenu.='<p><label for="cons">Conseiller :</label><input type="number" id="cons" name="nouv_cons" maxlength="10" min="0" required/></p>';
+  $contenu.='<p><input type="submit" value="Valider" name="validation_nouv_client"/>';
+  $contenu.='</form></fieldset>';
+  require_once('gabaritconseil.php');
+}
+
 function afficherEDTConseiller($rdvs){
 	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
 	foreach($rdvs as $ligne){

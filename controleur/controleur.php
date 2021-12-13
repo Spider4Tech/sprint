@@ -52,6 +52,24 @@ function ctlAfficherSelectionConseiller(){
 	$conseillers=rechercherTousConseillers();
     afficherConseillersSelect($conseillers);
 }
+function ctlAfficherInscription(){
+    inscription();
+}
+function ctlResilierContrat(){
+  $cbs=rechercherTousComptesBancaires();
+  afficherComptesSelect($cbs);
+}
+function ctlResilierContratEffectif($compte_supp){
+  
+}
+function ctlModifDecouvert(){
+    $cbs=rechercherTousComptesBancaires();
+    afficherComptesSelect($cbs);
+}
+
+function ctlModifDecouvertEffectif($nouv_decouvert,$lecompte){
+    modificationDecouvert($nouv_decouvert,$lecompte);
+}
 function ctlCompteBancaire($id){
     $client=rechercheCompteBancaire($id);
     affichageCompteBancaire($client);

@@ -70,6 +70,9 @@ try{
     }elseif(isset($_POST['date_valide'])){
       $date=$_POST['saisie_date'];
       ctlAfficherEDTDate($date);
+    }elseif(isset($_POST['demande_nouv_client'])){
+
+      ctlAfficherInscription();
     }elseif(isset($_POST['validation_nouv_client'])){
       $nom=$_POST['nouv_nom'];
       $prenom=$_POST['nouv_prenom'];
@@ -82,6 +85,7 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
+
     }elseif(isset($_POST['gestionnaire_ctrt'])){
         $entrée=$_POST['entrée'];
         $suppression=$_POST['suppression'];
@@ -92,6 +96,25 @@ try{
     elseif(isset($_POST['choix'])){
         $compte=$_POST['Compte'];
         ctlDebitRetrait($compte);
+    }
+    elseif(isset($_POST['demande_modif_decouvert'])){
+      ctlModifDecouvert();
+    }
+    elseif(isset($_POST['compte_valide'])){
+      $nouv_decouvert=$_POST['nouv_decouvert'];
+      $lecompte=$_POST['les_comptes'];
+      ctlModifDecouvertEffectif($nouv_decouvert,$lecompte);
+      ctlGabarit();
+    }
+    elseif(isset($_POST['demande_resiliation'])){
+      $choix_res=$_POST['choix_supp'];
+      if($choix_res=='supp_con'){
+        ctlResilierContrat();        
+      }else{
+        ctlAfficherSelectionDate();
+      }
+
+
     }
     else{
       ctlStart();

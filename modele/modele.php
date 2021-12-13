@@ -104,8 +104,12 @@ function rechercheEDTDate($date){
 	$dates=$resultat->fetchall();
 	$resultat->closeCursor();
 	return $dates;
-
-
+}
+function supprimerUnContrat($entrée){
+    $connexion=getConnect();
+    $requete="DELETE FROM contrat where id_contrat='$entrée'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
 }
 
 function rechercheClientNom($nom,$prenom,$birth){
@@ -147,6 +151,21 @@ function rechercheCompteBancaire($id){
     $client=$resultat->fetchall();
     $resultat->closeCursor();
     return $client;
+}
+function modificationDecouvert($nouv_decouvert,$lecompte){
+    $connexion=getConnect();
+    $requete="UPDATE compte_bancaire SET decouvert_maxi = '$nouv_decouvert' WHERE id_compte='$lecompte'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function rechercherTousComptesBancaires(){
+    $connexion=getConnect();
+    $requete="SELECT * from compte_bancaire";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $cbs=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $cbs;
 }
 function rechercheContrat($id){
   $connexion=getConnect();
