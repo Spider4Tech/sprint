@@ -85,17 +85,31 @@ try{
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
       ctlGabarit();
+<<<<<<< HEAD
 
     }elseif(isset($_POST['gestionnaire_ctrt'])){
+=======
+    }elseif(isset($_POST['gestioncontrat'])){
+        $contrat=$_POST['gestionnaire_ctrt'];
+>>>>>>> 08d0af1aaba8c5846f3fd0c28757cc98e72a3d8e
         $entrée=$_POST['entrée'];
-        $suppression=$_POST['suppression'];
-        $ajout=$_POST['ajout'];
-        $modification=$_POST['modification'];
-        ajouterContrat($entrée);
+        $modif=$_POST['modif'];
+        ctlContrat($contrat,$entrée,$modif);
+        ctlGabarit();
     }
-    elseif(isset($_POST['choix'])){
+    elseif(isset($_POST['Crediter'])){
         $compte=$_POST['Compte'];
-        ctlDebitRetrait($compte);
+        $solde=$_POST['solde'];
+        $id=$_POST['id'];
+        ctlDebitRetrait($compte,$solde,$id);
+        ctlGabarit();
+    }
+    elseif(isset($_POST['gestionnairepc'])){
+        $contrat=$_POST['gestionpc'];
+        $entrée1=$_POST['entrée1'];
+        $modif2=$_POST['modif2'];
+        ctlContratpc($contrat,$entrée1,$modif2);
+        ctlGabarit();
     }
     elseif(isset($_POST['demande_modif_decouvert'])){
       ctlModifDecouvert();

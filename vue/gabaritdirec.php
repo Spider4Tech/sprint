@@ -22,10 +22,10 @@
           <fieldset>
             <legend>Ajout d'Employée</legend>
             <p>
-              login : <input type="text" name="logincompte"/>
+              login : <input type="text" name="logincompte" maxlength="12"/>
             </p>
             <p>
-              Mot de passe : <input type="password" name="mdp"/>
+              Mot de passe : <input type="password" name="mdp" maxlength="14"/>
             </p>
             <p>
               Rang : <select name="rang">
@@ -42,12 +42,12 @@
           <fieldset>
             <legend>Changer identifiant employé</legend>
             <p>
-              <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" required>
-              <input type="password" name="amdp" id="password2" placeholder="ancien mdp" required>
+              <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" maxlength="12" required>
+              <input type="password" name="amdp" id="password2" placeholder="ancien mdp" maxlength="14" required>
             </p>
             <p>
-              <input type="text" name="nlogin" id="login2" placeholder="nouveau identifiant" required>
-              <input type="password" name="nmdp" id="password1" placeholder="nouveau mdp" required>
+              <input type="text" name="nlogin" id="login2" placeholder="nouveau identifiant" maxlength="12" required>
+              <input type="password" name="nmdp" id="password1" placeholder="nouveau mdp" maxlength="14" required>
             </p>
             <input type="submit" name="changementcompte" id="formsend">
           </fieldset>
@@ -56,27 +56,29 @@
           <fieldset>
             <legend>gestion contrat</legend>
             <p> <select name="gestionnaire_ctrt">
-              <option value="suppression">suppression </option>
+              <option value="suppression">suppression</option>
               <option value="ajout">ajout</option>
               <option  value="modification">Modification</option>
               </select>
-                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" required>
+                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required></br>
+                edition : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="10">
             </p>
-            <input type="submit" name="changementcompte" id="formsend">
+            <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>
         </form>
         <form method="post" action="site.php">
           <fieldset>
             <legend>gestion pièce contrat</legend>
             <p>
-              <select name="gestionnaire pièce à fournir">
-              	<option>suppression </option>
-              	<option>ajout</option>
-              	<option>Modification</option>
+              <select name="gestionnairepc">
+              	<option value="del_p">suppression</option>
+              	<option value="add_p">ajout</option>
+              	<option  value="edit_p">Modification</option>
               </select>
-              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" required>
+              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required></br>
+              edition : <input type="text" name="modif2" id="modif2" placeholder="modifier pièce contrat" maxlength="10">
             </p>
-            <input type="submit" name="changementcompte" id="formsend">
+            <input type="submit" name="gestionpc" id="formsend">
           </fieldset>
         </form>
         <form method="post" action="site.php">

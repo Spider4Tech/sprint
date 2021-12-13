@@ -11,13 +11,13 @@
           <fieldset>
             <legend>Recherche client par nom</legend>
             <p>
-              Nom : <input type="text" name="nomclient" required/>
+              Nom : <input type="text" name="nomclient" maxlength="10" required/>
             </p>
             <p>
-              prenom : <input type="text" name="prenomclient"required/>
+              prenom : <input type="text" name="prenomclient" maxlength="10" required/>
             </p>
             <p>
-              Date de naissance : <input type="text" name="birthclient"required/>
+              Date de naissance : <input type="text" name="birthclient" maxlength="8" required/>
             </p>
             <p>
               <input type="submit" value="Edit" name="rechercheNomClient"/>
@@ -28,7 +28,7 @@
           <fieldset>
             <legend>Recherche client par id</legend>
             <p>
-              Id du client : <input type="text" name="idclient" required/>
+              Id du client : <input type="number" name="idclient" required/>
               <input type="submit" value="Synthese" name="rechid"/>
               <input type="submit" value="Check compte" name="Checkcompte"/>
             </p>

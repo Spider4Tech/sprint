@@ -36,11 +36,14 @@ function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,
 // }
 function rechercheRang($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
-    $resultat=$connexion->query($requete);
-    $resultat->setFetchMode(PDO::FETCH_OBJ);
-    $selection=$resultat->fetch();
-    $resultat->closeCursor();
+    $requete="SELECT rang from compte where login=:login and mdp=:mdp";
+    $prepare=$connexion->prepare($requete);
+    $prepare->bindValue(':login', $login, PDO::PARAM_STR);
+    $prepare->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+    $prepare->execute();
+    $prepare->setFetchMode(PDO::FETCH_OBJ);
+    $selection=$prepare->fetch();
+    $prepare->closeCursor();
     return $selection->rang;
 }
 function rechercheClient($idclient){
@@ -183,19 +186,48 @@ function ajouterContrat($entrée){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function editionContrat($entrée){
-    $connexion=getConnect();
-    $requete="UPDATE type_contrat SET entrée='$entrée' WHERE id_type_contrat='$entrée'";
-    $resultat=$connexion->query($requete);
-    $resultat->closeCursor();
+ function editionContrat($entrée, $modif){
+     $connexion=getConnect();
+     $requete="UPDATE type_contrat SET nom='$modif' WHERE nom='$entrée'";
+     $resultat=$connexion->query($requete);
+     $resultat->closeCursor();
 }
 function supprimerContrat($entrée){
     $connexion=getConnect();
-    $requete="DELETE FROM type_contrat where id_type_contrat='$entrée'";
+    $requete="DELETE FROM type_contrat where nom='$entrée'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function modificationSolde($compte){
+function modificationSolde($compte,$solde,$id){
     $connexion=getConnect();
-    $requete="UPDATE ";
+    $requete="UPDATE compte_bancaire SET solde=solde+'$solde' where id_client='$id' and nom='$compte'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function ajouterContratpiece($entrée1){
+    $connexion=getConnect();
+    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+ function editionContratpiece($entrée1, $modif2){
+     $connexion=getConnect();
+     $requete="UPDATE piece_identité SET libellé='$modif2' WHERE libellé='$entrée1'";
+     $resultat=$connexion->query($requete);
+     $resultat->closeCursor();
+}
+function supprimerContratpiece($entrée1){
+    $connexion=getConnect();
+    $requete="DELETE FROM piece_identité where libellé='$entrée1'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+    
+function checkSolde($compte,$id){
+  $connexion=getConnect();
+  $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
 }

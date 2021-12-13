@@ -16,10 +16,15 @@ function ctlGestion($login,$mdp){
     }
 }
 function ctlAfficherClient($idclient){
-    $client=rechercheClient($idclient);
-    $id_conseiller=$client->id_conseiller;
-    $conseiller=rechercheConseiller($id_conseiller);
-    syntheseClient($client,$conseiller);
+    if(!empty($idclient)){}
+        $client=rechercheClient($idclient);
+        $id_conseiller=$client->id_conseiller;
+        $conseiller=rechercheConseiller($id_conseiller);
+        syntheseClient($client,$conseiller);
+    }
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAjouterEmployée($login,$mdp,$rang){
     if(!empty($login)&&!empty($mdp)&&!empty($rang)){
@@ -30,26 +35,45 @@ function ctlAjouterEmployée($login,$mdp,$rang){
     }
 }
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
-  ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+    if(!empty($nom)&&!empty($prenom)&&!empty($date)&&!empty($adresse)&&!empty($telephone)&&!empty($mail)&&!empty($profession)&&!empty($situation)&&!empty($cons)){
+        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+    }
 }
-
 function ctlGabarit(){
     afficherGabarit($_SESSION['rang']);
 }
 function ctlAfficherClientParNom($nom,$prenom,$birth){
-    $client=rechercheClientNom($nom,$prenom,$birth);
-    affichageClient($client);
+    if(!empty($nom)&&!empty($prenom)&&!empty($birth)){
+        $client=rechercheClientNom($nom,$prenom,$birth);
+        affichageClient($client);
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+  }
 }
 function ctlChangmentMdp($alogin,$nlogin,$amdp,$nmdp){
-    $id=rechercheEmployée($alogin,$amdp);
-    editionEmployée($id,$nlogin,$nmdp);
+    if(!empty($alogin)&&!empty($nlogin)&&!empty($amdp)&&!empty($nmdp)){
+        $id=rechercheEmployée($alogin,$amdp);
+        editionEmployée($id,$nlogin,$nmdp);
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlModifClient($id,$tele,$adrr,$situ,$prof,$mail){
-    $client=editionClient($id,$tele,$adrr,$situ,$prof,$mail);
-    ctlAfficherClient($client);
+    if(!empty($id)&&!empty($tele)&&!empty($adrr)&&!empty($situ)&&!empty($prof)&&!empty($mail)){
+        $client=editionClient($id,$tele,$adrr,$situ,$prof,$mail);
+        ctlAfficherClient($client);
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAfficherSelectionConseiller(){
-	$conseillers=rechercherTousConseillers();
+  	$conseillers=rechercherTousConseillers();
     afficherConseillersSelect($conseillers);
 }
 function ctlAfficherInscription(){
@@ -71,33 +95,86 @@ function ctlModifDecouvertEffectif($nouv_decouvert,$lecompte){
     modificationDecouvert($nouv_decouvert,$lecompte);
 }
 function ctlCompteBancaire($id){
-    $client=rechercheCompteBancaire($id);
-    affichageCompteBancaire($client);
+    if(!empty($id){
+        $client=rechercheCompteBancaire($id);
+        affichageCompteBancaire($client);
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAfficherSelectionDate(){
 	afficherSelectionDate();
 }
 function ctlAfficherEDTDate($date){
-  echo 'salut';
-  $dates=rechercheEDTDate($date);
-  afficherEDTDate($dates);
+    if(!empty($date){
+        $dates=rechercheEDTDate($date);
+        afficherEDTDate($dates);
+    }
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlAfficherEDTConseiller($id_conseiller){
   $rdvs=rechercherTousRDV($id_conseiller);
 	AfficherEDTConseiller($rdvs);
 }
 function ctlContratClient($id){
-    $client=rechercheContrat($id);
-    affichageContrat($client);
+    if(!empty($id){
+        $client=rechercheContrat($id);
+        affichageContrat($client);
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
 function ctlSyntheseClient($id) {
-    $client=rechercheCompteBancaire($id);
-    $client2=rechercheContrat($id);
-    affichageContraEtCompte($client,$client2);
+    if(!empty($id){
+        $client=rechercheCompteBancaire($id);
+        $client2=rechercheContrat($id);
+        affichageContraEtCompte($client,$client2);
+    else {
+        throw new Exception("Entrée des données non valides");
+    }
 }
-function ctlDebitRetrait($compte){
-    $compte=modificationSolde($compte);
+function ctlDebitRetrait($compte,$solde,$id){
+    $select=checkSolde($compte,$id);
+    if ($select->solde+$solde>=-$select->decouvert_maxi){
+      $compte=modificationSolde($compte,$solde,$id);
+    }
+    else {
+      throw new Exception("Nouveau solde inférieur au découvert max");
+    }
 }
+function ctlContrat($contrat,$entrée,$modif) {
+    if(!empty($contrat)&&!empty($entrée)){
+        if($contrat == "suppression"){
+            supprimerContrat($entrée);
+        }
+        elseif($contrat == "ajout"){
+            ajouterContrat($entrée);
+        }
+        elseif($contrat == "modification" && !empty($modif)){
+            editionContrat($entrée,$modif);
+        }
+        else{
+            throw new Exception("Entrée des données non valides");
+        }
+    else{
+        throw new Exception("Entrée des données non valides");
+      }
+}
+function ctlContratpc($contrat,$entrée,$modif) {
+    if($contrat == "del_p"){
+      supprimerContrat($entrée1);
+    }
+    elseif($contrat == "add_p"){
+      ajouterContrat($entrée1);
+    }
+    elseif($contrat == "edit_p" && !empty($modif2)){
+      editionContrat($entrée1,$modif2);
+    }
+}
+
 
 
 
