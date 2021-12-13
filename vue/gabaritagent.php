@@ -3,12 +3,13 @@
   <head>
     <title>Ma page</title>
       <meta charset="utf-8">
-	    <link rel="stylesheet"  href="vue/style/tstyle.css" />
+	    <link rel="stylesheet"  href="vue/style/style.css" />
     </head>
     <body>
       <div class="main">
         <form id="agentedit" action="site.php" method='post'>
           <fieldset>
+            <legend>Recherche client par nom</legend>
             <p>
               Nom : <input type="text" name="nomclient" required/>
             </p>
@@ -25,9 +26,11 @@
         </form>
         <form id="agentsynth" action="site.php" method='post'>
           <fieldset>
+            <legend>Recherche client par id</legend>
             <p>
               Id du client : <input type="text" name="idclient" required/>
               <input type="submit" value="Synthese" name="rechid"/>
+              <input type="submit" value="Check compte" name="Checkcompte"/>
             </p>
           </fieldset>
         </form>

@@ -63,15 +63,13 @@ function affichageCompteBancaire($client){
     $contenu='<form id="vue compte client" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Compte Bancaire</legend>";
+    $contenu.='<p>Compte a modifier : <select name="Compte">';
     foreach($client as $ligne){
-        $contenu.='<hr>';
-        $contenu.='<p>Nom :<input type="text" value="'.$ligne->nom.'"readonly/></p>';
-        $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
-        $contenu.='<p>Solde :<input type="text" value="'.$ligne->solde.'"readonly/></p>';
-        $contenu.='<p>Découvert max :<input type="text" value="'.$ligne->decouvert_maxi.'"readonly/></p>';
-        $contenu.='<hr>';
+      $contenu.='
+          <option value="'.$ligne->nom.'">'.$ligne->nom.'</option>';
+
     }
-    $contenu.='<input type="submit" value="retour" name="retour"/></p>';
+    $contenu.='</select></p><input type="submit" value="retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
