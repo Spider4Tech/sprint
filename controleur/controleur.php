@@ -29,6 +29,10 @@ function ctlAjouterEmployée($login,$mdp,$rang){
         throw new Exception("Entrée des données non valides");
     }
 }
+function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
+  ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);    
+}
+
 function ctlGabarit(){
     afficherGabarit($_SESSION['rang']);
 }
