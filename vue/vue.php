@@ -14,6 +14,7 @@ function afficherGabarit($rang){
     elseif ($rang=="Agent") {
         $contenu="";
         require_once('gabaritagent.php');
+
     }
 }
 function affichageClient($client){
@@ -52,7 +53,7 @@ function syntheseClient($client){
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="solde" name="solde"/><input type="submit" value="retour" name="retour"/></p>';
+    $contenu.='<p><input type="submit" value="CompteBancaire" name="CompteBancaire"/><input type="submit" value="retour" name="retour"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
@@ -75,7 +76,53 @@ function affichageCompteBancaire($client){
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
+function affichageContrat($client){
+    $contenu='<form id="vue compte client" action="site.php" method="post">';
+    $contenu.="<fieldset>";
+    $contenu.="<legend>Contrat</legend>";
+    foreach($client as $ligne){
+        $contenu.='<hr>';
+        $contenu.='<p>Nom :<input type="text" value="'.$ligne->nom.'"readonly/></p>';
+        $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
+        $contenu.='<p>Tarif mensuel :<input type="text" value="'.$ligne->tarif_mensuel.'"readonly/></p>';
+        $contenu.='<hr>';
+    }
+    $contenu.='<input type="submit" value="retour" name="retour"/></p>';
+    $contenu.="</fieldset>";
+    $contenu.="</form>";
+    require_once('gabaritagent.php');
 
+}
+function affichageContraEtCompte($client,$client2){
+  $contenu='<form id="vue compte client" action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.="<legend>Compte Bancaire</legend>";
+  foreach($client as $ligne){
+      $contenu.='<hr>';
+      $contenu.='<p>Nom :<input type="text" value="'.$ligne->nom.'"readonly/></p>';
+      $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne->date_ouverture.'"readonly/></p>';
+      $contenu.='<p>Solde :<input type="text" value="'.$ligne->solde.'"readonly/></p>';
+      $contenu.='<p>Découvert max :<input type="text" value="'.$ligne->decouvert_maxi.'"readonly/></p>';
+      $contenu.='<hr>';
+  }
+  $contenu.='<input type="submit" value="retour" name="retour"/></p>';
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  $contenu.='<form id="vue compte client" action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.="<legend>Contrat</legend>";
+  foreach($client2 as $ligne2){
+      $contenu.='<hr>';
+      $contenu.='<p>Nom :<input type="text" value="'.$ligne2->nom.'"readonly/></p>';
+      $contenu.='<p>Date ouverture :<input type="text" value="'.$ligne2->date_ouverture.'"readonly/></p>';
+      $contenu.='<p>Tarif mensuel :<input type="text" value="'.$ligne2->tarif_mensuel.'"readonly/></p>';
+      $contenu.='<hr>';
+  }
+  $contenu.='<input type="submit" value="retour" name="retour"/></p>';
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
 function afficherConseillersSelect($conseillers){
     $contenu='<fieldset><legend>Selectionnez un conseiller</legend>';
     $contenu.='<form method="post" action="site.php">';

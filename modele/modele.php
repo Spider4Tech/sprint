@@ -118,7 +118,6 @@ function rechercheClientNom($nom,$prenom,$birth){
 }
 function rechercheEmployée($login,$mdp){
     $connexion=getConnect();
-    echo $login,$mdp;
     $requete="SELECT idcompte from compte where login='$login' and mdp='$mdp'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
@@ -147,4 +146,13 @@ function rechercheCompteBancaire($id){
     $client=$resultat->fetchall();
     $resultat->closeCursor();
     return $client;
+}
+function rechercheContrat($id){
+  $connexion=getConnect();
+  $requete="SELECT * from contrat where id_client='$id'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $client=$resultat->fetchall();
+  $resultat->closeCursor();
+  return $client;
 }
