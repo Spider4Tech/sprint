@@ -75,7 +75,7 @@ function affichageCompteBancaire($client){
       break;
     }
     $contenu.='<p>Solde <input type="text" name="solde"><p>';
-    $contenu.='<p><input type="submit" value="Créditer" name="Crediter"/><input type="submit" value="Débiter" name="Debiter"/></p>';
+    $contenu.='<p><input type="submit" value="Créditer/Débiter" name="Crediter"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
