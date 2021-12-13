@@ -6,11 +6,11 @@ function getConnect(){
     $connexion->query('SET NAMES UTF8');
     return $connexion;
 }
-function ajouterClient($nom,$prenom,$addresse,$telephone,$situation,$conseiller){
-    $connexion=getConnect();
-    $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$addresse','$telephone','$situation','$conseiller')";
-    $resultat=$connexion->query($requete);
-    $resultat->closeCursor();
+function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
+  $connexion=getConnect();
+  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons')";
+  $resultat=$connexion->query($requete);
+  $resultat->closeCursor();
 }
 // function rechercheRang($login,$mdp){
 //     $connexion=getConnect();
@@ -58,12 +58,7 @@ function ajouterEmployée($login,$mdp,$rang){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
-  $connexion=getConnect();
-  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons')";
-  $resultat=$connexion->query($requete);
-  $resultat->closeCursor();
-}
+
 // function ajouterEmployée($login,$mdp,$rang){
 //     $connexion=getConnect();
 //     $option = [

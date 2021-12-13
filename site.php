@@ -77,6 +77,7 @@ try{
       $situation=$_POST['nouv_situation'];
       $cons=$_POST['nouv_cons'];
       ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+      ctlGabarit();
     }
     else{
       ctlStart();
