@@ -89,9 +89,11 @@ try{
         $modification=$_POST['modification'];
         ajouterContrat($entrée);
     }
-    elseif(isset($_POST['choix'])){
+    elseif(isset($_POST['Crediter'])){
         $compte=$_POST['Compte'];
-        ctlDebitRetrait($compte);
+        $solde=$_POST['solde'];
+        $id=$_POST['id'];
+        ctlDebitRetrait($compte,$solde,$id);
     }
     else{
       ctlStart();

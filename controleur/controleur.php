@@ -77,8 +77,8 @@ function ctlSyntheseClient($id) {
     $client2=rechercheContrat($id);
     affichageContraEtCompte($client,$client2);
 }
-function ctlDebitRetrait($compte){
-    $compte=modificationSolde($compte);
+function ctlDebitRetrait($compte,$solde,$id){
+    $compte=modificationSolde($compte,$solde,$id);
 }
 
 
