@@ -145,7 +145,8 @@ function ctlSyntheseClient($id) {
 function ctlDebitRetrait($compte,$solde,$id){
     $select=checkSolde($compte,$id);
     if ($select->solde+$solde>=-$select->decouvert_maxi){
-      $compte=modificationSolde($compte,$solde,$id);
+      modificationSolde($compte,$solde,$id);
+      ctlSyntheseClient($id);
     }
     else {
       throw new Exception("Nouveau solde inférieur au découvert max");
