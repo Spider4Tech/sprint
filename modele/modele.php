@@ -36,11 +36,14 @@ function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,
 // }
 function rechercheRang($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT rang from compte where login='$login' and mdp='$mdp'";
-    $resultat=$connexion->query($requete);
-    $resultat->setFetchMode(PDO::FETCH_OBJ);
-    $selection=$resultat->fetch();
-    $resultat->closeCursor();
+    $requete="SELECT rang from compte where login=:$login and mdp=:$mdp";
+    $prepare=$connexion->prepare($requete);
+    $prepare->bindValue(':login', $login, PDO::PARAM_STR);
+    $prepare->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+    $prepare->execute();
+    $prepare->setFetchMode(PDO::FETCH_OBJ);
+    $selection=$prepare->fetch();
+    $prepare->closeCursor();
     return $selection->rang;
 }
 function rechercheClient($idclient){
