@@ -307,8 +307,8 @@ function affichageEDT($rdvs){
       $contenu.='<hr>';
       $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
       $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';
-      $contenu.='<p>Date :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
-      $contenu.='<p>Date :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
+      $contenu.='<p>Heure début :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
+      $contenu.='<p>Heure fin :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
       $contenu.='<hr>';
     }
   $contenu.="</fieldset>";
