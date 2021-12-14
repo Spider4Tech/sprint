@@ -239,10 +239,22 @@ function ctlEmploieDuTemps($conseiller,$semaine){
 }
 
 function statctr2($contrat,$date,$date2) {
-    if(!empty($date) && !empty($date2) && $date < $date2){
-      if($contrat == "suppression"){
+    if(!empty($date)){
+      if($contrat == "c_souscris" && !empty($date2) && $date < $date2){
         $cmptcontrat=statctr($date,$date2);
         statcontrat($cmptcontrat);
+      }
+      if($contrat == "nrb_rdv"  && !empty($date2) && $date < $date2){
+        $rdv_reserver=rdv_select($date,$date2);
+         rdvpris($rdv_reserver);
+      }
+      if($contrat == "total_cli"){
+        $total_client=compteur_client($date,$date2);
+        tot_cli($total_client);
+      }
+      if($contrat == "solde_cli"){
+        $totalsolde=solde_total($date,$date2);
+        tot_solde($totalsolde);
       }
     }
 }

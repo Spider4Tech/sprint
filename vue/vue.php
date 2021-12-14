@@ -278,7 +278,28 @@ function statcontrat($cmptcontrat){
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
-function affichageEDT($rdv){
+function rdvpris($rdv_reserver){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$rdv_reserver.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function tot_cli($total_client){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$total_client.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function tot_solde($totalsolde){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$totalsolde.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function affichageEDT($rdvs){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
   $contenu.='<legend>Emploie du temps</legend>';
@@ -294,14 +315,6 @@ function affichageEDT($rdv){
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
-
-
-
-
-
-
-
-
 
 
 
