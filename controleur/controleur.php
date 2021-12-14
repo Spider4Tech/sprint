@@ -115,7 +115,7 @@ function ctlAfficherVenteContrat(){
 function ctlVendreContrat($client,$contrat,$tarif_mensuel){
   $datedujour= date('d-m-y h:i:s');
   $nomContrat=rechercherNomContrat($contrat);
-  $nomContrat=$nomContrat->type_contrat;
+  $nomContrat=$nomContrat->nom;
   ajouterUnContrat($client,$nomContrat,$tarif_mensuel,$datedujour);
   ctlGabarit();
 }
