@@ -81,6 +81,32 @@ function rechercherTousConseillers(){
     $resultat->closeCursor();
     return $conseillers;
 }
+function rechercherTousClients(){
+    $connexion=getConnect();
+    $requete="SELECT * from client";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $client=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $client;
+}
+function rechercherTousTypesComptes(){
+    $connexion=getConnect();
+    $requete="SELECT * from type_compte";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $types=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $types;
+}
+function ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedujour){
+
+  $connexion=getConnect();
+  $requete="INSERT INTO compte_bancaire VALUES(0,'$choix_du_type_de_compte','$datedujour','0','0','$choix_du_client')";
+  $resultat=$connexion->query($requete);
+  $resultat->closeCursor();
+
+}
 function rechercherTousContrats(){
   $connexion=getConnect();
   $requete="SELECT * from contrat";
@@ -120,6 +146,12 @@ function rechercheEDTDate($date){
 function supprimerUnContrat($entrée){
     $connexion=getConnect();
     $requete="DELETE FROM contrat where id_contrat='$entrée'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+}
+function supprimerUnCompte($entrée){
+    $connexion=getConnect();
+    $requete="DELETE FROM compte_bancaire where id_compte='$entrée'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
@@ -230,7 +262,7 @@ function supprimerContratpiece($entrée1){
     $requete="DELETE FROM piece_identité where libellé='$entrée1'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
-
+}
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";

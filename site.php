@@ -123,11 +123,30 @@ try{
       if($choix_res=='supp_con'){
         ctlResilierContrat();
       }else{
-        ctlAfficherSelectionDate();
+        ctlResilierCompte();
       }
-
-
     }
+    elseif(isset($_POST['contrat_supp_valide'])){
+      $con=$_POST['les_contrats'];
+      ctlResilierContratEffectif($con);
+      ctlGabarit();
+    }
+    elseif(isset($_POST['compte_supp_valide'])){
+      $com=$_POST['les_comptes'];
+      ctlResilierCompteEffectif($com);
+      ctlGabarit();
+    }
+    elseif(isset($_POST['demande_ouverture_compte'])){
+      ctlAffichageOuvertureCompte();
+    }
+    elseif(isset($_POST['ouverture_valide'])){
+      $choix_du_client=$_POST['les_clients'];
+      $choix_du_type_de_compte=$_POST['les_types'];
+      ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte);
+      ctlGabarit();
+    }
+
+
     else{
       ctlStart();
     }

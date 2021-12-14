@@ -137,7 +137,7 @@ function afficherConseillersSelect($conseillers){
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
 }
-function afficherComptesSelect($comptes){
+function afficherComptesSelectDec($comptes){
     $contenu='<fieldset><legend>Selectionnez un compte et le nouveau découvert</legend>';
     $contenu.='<form method="post" action="site.php">';
     $contenu.='<select name="les_comptes">';
@@ -149,6 +149,33 @@ function afficherComptesSelect($comptes){
     $contenu.='<input type="submit" name="compte_valide" value="valider"/>';
     $contenu.='</form></fieldset>';
     require_once('gabaritconseil.php');
+}
+function afficherComptesSelect($comptes){
+
+    $contenu='<fieldset><legend>Selectionnez un compte à supprimer</legend>';
+    $contenu.='<form method="post" action="site.php">';
+    $contenu.='<select name="les_comptes">';
+    foreach($comptes as $ligne){
+      $contenu.='<option value="'.$ligne->id_compte.'">'.$ligne->id_compte.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
+    }
+    $contenu.='</select>';
+    $contenu.='<input type="submit" name="compte_supp_valide" value="valider"/>';
+    $contenu.='</form></fieldset>';
+    require_once('gabaritconseil.php');
+}
+function afficherContratsSelect($contrats){
+  $contenu='';
+  $contenu.='<fieldset><legend>Selectionnez un contrat à supprimer</legend>';
+  $contenu.='<form method="post" action="site.php">';
+  $contenu.='<select name="les_contrats">';
+  foreach($contrats as $ligne){
+    $contenu.='<option value="'.$ligne->id_contrat.'">'.$ligne->id_contrat.' '.$ligne->nom.' id du client : '.$ligne->id_client.'</option>';
+  }
+  $contenu.='</select>';
+  $contenu.='<input type="submit" name="contrat_supp_valide" value="valider"/>';
+  $contenu.='</form></fieldset>';
+  require_once('gabaritconseil.php');
+
 }
 function afficherSelectionDate(){
 	$contenu='';
@@ -178,7 +205,8 @@ function inscription(){
 }
 
 function afficherEDTConseiller($rdvs){
-	$contenu='<fieldset><legend>Voici l emploi du temps</legend>';
+  $contenu='';
+	$contenu.='<fieldset><legend>Voici l emploi du temps</legend>';
 	foreach($rdvs as $ligne){
       $contenu.='objet :'.$ligne->objet.' |date : '.$ligne->date.' |debut : '.$ligne->debut.'h  |duree : '.$ligne->duree.'h<br/>';
     }
@@ -186,11 +214,29 @@ function afficherEDTConseiller($rdvs){
 	require_once('gabaritconseil.php');
 }
 function afficherEDTDate($dates){
-  $contenu='<fieldset><legend>Emploi du temps de la date selectionnee</legend>';
+  $contenu='';
+  $contenu.='<fieldset><legend>Emploi du temps de la date selectionnee</legend>';
   foreach($dates as $ligne){
       $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
     }
   $contenu.='</fieldset>';
+  require_once('gabaritconseil.php');
+}
+function menuOuvertureCompte($clients,$types_compte){
+  $contenu='<fieldset><legend>Ouvrir un compte : selectionner un client et un type de compte</legend>';
+  $contenu.='<form method="post" action="site.php">';
+  $contenu.='<select name="les_clients">';
+  foreach($clients as $ligne){
+    $contenu.='<option value="'.$ligne->id.'">'.$ligne->id.' '.$ligne->nom.' id du client : '.$ligne->prenom.'</option>';
+  }
+  $contenu.='</select>';
+  $contenu.='<select name="les_types">';
+  foreach($types_compte as $ligne){
+    $contenu.='<option value="'.$ligne->id_type_compte.'">'.$ligne->id_type_compte.' '.$ligne->libelle.'</option>';
+  }
+  $contenu.='</select>';
+  $contenu.='<input type="submit" name="ouverture_valide" value="valider"/>';
+  $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 }
 
