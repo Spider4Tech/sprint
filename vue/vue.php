@@ -216,7 +216,7 @@ function vendreUnContrat($clients,$contrats){
   $contenu='<fieldset>';
   $contenu.='<legend>Vendre un contrat</legend>';
   $contenu.='<form method="post" action="site.php">';
-  $contenu.='<p><label for="custumer">Conseiller :</label>';
+  $contenu.='<p><label for="custumer">Client :</label>';
   $contenu.='<select id="custumer" name="le_client">';
   foreach($clients as $ligne){
     $contenu.='<option value="'.$ligne->id.'">ID:'.$ligne->id.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
