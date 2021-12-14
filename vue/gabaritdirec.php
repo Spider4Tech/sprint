@@ -91,8 +91,8 @@
             <form method="post" action="site.php">
             <legend>gestion capital et statistique</legend>
             <p>
-              <select name="statc">
-              	<option value="c_souscris">Contrat souscris </option>
+              <select name="choix_statistique">
+              	<option value="c_souscris">Nombre de contrat souscris </option>
               	<option value="nrb_rdv">Nombre de rdv</option>
               	<option value="total_cli">nombre total de client</option>
                 <option value="solde_cli">solde des client</option>

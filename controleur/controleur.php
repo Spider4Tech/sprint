@@ -42,7 +42,8 @@ function ctlAjouterEmployée($login,$mdp,$rang){
 }
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
     if(!empty($nom)&&!empty($prenom)&&!empty($date)&&!empty($adresse)&&!empty($telephone)&&!empty($mail)&&!empty($profession)&&!empty($situation)&&!empty($cons)){
-        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+        $date_arrivee = date('d-m-y h:i:s');
+        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons,$date_arrivee);
     }
     else{
         throw new Exception("Entrée des données non valides");
@@ -83,7 +84,8 @@ function ctlAfficherSelectionConseiller(){
     afficherConseillersSelect($conseillers);
 }
 function ctlAfficherInscription(){
-    inscription();
+    $les_conseillers=rechercherTousConseillers();
+    inscription($les_conseillers);
 }
 function ctlResilierContrat(){
   $contrats=rechercherTousContrats();
@@ -246,31 +248,49 @@ function ctlEmploieDuTemps($conseiller,$semaine){
     }
 }
 
-function statctr2($contrat,$date,$date2) {
+function ctlAffichage_statistique($contrat,$date,$date2) {
     if(!empty($date)){
       if($contrat == "c_souscris" && !empty($date2) && $date < $date2){
-        $cmptcontrat=statctr($date,$date2);
-        statcontrat($cmptcontrat);
+        $cmptcontrat=NbContratsEntreDeuxDates($date,$date2);
+        afficher_les_contrats($cmptcontrat);
       }
       if($contrat == "nrb_rdv"  && !empty($date2) && $date < $date2){
         $rdv_reserver=rdv_select($date,$date2);
-         rdvpris($rdv_reserver);
+        rdvpris($rdv_reserver);
       }
       if($contrat == "total_cli"){
-        $total_client=compteur_client($date,$date2);
+        $total_client=compteur_client($date);
         tot_cli($total_client);
       }
       if($contrat == "solde_cli"){
-        $totalsolde=solde_total($date,$date2);
+        $totalsolde=solde_total($date);
         tot_solde($totalsolde);
       }
     }
 }
 function cltAjoutHorraireClient($date,$debut,$fin,$id){
-    $id=AjoutDateRDVClient($date,$debut,$fin,$id);
-    $compte=rechercherTousTypesComptes();
-    $contrat=rechercherTousContrats();
-    affichageMotif($compte,$contrat);
+    if(!empty($date)&&!empty($debut)&&!empty($fin)&&!empty($id)){
+      if($debut<$fin){
+        $id=AjoutDateRDVClient($date,$debut,$fin,$id);
+        $compte=rechercherTousTypesComptes();
+        $contrat=rechercherTousContrats();
+        affichageMotif($compte,$contrat,$id);
+      }
+      else throw new Exception("Saisie horraire invalide");
+    }
+    else throw new Exception("Entrée des données non valides");
+}
+function ctlPieceRequis($motif,$id){
+    if ($motif=='autre'){
+      modificationObjetREV($motif,$id);
+      $piece="Voir avec le conseiller";
+      affichagePieceString($piece);
+    }
+    else{
+      modificationObjetREV($motif,$id);
+      $piece=recherchePiece($motif);
+      affichagePiece($piece);
+  }
 }
 function ctlErreur($erreur){
     afficherErreur($erreur);

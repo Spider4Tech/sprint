@@ -194,14 +194,14 @@ function inscription($conseillers){
   $contenu='<fieldset>';
   $contenu.='<legend>Inscrire un nouveau client à la banque</legend>';
   $contenu.='<form method="post" action="site.php">';
-  $contenu.='<p><label for="nom">nom :</label><input type="text" id="nom" name="nouv_nom" maxlength="10" required/></p>';
-  $contenu.='<p><label for="prenom">prenom :</label><input type="text" id="prenom" name="nouv_prenom" maxlength="10" required/></p>';
+  $contenu.='<p><label for="nom">nom :</label><input type="text" id="nom" name="nouv_nom" maxlength="15" required/></p>';
+  $contenu.='<p><label for="prenom">prenom :</label><input type="text" id="prenom" name="nouv_prenom" maxlength="15" required/></p>';
   $contenu.='<p><label for="date">Date de naissance :</label><input type="date" id="date" name="nouv_date" maxlength="10" required/></p>';
-  $contenu.='<p><label for="adresse">Adresse :</label><input type="text" id="adresse" name="nouv_adresse" maxlength="10" required/></p>';
+  $contenu.='<p><label for="adresse">Adresse :</label><input type="text" id="adresse" name="nouv_adresse" maxlength="50" required/></p>';
   $contenu.='<p><label for="telephone">Telephone :</label><input type="text" id="telephone" name="nouv_telephone" maxlength="10" required/></p>';
-  $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="10" required/></p>';
-  $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="10" required/></p>';
-  $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="10" required/></p>';
+  $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="20" required/></p>';
+  $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="16" required/></p>';
+  $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="16" required/></p>';
   $contenu.='<p><label for="conseiller">Conseiller :</label>';
   $contenu.='<select id="conseiller" name="nouv_cons">';
   foreach($conseillers as $ligne){
@@ -262,7 +262,7 @@ function blocage_creneau($conseillers){
     $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
   }
   $contenu.='</select>';
-  $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" required/></p>';
+  $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" placeholder="tâches administratives" readonly equired/></p>';
   $contenu.='<p><label for="date">Date :</label><input type="date" id="date" name="la_date" required/></p>';
   $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="debut_cr" min="0" max="23" required/></p>';
   $contenu.='<p><label for="fin">Heure fin :</label><input type="number" id="fin" name="fin_cr" min="1" max="24" required/></p>';
@@ -289,31 +289,38 @@ function menuOuvertureCompte($clients,$types_compte){
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 }
-function statcontrat($cmptcontrat){
+function affichage_statistique($cmptcontrat){
     $contenu="<fieldset>";
     $contenu.='<legend class="statctr">stat contrat</legend>';
     $contenu.='<p>'.$cmptcontrat.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
+function afficher_les_contrats($les_contrats){
+  $contenu="<fieldset>";
+  $contenu.='<legend class="statctr">Nombre de contrat souscris entre 2 dates</legend>';
+  $contenu.='Nombre de contrats : '.$les_contrats->resu;
+  $contenu.="</fieldset>";
+  require_once('gabaritdirec.php');
+}
 function rdvpris($rdv_reserver){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$rdv_reserver.'</p>';
+    $contenu.='<legend class="statctr">Nombre de rendez vous pris</legend>';
+    $contenu.='<p> Nombre : '.$rdv_reserver->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
 function tot_cli($total_client){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$total_client.'</p>';
+    $contenu.='<legend class="statctr">Nombre total client à une date donnee</legend>';
+    $contenu.='<p>'.$total_client->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
 function tot_solde($totalsolde){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$totalsolde.'</p>';
+    $contenu.='<legend class="statctr">Total solde des comptes à une date</legend>';
+    $contenu.='<p>'.$totalsolde->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
@@ -359,10 +366,11 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
-function affichageMotif($compte,$contrat){
+function affichageMotif($compte,$contrat,$id){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
   $contenu.='<legend>Finalisation du Rendez-vous</legend>';
+  $contenu.='<p><input type="hidden" name="id" value="'.$id.'"/></p>';
   $contenu.='<p>Objet : <select name="motif">';
   foreach($compte as $ligne){
     $contenu.='<option value="'.$ligne->libelle.'">'.$ligne->libelle.'</option>';
@@ -370,9 +378,29 @@ function affichageMotif($compte,$contrat){
   foreach($contrat as $ligne){
     $contenu.='<option value="'.$ligne->nom.'">'.$ligne->nom.'</option>';
   }
-  $contenu.='<option value="autre">autre</option>'
+  $contenu.='<option value="autre">autre</option>';
   $contenu.='</select>';
-  $contenu.='<p><input type="submit" name="Objet" value="valider"/></p>'
+  $contenu.='<p><input type="submit" name="Objet" value="valider"/></p>';
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
+function affichagePiece($piece){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.='<legend>Pièce à fournir</legend>';
+  foreach ($piece as $ligne) {
+    $contenu.='<p>'.$ligne->libellé.'</p>';
+  }
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
+function affichagePieceString($piece){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.='<legend>Pièce à fournir</legend>';
+  $contenu.='<p>'.$piece.'</p>';
   $contenu.="</fieldset>";
   $contenu.="</form>";
   require_once('gabaritagent.php');

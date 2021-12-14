@@ -160,10 +160,10 @@ try{
       ctlEmploieDuTemps($conseiller,$semaine);
     }
     elseif(isset($_POST['changement2compte'])){
-        $contrat=$_POST['statc'];
+        $contrat=$_POST['choix_statistique'];
         $date=$_POST['date'];
         $date2=$_POST['date2'];
-        statctr2($contrat,$date,$date2);
+        ctlAffichage_statistique($contrat,$date,$date2);
         //ctlGabarit();
     }
     elseif(isset($_POST['demande_blocage_creneau'])){
@@ -185,13 +185,13 @@ try{
         $id=$_POST['id'];
         cltAjoutHorraireClient($date,$debut,$fin,$id);
     }
-    elseif(isset($_POST['objet'])){
+    elseif(isset($_POST['Objet'])){
       $motif=$_POST['motif'];
-      ctl($motif);
+      $id=$_POST['id'];
+      ctlPieceRequis($motif,$id);
     }
-    else{
+    else
       ctlStart();
-}
 }
 catch(Exception $e){
     $msg=$e->getMessage();
