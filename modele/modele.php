@@ -245,9 +245,9 @@ function modificationSolde($compte,$solde,$id){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function ajouterContratpiece($entrée1){
+function ajouterContratpiece($entrée1,$cpc){
     $connexion=getConnect();
-    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1')";
+    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1','$cpc')";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
