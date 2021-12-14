@@ -288,8 +288,7 @@ function affichageEDT($rdvs){
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -307,4 +306,3 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
->>>>>>> 501540aa65f933a08a831f8e7da0efc2416a046c

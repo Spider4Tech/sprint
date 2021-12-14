@@ -246,7 +246,7 @@ function statctr2($contrat,$date,$date2) {
         statcontrat($cmptcontrat);
       }
     }
-
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
