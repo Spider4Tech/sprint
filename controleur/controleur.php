@@ -8,11 +8,17 @@ function ctlStart(){
 function ctlGestion($login,$mdp){
     if(!empty($login)&&!empty($mdp)){
         $rang=rechercheRang($login,$mdp);
-        $_SESSION['rang']=$rang;
-        ctlGabarit();
+        $rang=$rang->rang;
+        if($rang!=null){
+          $_SESSION['rang']=$rang;
+          ctlGabarit();
+        }else{
+          throw new Exception("Login ou mdp incorect");
+        }
+
     }
     else {
-        throw new Exception("Entrée des données non valides");
+        throw new Exception("Entrée des données vide");
     }
 }
 function ctlAfficherClient($idclient){
@@ -99,6 +105,18 @@ function ctlAffichageOuvertureCompte(){
   $clients=rechercherTousClients();
   $types_comptes=rechercherTousTypesComptes();
   menuOuvertureCompte($clients,$types_comptes);
+}
+function ctlAfficherVenteContrat(){
+  $clients=rechercherTousClients();
+  $contrats=rechercherTousTypesContrats();
+  vendreUnContrat($clients,$contrats);
+}
+function ctlVendreContrat($client,$contrat,$tarif_mensuel){
+  $datedujour= date('d-m-y h:i:s');
+  $nomContrat=rechercherNomContrat($contrat);
+  $nomContrat=$nomContrat->type_contrat;
+  ajouterUnContrat($client,$nomContrat,$tarif_mensuel,$datedujour);
+  ctlGabarit();
 }
 function ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte){
   $datedujour= date('d-m-y h:i:s');

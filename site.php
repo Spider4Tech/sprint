@@ -148,6 +148,12 @@ try{
     elseif(isset($_POST['demande_vente_contrat'])){
       ctlAfficherVenteContrat();
     }
+    elseif(isset($_POST['validation_vente'])){
+      $tarif=$_POST['le_tarif_mensuel'];
+      $contrat=$_POST['le_contrat'];
+      $client=$_POST['le_client'];
+      ctlVendreContrat($client,$contrat,$tarif);
+    }
 
 
     else{

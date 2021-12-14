@@ -208,7 +208,30 @@ function inscription($conseillers){
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 }
+function vendreUnContrat($clients,$contrats){
+  $contenu='<fieldset>';
+  $contenu.='<legend>Vendre un contrat</legend>';
+  $contenu.='<form method="post" action="site.php">';
+  $contenu.='<p><label for="custumer">Conseiller :</label>';
+  $contenu.='<select id="custumer" name="le_client">';
+  foreach($clients as $ligne){
+    $contenu.='<option value="'.$ligne->id.'">ID:'.$ligne->id.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
+  }
+  $contenu.='</select></p>';
+  $contenu.='<p><label for="contract">Selectionner un type de contrat :</label>';
+  $contenu.='<select id="contract" name="le_contrat">';
+  foreach($contrats as $ligne){
+    $contenu.='<option value="'.$ligne->id_type_contrat.'">ID:'.$ligne->id_type_contrat.' '.$ligne->type_contrat.'</option>';
+  }
+  $contenu.='</select></p>';
+  $contenu.='<p><label for="tarif">Entrez le tarif mensuel :</label><input type="number" min="0" name="le_tarif_mensuel" id="tarif"/> ';
+  $contenu.='<input type="submit"  value="Valider" name="validation_vente"/></p>';
+  $contenu.='</form></fieldset>';
+  require_once('gabaritconseil.php');
 
+
+
+}
 function afficherEDTConseiller($rdvs){
   $contenu='';
 	$contenu.='<fieldset><legend>Voici l emploi du temps</legend>';
@@ -249,14 +272,6 @@ function afficherErreur($erreur){
     $contenu="<fieldset>";
     $contenu.='<legend class="Erreur">Erreur</legend>';
     $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
-    $contenu.="</fieldset>";
-    require_once('vue/gabarit.php');
-}
-
-function statcontrat($cmptcontrat){
-    $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$cmptcontrat.'</p>';
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }

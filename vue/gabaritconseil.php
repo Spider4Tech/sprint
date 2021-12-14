@@ -29,7 +29,7 @@
         <p><input type='submit' name='demande_ouverture_compte' value="Ouvrir un compte" /></p>
         </form>
         <form method="post" action="site.php">
-        <p><input type='submit' name='demande_vente_contrat' value="Ouvrir un compte" /></p>
+        <p><input type='submit' name='demande_vente_contrat' value="Vendre un contrat" /></p>
         </form>
       </fieldset>
       <?php echo $contenu ?>

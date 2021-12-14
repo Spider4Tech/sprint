@@ -44,7 +44,7 @@ function rechercheRang($login,$mdp){
     $prepare->setFetchMode(PDO::FETCH_OBJ);
     $selection=$prepare->fetch();
     $prepare->closeCursor();
-    return $selection->rang;
+    return $selection;
 }
 function rechercheClient($idclient){
     $connexion=getConnect();
@@ -110,6 +110,25 @@ function ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedu
 function rechercherTousContrats(){
   $connexion=getConnect();
   $requete="SELECT * from contrat";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $contrats=$resultat->fetchall();
+  $resultat->closeCursor();
+  return $contrats;
+}
+function rechercherNomContrat($id){
+  $connexion=getConnect();
+  $requete="SELECT type_contrat from type_contrat where id_type_contrat='$id'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $conseillers=$resultat->fetch();
+  $resultat->closeCursor();
+  return $conseillers;
+
+}
+function rechercherTousTypesContrats(){
+  $connexion=getConnect();
+  $requete="SELECT * from type_contrat";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $contrats=$resultat->fetchall();
@@ -195,6 +214,14 @@ function rechercheCompteBancaire($id){
     $client=$resultat->fetchall();
     $resultat->closeCursor();
     return $client;
+}
+
+function ajouterUnContrat($client,$contrat,$tarif_mensuel,$date){
+  $connexion=getConnect();
+  $requete="INSERT INTO contrat VALUES(0,'$contrat','$date','$tarif_mensuel','$client')";
+  $resultat=$connexion->query($requete);
+  $resultat->closeCursor();
+
 }
 function modificationDecouvert($nouv_decouvert,$lecompte){
     $connexion=getConnect();
