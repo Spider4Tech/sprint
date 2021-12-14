@@ -246,7 +246,11 @@ function statctr2($contrat,$date,$date2) {
         echo 'salut';
         statcontrat($cmptcontrat);
       }
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> 5c732f389d726aafae8bd758642d3a3352f28d8c
 }
 function ctlErreur($erreur){
     afficherErreur($erreur);

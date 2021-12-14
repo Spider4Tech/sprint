@@ -288,6 +288,17 @@ function affichageEDT($rdvs){
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> 5c732f389d726aafae8bd758642d3a3352f28d8c
 
 
 
