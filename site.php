@@ -148,7 +148,10 @@ try{
     elseif(isset($_POST['demande_vente_contrat'])){
       ctlAfficherVenteContrat();
     }
-
+    elseif(isset($_POST['edt'])) {
+      $conseiller=$_POST['conseiller'];
+      ctlEmploieDuTemps($conseiller);
+    }
 
     else{
       ctlStart();
