@@ -142,7 +142,12 @@ function ctlAfficherEDTConseiller($id_conseiller){
 function ctlContratClient($id){
     if(!empty($id)){
         $client=rechercheContrat($id);
+<<<<<<< HEAD
         affichageContrat($client);}
+=======
+        affichageContrat($client);
+    }
+>>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
     else {
         throw new Exception("Entrée des données non valides");
     }
@@ -151,7 +156,12 @@ function ctlSyntheseClient($id) {
     if(!empty($id)){
         $client=rechercheCompteBancaire($id);
         $client2=rechercheContrat($id);
+<<<<<<< HEAD
         affichageContraEtCompte($client,$client2);}
+=======
+        affichageContraEtCompte($client,$client2);
+    }
+>>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
     else {
         throw new Exception("Entrée des données non valides");
     }
@@ -159,7 +169,8 @@ function ctlSyntheseClient($id) {
 function ctlDebitRetrait($compte,$solde,$id){
     $select=checkSolde($compte,$id);
     if ($select->solde+$solde>=-$select->decouvert_maxi){
-      $compte=modificationSolde($compte,$solde,$id);
+      modificationSolde($compte,$solde,$id);
+      ctlSyntheseClient($id);
     }
     else {
       throw new Exception("Nouveau solde inférieur au découvert max");
@@ -179,7 +190,82 @@ function ctlContrat($contrat,$entrée,$modif) {
         else{
             throw new Exception("Entrée des données non valides");
         }
+<<<<<<< HEAD
       }
+=======
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+      }
+}
+function ctlContratpc($contrat,$entrée1,$modif2) {
+    if(!empty($contrat)&&!empty($entrée)){
+        if($contrat == "del_p"){
+          supprimerContrat($entrée1);
+        }
+        elseif($contrat == "add_p"){
+          ajouterContrat($entrée1);
+        }
+        elseif($contrat == "edit_p" && !empty($modif2)){
+          editionContrat($entrée1,$modif2);
+        }
+        else{
+            throw new Exception("Entrée des données non valides");
+        }
+    }
+    else{
+        throw new Exception("Entrée des données non valides");
+      }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
 
 }
 function ctlErreur($erreur){
