@@ -63,8 +63,8 @@
               <option value="ajout">ajout</option>
               <option  value="modification">Modification</option>
               </select>
-                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="10" required></br>
-                edition : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="10">
+                Entrée : <input type="text" name="entrée" id="entrée" placeholder="nom contrat" maxlength="19" required></br>
+                edition : <input type="text" name="modif" id="modif" placeholder="modifier contrat" maxlength="19">
             </p>
             <input type="submit" name="gestioncontrat" id="formsend">
           </fieldset>
@@ -79,9 +79,9 @@
               	<option value="add_p">ajout</option>
               	<option  value="edit_p">Modification</option>
               </select>
-              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required>
-              compte à editer : <input type="text" name="cpc" id="cpt" placeholder="nom contrat" maxlength="10" required></br>
-              edition : <input type="text" name="modif2" id="modif2" placeholder="modifier pièce contrat" maxlength="10">
+              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="19" required>
+              compte à editer : <input type="text" name="cpc" id="cpt" placeholder="nom contrat" maxlength="19" required></br>
+              edition : <input type="text" name="modif2" id="modif2" placeholder="modifier pièce contrat" maxlength="19">
             </p>
             <input type="submit" name="gestionpc" id="formsend">
           </fieldset>
