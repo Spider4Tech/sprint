@@ -230,6 +230,8 @@ function ctlEmploieDuTemps($conseiller,$semaine){
         $idsemaine=chercherSemaine($semaine);
         $debut=$idsemaine->Debut;
         $fin=$idsemaine->Fin;
+        echo $debut;
+        echo $fin;
         $rdv=rechercherRDVSemaine($conseiller,$debut,$fin);
         affichageEDT($rdv);
     }

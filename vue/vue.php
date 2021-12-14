@@ -303,7 +303,7 @@ function affichageEDT($rdvs){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
   $contenu.='<legend>Emploie du temps</legend>';
-  foreach($rdv as $ligne){
+  foreach($rdvs as $ligne){
       $contenu.='<hr>';
       $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
       $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';

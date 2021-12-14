@@ -345,3 +345,12 @@ function solde_total($date,$date2){
   $resultat->closeCursor();
   return $select;
 }
+function chercherSemaine($semaine){
+  $connexion=getConnect();
+  $requete="SELECT * from semaine where Debut<='$semaine' and Fin>='$semaine'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
