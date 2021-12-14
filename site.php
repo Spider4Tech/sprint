@@ -159,12 +159,12 @@ try{
       $semaine=$_POST['sem'];
       ctlEmploieDuTemps($conseiller,$semaine);
     }
-    elseif(isset($_POST['changementcompte'])){
-        $contrat=$_POST['statc'];
+    elseif(isset($_POST['changement2compte'])){
+        $contrat=$_POST['statc'];        
         $date=$_POST['date'];
         $date2=$_POST['date2'];
-        ctlContratpc($contrat,$date,$date2);
-        ctlGabarit();
+        statctr2($contrat,$date,$date2);
+        //ctlGabarit();
     }
 
 
