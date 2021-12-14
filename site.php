@@ -89,10 +89,6 @@ try{
     }
     elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
-<<<<<<< HEAD
-
-=======
->>>>>>> a145973542fc9589e4fb0812a3e98ca83bb38b42
         $entrée=$_POST['entrée'];
         $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée,$modif);
@@ -149,11 +145,6 @@ try{
       ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte);
       ctlGabarit();
     }
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> a145973542fc9589e4fb0812a3e98ca83bb38b42
     else{
       ctlStart();
     }
