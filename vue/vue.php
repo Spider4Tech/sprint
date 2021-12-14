@@ -225,7 +225,7 @@ function vendreUnContrat($clients,$contrats){
   $contenu.='<p><label for="contract">Selectionner un type de contrat :</label>';
   $contenu.='<select id="contract" name="le_contrat">';
   foreach($contrats as $ligne){
-    $contenu.='<option value="'.$ligne->id_type_contrat.'">ID:'.$ligne->nom.' '.$ligne->type_contrat.'</option>';
+    $contenu.='<option value="'.$ligne->id_type_contrat.'">ID:'.$ligne->nom.' '.$ligne->nom.'</option>';
   }
   $contenu.='</select></p>';
   $contenu.='<p><label for="tarif">Entrez le tarif mensuel :</label><input type="number" min="0" name="le_tarif_mensuel" id="tarif"/> ';
