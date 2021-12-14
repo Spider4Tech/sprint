@@ -31,6 +31,9 @@
         <form method="post" action="site.php">
         <p><input type='submit' name='demande_vente_contrat' value="Vendre un contrat" /></p>
         </form>
+        <form method="post" action="site.php">
+        <p><input type='submit' name='demande_blocage_creneau' value="Bloquer un creneau" /></p>
+        </form>
       </fieldset>
       <?php echo $contenu ?>
 
