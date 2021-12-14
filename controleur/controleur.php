@@ -168,16 +168,16 @@ function ctlDebitRetrait($compte,$solde,$id){
       throw new Exception("Nouveau solde inférieur au découvert max");
     }
 }
-function ctlContrat($contrat,$entrée,$modif) {
-    if(!empty($contrat)&&!empty($entrée)){
+function ctlContrat($contrat,$entrée,$modif,$cpc) {
+    if(!empty($contrat)&&!empty($entrée)&&!empty($cpc)){
         if($contrat == "suppression"){
-            supprimerContrat($entrée);
+            supprimerContrat($entrée,$cpc);
         }
         elseif($contrat == "ajout"){
-            ajouterContrat($entrée);
+            ajouterContrat($entrée,$cpc);
         }
         elseif($contrat == "modification" && !empty($modif)){
-            editionContrat($entrée,$modif);
+            editionContrat($entrée,$modif,$cpc);
         }
         else{
             throw new Exception("Entrée des données non valides");
