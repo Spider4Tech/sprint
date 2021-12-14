@@ -6,9 +6,9 @@ function getConnect(){
     $connexion->query('SET NAMES UTF8');
     return $connexion;
 }
-function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
+function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons,$date_arrivee){
   $connexion=getConnect();
-  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons')";
+  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons','$date_arrivee')";
   $resultat=$connexion->query($requete);
   $resultat->closeCursor();
 }
@@ -193,6 +193,7 @@ function supprimerUnCompte($entrée){
     $resultat->closeCursor();
 }
 
+
 function rechercheClientNom($nom,$prenom,$birth){
     $connexion=getConnect();
     $requete="SELECT id,adresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
@@ -213,7 +214,7 @@ function rechercheEmployée($login,$mdp){
 }
 function editionEmployée($id,$login,$mdp){
     $connexion=getConnect();
-    $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE idcompte='$id'";
+    $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE id_compte='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
@@ -308,6 +309,15 @@ function supprimerContratpiece($entrée1){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function recherchePiece($motif){
+    $connexion=getConnect();
+    $requete="SELECT libellé FROM piece_identité where nom='$motif'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $piece=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $piece;
+}
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
@@ -317,9 +327,9 @@ function checkSolde($compte,$id){
   $resultat->closeCursor();
   return $select;
 }
-function statctr($date,$date2){
+function NbContratsEntreDeuxDates($date,$date2){
   $connexion=getConnect();
-  $requete="SELECT count(nom) FROM contrat  WHERE date_ouverture BETWEEN 'date' AND 'date2' group by 'nom'";
+  $requete="SELECT count(nom) AS 'resu' FROM contrat  WHERE date_ouverture BETWEEN '$date' AND '$date2' group by 'nom'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $select=$resultat->fetch();
@@ -328,16 +338,17 @@ function statctr($date,$date2){
 }
 function rdv_select($date,$date2){
   $connexion=getConnect();
-  $requete=" SELECT count(objet) FROM rdv WHERE date BETWEEN 'date1' AND 'date2'";
+  $requete=" SELECT count(objet) AS 'resu' FROM rdv WHERE date BETWEEN '$date' AND '$date2' group by 'objet'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $select=$resultat->fetch();
   $resultat->closeCursor();
+
   return $select;
 }
-function compteur_client($date,$date2){
+function compteur_client($date_donnee){
   $connexion=getConnect();
-  $requete="SELECT count(nom) FROM client  WHERE date == 'date1'";
+  $requete="SELECT count(nom) AS 'resu' FROM client  WHERE date_arrivee <= '$date_donnee'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $select=$resultat->fetch();
@@ -345,9 +356,9 @@ function compteur_client($date,$date2){
   return $select;
 }
 
-function solde_total($date,$date2){
+function solde_total($date1){
   $connexion=getConnect();
-  $requete="SELECT sum(solde) FROM compte_bancaire WHERE date == 'date1'";
+  $requete="SELECT sum(solde) AS 'resu' FROM compte_bancaire WHERE date_ouverture <= '$date1'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $select=$resultat->fetch();
@@ -376,4 +387,10 @@ function AjoutDateRDVClient($date,$debut,$fin,$id){
       $id=$key->id_rdv;
     }
     return $id;
+}
+function modificationObjetREV($motif,$id){
+    $connexion=getConnect();
+    $requete="UPDATE rdv SET objet='$motif' where id_rdv='$id'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
 }
