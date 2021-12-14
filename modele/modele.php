@@ -111,7 +111,7 @@ function ajouterCreneau($objet,$date,$debut,$fin,$cons){
 function ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedujour){
 
   $connexion=getConnect();
-  $requete="INSERT INTO compte_bancaire VALUES(0,'$choix_du_type_de_compte','$datedujour','0','0','$choix_du_client')";
+  $requete="INSERT INTO compte_bancaire VALUES(0,'$choix_du_type_de_compte','$datedujour','0','0','$choix_du_client','$choix_du_type_de_compte')";
   $resultat=$connexion->query($requete);
   $resultat->closeCursor();
 
