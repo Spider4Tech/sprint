@@ -239,7 +239,7 @@ function ctlEmploieDuTemps($conseiller,$semaine){
         $debut=$idsemaine->Debut;
         $fin=$idsemaine->Fin;
         $rdv=rechercherRDVSemaine($conseiller,$debut,$fin);
-        affichageEDT($rdv);
+        affichageEDT($rdv,$debut,$fin);
     }
     else{
       throw new Exception ("Aucun conseiller trouvé");

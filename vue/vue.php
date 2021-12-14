@@ -317,7 +317,7 @@ function tot_solde($totalsolde){
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
-function affichageEDT($rdvs){
+function affichageEDT($rdvs,$debut,$fin){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
   $contenu.='<legend>Emploie du temps</legend>';
@@ -329,6 +329,10 @@ function affichageEDT($rdvs){
       $contenu.='<p>Heure fin :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
       $contenu.='<hr>';
     }
+  $contenu.='<table>
+                  <tr> <th>'.$debut.'</th> <th>mardi</th><th>mercredis</th><th>jeudi</th><th>vendredis</th><th>samedis</th><th>dimanche</th></tr>
+
+                  </table>';
   $contenu.="</fieldset>";
   $contenu.="</form>";
   require_once('gabaritagent.php');
