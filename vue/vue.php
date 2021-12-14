@@ -262,17 +262,11 @@ function blocage_creneau($conseillers){
     $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->nom.' '.$ligne->prenom.'</option>';
   }
   $contenu.='</select>';
-  $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" required/></p>';
+  $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" placeholder="tâches administratives" readonly equired/></p>';
   $contenu.='<p><label for="date">Date :</label><input type="date" id="date" name="la_date" required/></p>';
-<<<<<<< HEAD
   $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="debut_cr" min="0" max="23" required/></p>';
   $contenu.='<p><label for="fin">Heure fin :</label><input type="number" id="fin" name="fin_cr" min="1" max="24" required/></p>';
   $contenu.='<input type="submit" name="blocage_valide" value="valider"/></p>';
-=======
-  $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="heure min="0" max="23" required/></p>';
-  $contenu.='<p><label for="fin">Objet :</label><input type="number" id="fin" name="la_duree" min="1" max="24" required/></p>';
-  $contenu.='<input type="submit" name="ouverture_valide" value="valider"/></p>';
->>>>>>> 42093feaf35154f176b283c24513008dd9408e91
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 
@@ -295,31 +289,38 @@ function menuOuvertureCompte($clients,$types_compte){
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 }
-function statcontrat($cmptcontrat){
+function affichage_statistique($cmptcontrat){
     $contenu="<fieldset>";
     $contenu.='<legend class="statctr">stat contrat</legend>';
     $contenu.='<p>'.$cmptcontrat.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
+function afficher_les_contrats($les_contrats){
+  $contenu="<fieldset>";
+  $contenu.='<legend class="statctr">Nombre de contrat souscris entre 2 dates</legend>';
+  $contenu.='Nombre de contrats : '.$les_contrats->resu;
+  $contenu.="</fieldset>";
+  require_once('gabaritdirec.php');
+}
 function rdvpris($rdv_reserver){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$rdv_reserver.'</p>';
+    $contenu.='<legend class="statctr">Nombre de rendez vous pris</legend>';
+    $contenu.='<p> Nombre : '.$rdv_reserver->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
 function tot_cli($total_client){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$total_client.'</p>';
+    $contenu.='<legend class="statctr">Nombre total client à une date donnee</legend>';
+    $contenu.='<p>'.$total_client->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
 function tot_solde($totalsolde){
     $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$totalsolde.'</p>';
+    $contenu.='<legend class="statctr">Total solde des comptes à une date</legend>';
+    $contenu.='<p>'.$totalsolde->resu.'</p>';
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
