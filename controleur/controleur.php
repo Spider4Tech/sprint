@@ -126,11 +126,17 @@ function ctlAffichageBlocage(){
   $conseillers=rechercherTousConseillers();
   blocage_creneau($conseillers);
 }
+<<<<<<< HEAD
+function ctlBlocage($objet,$date,$debut,$fin,$cons){
+  ajouterCreneau($objet,$date,$debut,$fin,$cons);
+=======
 function ctlBlocage($sdfsdf){
 
 
 
+>>>>>>> 42093feaf35154f176b283c24513008dd9408e91
 }
+
 function ctlModifDecouvert(){
     $cbs=rechercherTousComptesBancaires();
     afficherComptesSelectDec($cbs);
