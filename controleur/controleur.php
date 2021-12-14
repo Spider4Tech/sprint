@@ -240,17 +240,14 @@ function ctlEmploieDuTemps($conseiller,$semaine){
 }
 
 function statctr2($contrat,$date,$date2) {
+  echo 'salut1';
     if(!empty($date) && !empty($date2) && $date < $date2){
-      if($contrat == "suppression"){
+      if($contrat == "c_souscris"){
         $cmptcontrat=statctr($date,$date2);
-        echo 'salut';
+        echo 'saluteeeee';
         statcontrat($cmptcontrat);
       }
-<<<<<<< HEAD
-}
-=======
     }
->>>>>>> 5c732f389d726aafae8bd758642d3a3352f28d8c
 }
 function ctlErreur($erreur){
     afficherErreur($erreur);

@@ -82,8 +82,9 @@
             <input type="submit" name="gestionpc" id="formsend">
           </fieldset>
         </form>
-        <form method="post" action="site.php">
+
           <fieldset>
+            <form method="post" action="site.php">
             <legend>gestion capital et statistique</legend>
             <p>
               <select name="statc">
@@ -95,9 +96,10 @@
             date 1 : <input id="date" type="date" name="date" value="2021-12-14" required>
             date 2 : <input id="date2" type="date" name="date2" value="2021-12-15" onblur="compare();">
             </p>
-            <input type="submit" name="changement2compte" id="formsend">
+            <input type="submit" name="changement2compte" id="formsend"/>
+            </form>
           </fieldset>
-        </form>
+
 
       <?php
         echo $contenu;
