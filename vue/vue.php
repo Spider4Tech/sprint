@@ -322,22 +322,34 @@ function affichageEDT($rdvs,$debut,$fin){
   $contenu.="<fieldset>";
   $contenu.='<legend>Emploie du temps</legend>';
   foreach($rdvs as $ligne){
-      $contenu.='<hr>';
+      $contenu.='<p><hr></p>';
       $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
       $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';
       $contenu.='<p>Heure début :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
       $contenu.='<p>Heure fin :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
-      $contenu.='<hr>';
+      $contenu.='<p><hr></p>';
     }
-  $contenu.='<table>
-                  <tr> <th>'.$debut.'</th> <th>mardi</th><th>mercredis</th><th>jeudi</th><th>vendredis</th><th>samedis</th><th>dimanche</th></tr>
 
-                  </table>';
   $contenu.="</fieldset>";
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
-
+function TableauxEDT(){
+  $contenu.='<table>';
+  $contenu.='<td></td><td>Lundi<br/>'.$debut.'</td> <td>mardi</td><td>mercredis</td><td>jeudi</td><td>vendredis</td><td>samedis</td><td>Dimanche<br/>'.$fin.'</td>';
+  $contenu.='<tr><td>8H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>9H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>10H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>11H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>12H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>13H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>14H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>15H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>16H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>17H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='<tr><td>18H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+  $contenu.='</table>';
+}
 
 
 function afficherErreur($erreur){
