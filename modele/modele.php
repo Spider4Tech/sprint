@@ -137,7 +137,7 @@ function rechercherTousTypesContrats(){
 }
 function rechercheConseiller($id_conseiller){
     $connexion=getConnect();
-    $requete="SELECT nom, prenom from conseiller where id_conseiller='$id_conseiller'";
+    $requete="SELECT nom,prenom,id_conseiller from conseiller where id_conseiller='$id_conseiller'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $conseillers=$resultat->fetch();
