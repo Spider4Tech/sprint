@@ -264,15 +264,9 @@ function blocage_creneau($conseillers){
   $contenu.='</select>';
   $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" required/></p>';
   $contenu.='<p><label for="date">Date :</label><input type="date" id="date" name="la_date" required/></p>';
-<<<<<<< HEAD
   $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="debut_cr" min="0" max="23" required/></p>';
   $contenu.='<p><label for="fin">Heure fin :</label><input type="number" id="fin" name="fin_cr" min="1" max="24" required/></p>';
   $contenu.='<input type="submit" name="blocage_valide" value="valider"/></p>';
-=======
-  $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="heure min="0" max="23" required/></p>';
-  $contenu.='<p><label for="fin">Objet :</label><input type="number" id="fin" name="la_duree" min="1" max="24" required/></p>';
-  $contenu.='<input type="submit" name="ouverture_valide" value="valider"/></p>';
->>>>>>> 42093feaf35154f176b283c24513008dd9408e91
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 

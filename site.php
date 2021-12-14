@@ -185,10 +185,13 @@ try{
         $id=$_POST['id'];
         cltAjoutHorraireClient($date,$debut,$fin,$id);
     }
+    elseif(isset($_POST['objet'])){
+      $motif=$_POST['motif'];
+      ctl($motif);
+    }
     else{
       ctlStart();
-    }
-
+}
 }
 catch(Exception $e){
     $msg=$e->getMessage();
