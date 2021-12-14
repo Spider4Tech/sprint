@@ -105,6 +105,7 @@ try{
         $contrat=$_POST['gestionpc'];
         $entrée1=$_POST['entrée1'];
         $modif2=$_POST['modif2'];
+        $cpc=$_POST['cpc'];
         ctlContratpc($contrat,$entrée1,$modif2);
         ctlGabarit();
     }
