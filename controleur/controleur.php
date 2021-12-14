@@ -269,15 +269,28 @@ function ctlAffichage_statistique($contrat,$date,$date2) {
     }
 }
 function cltAjoutHorraireClient($date,$debut,$fin,$id){
-    $id=AjoutDateRDVClient($date,$debut,$fin,$id);
-    $compte=rechercherTousTypesComptes();
-    $contrat=rechercherTousContrats();
-    affichageMotif($compte,$contrat,$id);
+    if(!empty($date)&&!empty($debut)&&!empty($fin)&&!empty($id)){
+      if($debut<$fin){
+        $id=AjoutDateRDVClient($date,$debut,$fin,$id);
+        $compte=rechercherTousTypesComptes();
+        $contrat=rechercherTousContrats();
+        affichageMotif($compte,$contrat,$id);
+      }
+      else throw new Exception("Saisie horraire invalide");
+    }
+    else throw new Exception("Entrée des données non valides");
 }
 function ctlPieceRequis($motif,$id){
-    modificationObjetREV($motif,$id);
-    $piece=recherchePiece($motif);
-    affichagePiece($piece);
+    if ($motif=='autre'){
+      modificationObjetREV($motif,$id);
+      $piece="Voir avec le conseiller";
+      affichagePieceString($piece);
+    }
+    else{
+      modificationObjetREV($motif,$id);
+      $piece=recherchePiece($motif);
+      affichagePiece($piece);
+  }
 }
 function ctlErreur($erreur){
     afficherErreur($erreur);

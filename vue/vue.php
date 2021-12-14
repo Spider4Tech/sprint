@@ -396,3 +396,12 @@ function affichagePiece($piece){
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
+function affichagePieceString($piece){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.='<legend>Pièce à fournir</legend>';
+  $contenu.='<p>'.$piece.'</p>';
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
