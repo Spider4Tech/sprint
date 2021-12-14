@@ -207,7 +207,19 @@ function ctlContrat($contrat,$entrée,$modif,$cpc) {
         throw new Exception("Entrée des données non valides");
       }
 }
-
+function ctlEmploieDuTemps($conseiller,$semaine){
+    if (!empty($conseiller)&&!empty($semaine)){
+        $conse=rechercherTousRDV($conseiller);
+        $piece=explode('-',"$semaine");
+        echo $piece[0].'<br/>';
+        echo $piece[1].'<br/>';
+        echo $piece[2].'<br/>';
+        affichageEDT($conse);
+    }
+    else{
+      throw new Exception ("Aucun conseiller trouvé");
+    }
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }

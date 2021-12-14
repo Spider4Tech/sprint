@@ -55,6 +55,7 @@ function syntheseClient($client,$conseiller){
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
     $contenu.='<p>Conseiller :<input type="text" value="'.$conseiller->nom.' '.$conseiller->prenom.' "readonly/></p>';
+    $contenu.='<p>Semaine :<input type="date" name="sem" /></p>';
     $contenu.='<p><input type="submit" value="CompteBancaire" name="CompteBancaire"/><input type="submit" value="retour" name="retour"/>';
     $contenu.='<input type="submit" value="Emploie du temps" name="edt"/></p>';
     $contenu.="</fieldset>";
@@ -247,19 +248,37 @@ function menuOuvertureCompte($clients,$types_compte){
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 }
+function statcontrat($cmptcontrat){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$cmptcontrat.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function affichageEDT($rdvs){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  foreach($rdvs as $ligne){
+      $contenu.='';
+    }
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
+
+
+
+
+
+
+
+
+
 
 function afficherErreur($erreur){
     $contenu="<fieldset>";
     $contenu.='<legend class="Erreur">Erreur</legend>';
     $contenu.='<p>'.$erreur.'</p><a href="site.php"/>Revenir au site </a></p>';
-    $contenu.="</fieldset>";
-    require_once('vue/gabarit.php');
-}
-
-function statcontrat($cmptcontrat){
-    $contenu="<fieldset>";
-    $contenu.='<legend class="statctr">stat contrat</legend>';
-    $contenu.='<p>'.$cmptcontrat.'</p>';
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }

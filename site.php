@@ -150,7 +150,8 @@ try{
     }
     elseif(isset($_POST['edt'])) {
       $conseiller=$_POST['conseiller'];
-      ctlEmploieDuTemps($conseiller);
+      $semaine=$_POST['sem'];
+      ctlEmploieDuTemps($conseiller,$semaine);
     }
 
     else{
