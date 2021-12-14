@@ -206,7 +206,7 @@ function ctlContrat($contrat,$entrée,$modif,$cpc) {
         throw new Exception("Entrée des données non valides");
       }
 }
-<<<<<<< HEAD
+
 function ctlEmploieDuTemps($conseiller,$semaine){
     if (!empty($conseiller)&&!empty($semaine)){
         $conse=rechercherTousRDV($conseiller);
@@ -220,7 +220,7 @@ function ctlEmploieDuTemps($conseiller,$semaine){
       throw new Exception ("Aucun conseiller trouvé");
     }
 }
-=======
+
 function statctr2($contrat,$date,$date2) {
     if(!empty($date) && !empty($date2) && $date < $date2){
       if($contrat == "suppression"){
@@ -228,7 +228,7 @@ function statctr2($contrat,$date,$date2) {
         statcontrat($cmptcontrat);
       }
     }
->>>>>>> f54342fbd427e7c28816e5dad5764c0093c78a3d
+
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
