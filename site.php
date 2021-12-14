@@ -101,8 +101,8 @@ try{
         ctlDebitRetrait($compte,$solde,$id);
         ctlGabarit();
     }
-    elseif(isset($_POST['gestionnairepc'])){
-        $contrat=$_POST['gestionpc'];
+    elseif(isset($_POST['gestionpc'])){
+        $contrat=$_POST['gestionnairepc'];
         $entrée1=$_POST['entrée1'];
         $modif2=$_POST['modif2'];
         $cpc=$_POST['cpc'];
