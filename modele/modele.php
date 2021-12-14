@@ -48,7 +48,7 @@ function rechercheRang($login,$mdp){
 }
 function rechercheClient($idclient){
     $connexion=getConnect();
-    $requete="SELECT * from client where id='$idclient'";
+    $requete="SELECT * from client where id='$id'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $client=$resultat->fetch();
