@@ -194,14 +194,14 @@ function inscription($conseillers){
   $contenu='<fieldset>';
   $contenu.='<legend>Inscrire un nouveau client à la banque</legend>';
   $contenu.='<form method="post" action="site.php">';
-  $contenu.='<p><label for="nom">nom :</label><input type="text" id="nom" name="nouv_nom" maxlength="10" required/></p>';
-  $contenu.='<p><label for="prenom">prenom :</label><input type="text" id="prenom" name="nouv_prenom" maxlength="10" required/></p>';
+  $contenu.='<p><label for="nom">nom :</label><input type="text" id="nom" name="nouv_nom" maxlength="15" required/></p>';
+  $contenu.='<p><label for="prenom">prenom :</label><input type="text" id="prenom" name="nouv_prenom" maxlength="15" required/></p>';
   $contenu.='<p><label for="date">Date de naissance :</label><input type="date" id="date" name="nouv_date" maxlength="10" required/></p>';
-  $contenu.='<p><label for="adresse">Adresse :</label><input type="text" id="adresse" name="nouv_adresse" maxlength="10" required/></p>';
+  $contenu.='<p><label for="adresse">Adresse :</label><input type="text" id="adresse" name="nouv_adresse" maxlength="50" required/></p>';
   $contenu.='<p><label for="telephone">Telephone :</label><input type="text" id="telephone" name="nouv_telephone" maxlength="10" required/></p>';
-  $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="10" required/></p>';
-  $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="10" required/></p>';
-  $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="10" required/></p>';
+  $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="20" required/></p>';
+  $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="16" required/></p>';
+  $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="16" required/></p>';
   $contenu.='<p><label for="conseiller">Conseiller :</label>';
   $contenu.='<select id="conseiller" name="nouv_cons">';
   foreach($conseillers as $ligne){
