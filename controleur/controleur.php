@@ -122,6 +122,10 @@ function ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte){
   ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedujour);
 
 }
+function ctlAffichageBlocage(){
+  $conseillers=rechercherTousConseillers();
+  blocage_creneau($conseillers);
+}
 
 function ctlModifDecouvert(){
     $cbs=rechercherTousComptesBancaires();
