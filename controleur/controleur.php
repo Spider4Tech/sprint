@@ -227,12 +227,11 @@ function ctlContrat($contrat,$entrée,$modif,$cpc) {
 
 function ctlEmploieDuTemps($conseiller,$semaine){
     if (!empty($conseiller)&&!empty($semaine)){
-        $conse=rechercherTousRDV($conseiller);
-        $piece=explode('-',"$semaine");
-        echo $piece[0].'<br/>';
-        echo $piece[1].'<br/>';
-        echo $piece[2].'<br/>';
-        affichageEDT($conse);
+        $idsemaine=chercherSemaine($semaine);
+        $debut=$idsemaine->Debut;
+        $fin=$idsemaine->Fin;
+        $rdv=rechercherRDVSemaine($conseiller,$debut,$fin);
+        affichageEDT($rdv);
     }
     else{
       throw new Exception ("Aucun conseiller trouvé");
@@ -240,10 +239,22 @@ function ctlEmploieDuTemps($conseiller,$semaine){
 }
 
 function statctr2($contrat,$date,$date2) {
-    if(!empty($date) && !empty($date2) && $date < $date2){
-      if($contrat == "suppression"){
+    if(!empty($date)){
+      if($contrat == "c_souscris" && !empty($date2) && $date < $date2){
         $cmptcontrat=statctr($date,$date2);
         statcontrat($cmptcontrat);
+      }
+      if($contrat == "nrb_rdv"  && !empty($date2) && $date < $date2){
+        $rdv_reserver=rdv_select($date,$date2);
+         rdvpris($rdv_reserver);
+      }
+      if($contrat == "total_cli"){
+        $total_client=compteur_client($date,$date2);
+        tot_cli($total_client);
+      }
+      if($contrat == "solde_cli"){
+        $totalsolde=solde_total($date,$date2);
+        tot_solde($totalsolde);
       }
     }
 }
