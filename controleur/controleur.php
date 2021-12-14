@@ -42,7 +42,8 @@ function ctlAjouterEmployée($login,$mdp,$rang){
 }
 function ctlAjouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
     if(!empty($nom)&&!empty($prenom)&&!empty($date)&&!empty($adresse)&&!empty($telephone)&&!empty($mail)&&!empty($profession)&&!empty($situation)&&!empty($cons)){
-        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons);
+        $date_arrivee = date('d-m-y h:i:s');
+        ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons,$date_arrivee);
     }
     else{
         throw new Exception("Entrée des données non valides");
@@ -83,7 +84,8 @@ function ctlAfficherSelectionConseiller(){
     afficherConseillersSelect($conseillers);
 }
 function ctlAfficherInscription(){
-    inscription();
+    $les_conseillers=rechercherTousConseillers();
+    inscription($les_conseillers);
 }
 function ctlResilierContrat(){
   $contrats=rechercherTousContrats();
