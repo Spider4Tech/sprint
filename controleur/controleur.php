@@ -142,12 +142,8 @@ function ctlAfficherEDTConseiller($id_conseiller){
 function ctlContratClient($id){
     if(!empty($id)){
         $client=rechercheContrat($id);
-<<<<<<< HEAD
-        affichageContrat($client);}
-=======
         affichageContrat($client);
     }
->>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
     else {
         throw new Exception("Entrée des données non valides");
     }
@@ -156,12 +152,8 @@ function ctlSyntheseClient($id) {
     if(!empty($id)){
         $client=rechercheCompteBancaire($id);
         $client2=rechercheContrat($id);
-<<<<<<< HEAD
-        affichageContraEtCompte($client,$client2);}
-=======
         affichageContraEtCompte($client,$client2);
     }
->>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
     else {
         throw new Exception("Entrée des données non valides");
     }
@@ -190,9 +182,6 @@ function ctlContrat($contrat,$entrée,$modif) {
         else{
             throw new Exception("Entrée des données non valides");
         }
-<<<<<<< HEAD
-      }
-=======
     }
     else{
         throw new Exception("Entrée des données non valides");
@@ -265,7 +254,6 @@ function ctlContratpc($contrat,$entrée1,$modif2) {
 
 
 
->>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
 
 }
 function ctlErreur($erreur){
