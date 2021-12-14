@@ -266,7 +266,7 @@ function blocage_creneau($conseillers){
   $contenu.='<p><label for="date">Date :</label><input type="date" id="date" name="la_date" required/></p>';
   $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="heure min="0" max="23" required/></p>';
   $contenu.='<p><label for="fin">Objet :</label><input type="number" id="fin" name="la_duree" min="1" max="24" required/></p>';
-  $contenu.='<input type="submit" name="ouverture_valide" value="valider"/></p>';
+  $contenu.='<input type="submit" name="blocage_valide" value="valider"/></p>';
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 

@@ -169,6 +169,9 @@ try{
     elseif(isset($_POST['demande_blocage_creneau'])){
       ctlAffichageBlocage();
     }
+    elseif(isset($_POST['blocage_valide'])){
+      ctlBlocage();
+    }
 
 
     else{

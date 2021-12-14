@@ -20,6 +20,7 @@
       <div class="main">
         <form id="agentedit" action="site.php" method='post'>
           <fieldset>
+            <!-- ajoute employé -->
             <legend>Ajout d'Employée</legend>
             <p>
               login : <input type="text" name="logincompte" maxlength="12"/>
@@ -40,6 +41,7 @@
         </form>
         <form method="post" action="site.php">
           <fieldset>
+            <!-- edition id employé -->
             <legend>Changer identifiant employé</legend>
             <p>
               <input type="text" name="alogin" id="login1" placeholder="Ancien identifiant" maxlength="12" required>
@@ -54,6 +56,7 @@
         </form>
         <form method="post" action="site.php">
           <fieldset>
+            <!-- ajout del et edit de contrat -->
             <legend>gestion contrat</legend>
             <p> <select name="gestionnaire_ctrt">
               <option value="suppression">suppression</option>
@@ -68,6 +71,7 @@
         </form>
         <form method="post" action="site.php">
           <fieldset>
+            <!-- ajout del et edit pièce de contrat -->
             <legend>gestion pièce contrat</legend>
             <p>
               <select name="gestionnairepc">
@@ -82,7 +86,7 @@
             <input type="submit" name="gestionpc" id="formsend">
           </fieldset>
         </form>
-
+          <!-- statistique de la banque -->
           <fieldset>
             <form method="post" action="site.php">
             <legend>gestion capital et statistique</legend>
