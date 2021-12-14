@@ -266,6 +266,17 @@ function ctlAffichage_statistique($contrat,$date,$date2) {
       }
     }
 }
+function cltAjoutHorraireClient($date,$debut,$fin,$id){
+    $id=AjoutDateRDVClient($date,$debut,$fin,$id);
+    $compte=rechercherTousTypesComptes();
+    $contrat=rechercherTousContrats();
+    affichageMotif($compte,$contrat,$id);
+}
+function ctlPieceRequis($motif,$id){
+    modificationObjetREV($motif,$id);
+    $piece=recherchePiece($motif);
+    affichagePiece($piece);
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }

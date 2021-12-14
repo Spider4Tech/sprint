@@ -366,3 +366,33 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
+function affichageMotif($compte,$contrat,$id){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.='<legend>Finalisation du Rendez-vous</legend>';
+  $contenu.='<p><input type="hidden" name="id" value="'.$id.'"/></p>';
+  $contenu.='<p>Objet : <select name="motif">';
+  foreach($compte as $ligne){
+    $contenu.='<option value="'.$ligne->libelle.'">'.$ligne->libelle.'</option>';
+  }
+  foreach($contrat as $ligne){
+    $contenu.='<option value="'.$ligne->nom.'">'.$ligne->nom.'</option>';
+  }
+  $contenu.='<option value="autre">autre</option>';
+  $contenu.='</select>';
+  $contenu.='<p><input type="submit" name="Objet" value="valider"/></p>';
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}
+function affichagePiece($piece){
+  $contenu='<form action="site.php" method="post">';
+  $contenu.="<fieldset>";
+  $contenu.='<legend>Pièce à fournir</legend>';
+  foreach ($piece as $ligne) {
+    $contenu.='<p>'.$ligne->libellé.'</p>';
+  }
+  $contenu.="</fieldset>";
+  $contenu.="</form>";
+  require_once('gabaritagent.php');
+}

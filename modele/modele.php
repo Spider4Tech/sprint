@@ -308,6 +308,15 @@ function supprimerContratpiece($entrée1){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function recherchePiece($motif){
+    $connexion=getConnect();
+    $requete="SELECT libellé FROM piece_identité where nom='$motif'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $piece=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $piece;
+}
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
@@ -363,4 +372,24 @@ function chercherSemaine($semaine){
   $select=$resultat->fetch();
   $resultat->closeCursor();
   return $select;
+}
+function AjoutDateRDVClient($date,$debut,$fin,$id){
+    $connexion=getConnect();
+    $requete="INSERT INTO rdv Values (0,'null','$date','$debut','$fin','$id')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+    $requete2="SELECT id_rdv from rdv";
+    $resultat=$connexion->query($requete2);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $select=$resultat->fetchall();
+    foreach ($select as $key) {
+      $id=$key->id_rdv;
+    }
+    return $id;
+}
+function modificationObjetREV($motif,$id){
+    $connexion=getConnect();
+    $requete="UPDATE rdv SET objet='$motif' where id_rdv='$id'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
 }

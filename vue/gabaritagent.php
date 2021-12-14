@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Ma page</title>
+    <title>Agent</title>
       <meta charset="utf-8">
 	    <link rel="stylesheet"  href="vue/style/style.css" />
     </head>
@@ -33,6 +33,26 @@
               Id du client : <input type="number" name="idclient" required/>
               <input type="submit" value="Synthese" name="rechid"/>
               <input type="submit" value="Check compte" name="Checkcompte"/>
+            </p>
+          </fieldset>
+        </form>
+        <form action="site.php" method='post'>
+          <fieldset>
+            <legend>Prise de Rendez-vous</legend>
+            <p>
+              Date : <input type="date" name="date" required/>
+            </p>
+            <p>
+              Debut : <input type="text" name="debut" required/>
+            </p>
+            <p>
+              Fin : <input type="text" name="fin" required/>
+            </p>
+            <p>
+              Id conseiller : <input type="text" name="id" required/>
+            </p>
+            <p>
+              <input type="submit" value="Envoyer" name="placementhoraire"/>
             </p>
           </fieldset>
         </form>

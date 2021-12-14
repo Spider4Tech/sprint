@@ -178,12 +178,20 @@ try{
       ctlBlocage($objet,$date,$debut,$fin,$cons);
       ctlGabarit();
     }
-
-
-    else{
-      ctlStart();
+    elseif(isset($_POST['placementhoraire'])){
+        $date=$_POST['date'];
+        $debut=$_POST['debut'];
+        $fin=$_POST['fin'];
+        $id=$_POST['id'];
+        cltAjoutHorraireClient($date,$debut,$fin,$id);
     }
-
+    elseif(isset($_POST['Objet'])){
+      $motif=$_POST['motif'];
+      $id=$_POST['id'];
+      ctlPieceRequis($motif,$id);
+    }
+    else
+      ctlStart();
 }
 catch(Exception $e){
     $msg=$e->getMessage();
