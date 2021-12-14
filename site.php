@@ -89,7 +89,10 @@ try{
     }
     elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
+<<<<<<< HEAD
 
+=======
+>>>>>>> a145973542fc9589e4fb0812a3e98ca83bb38b42
         $entrée=$_POST['entrée'];
         $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée,$modif);
@@ -102,11 +105,12 @@ try{
         ctlDebitRetrait($compte,$solde,$id);
         ctlGabarit();
     }
-    elseif(isset($_POST['gestionnairepc'])){
-        $contrat=$_POST['gestionpc'];
+    elseif(isset($_POST['gestionpc'])){
+        $contrat=$_POST['gestionnairepc'];
         $entrée1=$_POST['entrée1'];
         $modif2=$_POST['modif2'];
-        ctlContratpc($contrat,$entrée1,$modif2);
+        $cpc=$_POST['cpc'];
+        ctlContratpc($contrat,$entrée1,$modif2,$cpc);
         ctlGabarit();
     }
     elseif(isset($_POST['demande_modif_decouvert'])){
@@ -145,8 +149,11 @@ try{
       ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte);
       ctlGabarit();
     }
+<<<<<<< HEAD
 
     
+=======
+>>>>>>> a145973542fc9589e4fb0812a3e98ca83bb38b42
     else{
       ctlStart();
     }

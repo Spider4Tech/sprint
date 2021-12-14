@@ -245,15 +245,15 @@ function modificationSolde($compte,$solde,$id){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
-function ajouterContratpiece($entrée1){
+function ajouterContratpiece($entrée1,$cpc){
     $connexion=getConnect();
-    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1')";
+    $requete="INSERT INTO piece_identité VALUES(0,'$entrée1','$cpc')";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
- function editionContratpiece($entrée1, $modif2){
+ function editionContratpiece($entrée1,$modif2,$cpc){
      $connexion=getConnect();
-     $requete="UPDATE piece_identité SET libellé='$modif2' WHERE libellé='$entrée1'";
+     $requete="UPDATE piece_identité SET libellé='$modif2' WHERE libellé='$entrée1' and nom='$cpc'";
      $resultat=$connexion->query($requete);
      $resultat->closeCursor();
 }

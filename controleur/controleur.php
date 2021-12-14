@@ -168,35 +168,35 @@ function ctlDebitRetrait($compte,$solde,$id){
       throw new Exception("Nouveau solde inférieur au découvert max");
     }
 }
-function ctlContrat($contrat,$entrée,$modif) {
-    if(!empty($contrat)&&!empty($entrée)){
-        if($contrat == "suppression"){
-            supprimerContrat($entrée);
+function ctlContratpc($contrat,$entrée1,$modif2,$cpc) {
+    if(!empty($contrat)&&!empty($entrée1)&&!empty($cpc)){
+        if($contrat == "del_p"){
+            supprimerContratpiece($entrée1,$cpc);
         }
-        elseif($contrat == "ajout"){
-            ajouterContrat($entrée);
+        elseif($contrat == "add_p"){
+            ajouterContratpiece($entrée1,$cpc);
         }
-        elseif($contrat == "modification" && !empty($modif)){
-            editionContrat($entrée,$modif);
+        elseif($contrat == "edit_p" && !empty($modif2)){
+            editionContratpiece($entrée1,$modif2,$cpc);
         }
         else{
             throw new Exception("Entrée des données non valides");
         }
-    }
-    else{
-        throw new Exception("Entrée des données non valides");
+      }
+      else{
+          throw new Exception("Entrée des données non valides");
       }
 }
-function ctlContratpc($contrat,$entrée1,$modif2) {
+function ctlContrat($contrat,$entrée,$modif,$cpc) {
     if(!empty($contrat)&&!empty($entrée)){
-        if($contrat == "del_p"){
-          supprimerContrat($entrée1);
+        if($contrat == "suppression"){
+          supprimerContrat($entrée);
         }
-        elseif($contrat == "add_p"){
-          ajouterContrat($entrée1);
+        elseif($contrat == "ajout"){
+          ajouterContrat($entrée);
         }
-        elseif($contrat == "edit_p" && !empty($modif2)){
-          editionContrat($entrée1,$modif2);
+        elseif($contrat == "modification" && !empty($modif)){
+          editionContrat($entrée,$modif);
         }
         else{
             throw new Exception("Entrée des données non valides");
@@ -210,16 +210,3 @@ function ctlContratpc($contrat,$entrée1,$modif2) {
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
-function ctlContratpc($contrat,$entrée,$modif) {
-    if($contrat == "del_p"){
-      supprimerContrat($entrée1);
-    }
-    elseif($contrat == "add_p"){
-      ajouterContrat($entrée1);
-    }
-    elseif($contrat == "edit_p" && !empty($modif2)){
-      editionContrat($entrée1,$modif2);
-    }else{
-
-    }
-  }
