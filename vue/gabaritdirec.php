@@ -86,11 +86,11 @@
           <fieldset>
             <legend>gestion capital et statistique</legend>
             <p>
-              <select name="gestionnaire pièce à fournir">
-              	<option>Contrat souscris </option>
-              	<option>Nombre de rdv</option>
-              	<option>nombre total de client</option>
-                <option>solde des client</option>
+              <select name="statc">
+              	<option value="c_souscris">Contrat souscris </option>
+              	<option value="nrb_rdv">Nombre de rdv</option>
+              	<option value="total_cli">nombre total de client</option>
+                <option value="solde_cli">solde des client</option>
               </select>
             date 1 : <input id="date" type="date" value="2021-12-14" required>
             date 2 : <input id="date2" type="date" value="2021-12-15" onblur="compare();">
