@@ -201,9 +201,10 @@ function inscription($conseillers){
   $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="10" required/></p>';
   $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="10" required/></p>';
   $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="10" required/></p>';
-  $contenu.='<select name="nouv_cons">';
+  $contenu.='<p><label for="conseiller">Conseiller :</label>';
+  $contenu.='<select id="conseiller" name="nouv_cons">';
   foreach($conseillers as $ligne){
-    $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->prenom.' id du client : '.$ligne->nom.'</option>';
+    $contenu.='<option value="'.$ligne->id_conseiller.'">ID:'.$ligne->id_conseiller.' '.$ligne->prenom.' '.$ligne->nom.'</option>';
   }
   $contenu.='</select>';
   $contenu.='<p><input type="submit" value="Valider" name="validation_nouv_client"/>';
