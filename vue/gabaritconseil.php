@@ -23,7 +23,10 @@
         <form method="post" action="site.php">
           <label for="supp_con">Resilier un contrat</label><input type="radio" id="supp_con" name="choix_supp" value="supp_con" required/><br/>
           <label for="supp_cb">Resilier un compte</label><input type="radio" id="supp_cb" name="choix_supp" value="supp_cb" required/><br/>
-        <p><input type='submit' name='demande_resiliation' value="Résilier" /></p>
+        <input type='submit' name='demande_resiliation' value="Résilier" />
+        </form>
+        <form method="post" action="site.php">
+        <p><input type='submit' name='demande_ouverture_compte' value="Ouvrir un compte" /></p>
         </form>
       </fieldset>
       <?php echo $contenu ?>

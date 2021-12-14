@@ -80,31 +80,47 @@ function ctlAfficherInscription(){
     inscription();
 }
 function ctlResilierContrat(){
-  $cbs=rechercherTousComptesBancaires();
-  afficherContratsSelect($cbs);
+  $contrats=rechercherTousContrats();
+  afficherContratsSelect($contrats);
 }
 function ctlResilierCompte(){
   $cbs=rechercherTousComptesBancaires();
   afficherComptesSelect($cbs);
 }
-function ctlResilierContratEffectif($compte_supp){
+function ctlResilierCompteEffectif($compte_supp){
+    supprimerUnCompte($compte_supp);
 
 }
+function ctlResilierContratEffectif($contrat_supp){
+    supprimerUnContrat($contrat_supp);
+}
+function ctlAffichageOuvertureCompte(){
+  $clients=rechercherTousClients();
+  $types_comptes=rechercherTousTypesComptes();
+  menuOuvertureCompte($clients,$types_comptes);
+}
+function ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte){
+  $datedujour= date('d-m-y h:i:s');
+  ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedujour);
+
+}
+
 function ctlModifDecouvert(){
     $cbs=rechercherTousComptesBancaires();
-    afficherComptesSelect($cbs);
+    afficherComptesSelectDec($cbs);
 }
 
 function ctlModifDecouvertEffectif($nouv_decouvert,$lecompte){
     modificationDecouvert($nouv_decouvert,$lecompte);
 }
+
 function ctlCompteBancaire($id){
     if(!empty($id)){
         $client=rechercheCompteBancaire($id);
         affichageCompteBancaire($client);
     }
-    else{
-        throw new Exception("Entrée des données non valides");
+    else {
+        throw new Exception("Entrée des données non valide");
     }
 }
 function ctlAfficherSelectionDate(){
@@ -239,6 +255,20 @@ function ctlContratpc($contrat,$entrée1,$modif2) {
 
 
 
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
+function ctlContratpc($contrat,$entrée,$modif) {
+    if($contrat == "del_p"){
+      supprimerContrat($entrée1);
+    }
+    elseif($contrat == "add_p"){
+      ajouterContrat($entrée1);
+    }
+    elseif($contrat == "edit_p" && !empty($modif2)){
+      editionContrat($entrée1,$modif2);
+    }else{
+
+    }
+  }
