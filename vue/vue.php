@@ -249,7 +249,7 @@ function afficherEDTDate($dates){
   $contenu='';
   $contenu.='<fieldset><legend>Emploi du temps de la date selectionnee</legend>';
   foreach($dates as $ligne){
-      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->duree.'<br/>';
+      $contenu.='objet :'.$ligne->objet.' date : '.$ligne->date.' debut : '.$ligne->debut.' duree : '.$ligne->fin.'<br/>';
     }
   $contenu.='</fieldset>';
   require_once('gabaritconseil.php');
