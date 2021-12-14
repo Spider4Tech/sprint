@@ -272,3 +272,12 @@ function checkSolde($compte,$id){
   $resultat->closeCursor();
   return $select;
 }
+function statctr($date,$date2){
+  $connexion=getConnect();
+  $requete="SELECT count(nom) FROM contrat  WHERE date_ouverture BETWEEN 'date' AND 'date2' group by nom'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
