@@ -92,10 +92,10 @@
               	<option value="total_cli">nombre total de client</option>
                 <option value="solde_cli">solde des client</option>
               </select>
-            date 1 : <input id="date" type="date" value="2021-12-14" required>
-            date 2 : <input id="date2" type="date" value="2021-12-15" onblur="compare();">
+            date 1 : <input id="date" type="date" name="date" value="2021-12-14" required>
+            date 2 : <input id="date2" type="date" name="date2" value="2021-12-15" onblur="compare();">
             </p>
-            <input type="submit" name="changementcompte" id="formsend">
+            <input type="submit" name="changement2compte" id="formsend">
           </fieldset>
         </form>
 

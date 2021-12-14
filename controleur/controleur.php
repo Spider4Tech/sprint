@@ -243,10 +243,11 @@ function statctr2($contrat,$date,$date2) {
     if(!empty($date) && !empty($date2) && $date < $date2){
       if($contrat == "suppression"){
         $cmptcontrat=statctr($date,$date2);
+        echo 'salut';
         statcontrat($cmptcontrat);
       }
-    }
-
+}
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
