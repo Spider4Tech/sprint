@@ -9,6 +9,7 @@
       <div class="main">
         <form id="agentedit" action="site.php" method='post'>
           <fieldset>
+            <!--recherche client -->
             <legend>Recherche client par nom</legend>
             <p>
               Nom : <input type="text" name="nomclient" maxlength="10" required/>
@@ -26,6 +27,7 @@
         </form>
         <form id="agentsynth" action="site.php" method='post'>
           <fieldset>
+            <!-- recherche client par id -->
             <legend>Recherche client par id</legend>
             <p>
               Id du client : <input type="number" name="idclient" required/>

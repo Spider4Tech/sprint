@@ -264,9 +264,15 @@ function blocage_creneau($conseillers){
   $contenu.='</select>';
   $contenu.='<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" required/></p>';
   $contenu.='<p><label for="date">Date :</label><input type="date" id="date" name="la_date" required/></p>';
+<<<<<<< HEAD
   $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="debut_cr" min="0" max="23" required/></p>';
   $contenu.='<p><label for="fin">Heure fin :</label><input type="number" id="fin" name="fin_cr" min="1" max="24" required/></p>';
   $contenu.='<input type="submit" name="blocage_valide" value="valider"/></p>';
+=======
+  $contenu.='<p><label for="debut">Heure debut :</label><input type="number" id="debut" name="heure min="0" max="23" required/></p>';
+  $contenu.='<p><label for="fin">Objet :</label><input type="number" id="fin" name="la_duree" min="1" max="24" required/></p>';
+  $contenu.='<input type="submit" name="ouverture_valide" value="valider"/></p>';
+>>>>>>> 42093feaf35154f176b283c24513008dd9408e91
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');
 
@@ -322,22 +328,34 @@ function affichageEDT($rdvs,$debut,$fin){
   $contenu.="<fieldset>";
   $contenu.='<legend>Emploie du temps</legend>';
   foreach($rdvs as $ligne){
-      $contenu.='<hr>';
+      $contenu.='<p><hr></p>';
       $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
       $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';
       $contenu.='<p>Heure début :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
       $contenu.='<p>Heure fin :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
-      $contenu.='<hr>';
+      $contenu.='<p><hr></p>';
     }
-  $contenu.='<table>
-                  <tr> <th>'.$debut.'</th> <th>mardi</th><th>mercredis</th><th>jeudi</th><th>vendredis</th><th>samedis</th><th>dimanche</th></tr>
 
-                  </table>';
   $contenu.="</fieldset>";
   $contenu.="</form>";
   require_once('gabaritagent.php');
 }
-
+// function TableauxEDT(){
+//   $contenu.='<table>';
+//   $contenu.='<td></td><td>Lundi<br/>'.$debut.'</td> <td>mardi</td><td>mercredis</td><td>jeudi</td><td>vendredis</td><td>samedis</td><td>Dimanche<br/>'.$fin.'</td>';
+//   $contenu.='<tr><td>8H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>9H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>10H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>11H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>12H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>13H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>14H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>15H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>16H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>17H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='<tr><td>18H</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td><td>"1"</td></tr>';
+//   $contenu.='</table>';
+// }
 
 
 function afficherErreur($erreur){
