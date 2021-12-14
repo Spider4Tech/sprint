@@ -6,9 +6,9 @@ function getConnect(){
     $connexion->query('SET NAMES UTF8');
     return $connexion;
 }
-function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons){
+function ajouterClient($nom,$prenom,$date,$adresse,$telephone,$mail,$profession,$situation,$cons,$date_arrivee){
   $connexion=getConnect();
-  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons')";
+  $requete="INSERT INTO client VALUES(0,'$nom','$prenom','$date','$adresse','$telephone','$mail','$profession','$situation','$cons','$date_arrivee')";
   $resultat=$connexion->query($requete);
   $resultat->closeCursor();
 }
