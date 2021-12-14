@@ -152,6 +152,13 @@ try{
       $conseiller=$_POST['conseiller'];
       ctlEmploieDuTemps($conseiller);
     }
+    elseif(isset($_POST['changementcompte'])){
+        $contrat=$_POST['statc'];
+        $date=$_POST['date'];
+        $date2=$_POST['date2'];
+        ctlContratpc($contrat,$date,$date2);
+        ctlGabarit();
+    }
 
     else{
       ctlStart();
