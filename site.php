@@ -170,7 +170,13 @@ try{
       ctlAffichageBlocage();
     }
     elseif(isset($_POST['blocage_valide'])){
-      ctlBlocage();
+      $objet=$_POST['objet'];
+      $date=$_POST['la_date'];
+      $debut=$_POST['debut_cr'];
+      $fin=$_POST['fin_cr'];
+      $cons=$_POST['les_conseillers'];
+      ctlBlocage($objet,$date,$debut,$fin,$cons);
+      ctlGabarit();
     }
 
 

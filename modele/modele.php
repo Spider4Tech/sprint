@@ -99,6 +99,15 @@ function rechercherTousTypesComptes(){
     $resultat->closeCursor();
     return $types;
 }
+function ajouterCreneau($objet,$date,$debut,$fin,$cons){
+  $connexion=getConnect();
+  $requete="INSERT INTO rdv VALUES(0,'$objet','$date','$debut','$fin','$cons')";
+  $resultat=$connexion->query($requete);
+  $resultat->closeCursor();
+
+
+
+}
 function ajouterCompteBancaire($choix_du_client,$choix_du_type_de_compte,$datedujour){
 
   $connexion=getConnect();
