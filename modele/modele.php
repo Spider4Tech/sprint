@@ -214,13 +214,13 @@ function rechercheEmployée($login,$mdp){
 }
 function editionEmployée($id,$login,$mdp){
     $connexion=getConnect();
-    $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE idcompte='$id'";
+    $requete="UPDATE compte SET login='$login',mdp='$mdp' WHERE id_compte='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
 function editionClient($id,$tele,$adrr,$situ,$prof,$mail){
     $connexion=getConnect();
-    $requete="UPDATE client SET adresse='$adrr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id_compte='$id'";
+    $requete="UPDATE client SET adresse='$adrr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
     return $id;
