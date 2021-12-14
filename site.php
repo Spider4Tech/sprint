@@ -106,7 +106,7 @@ try{
         $entrée1=$_POST['entrée1'];
         $modif2=$_POST['modif2'];
         $cpc=$_POST['cpc'];
-        ctlContratpc($contrat,$entrée1,$modif2);
+        ctlContratpc($contrat,$entrée1,$modif2,$cpc);
         ctlGabarit();
     }
     elseif(isset($_POST['demande_modif_decouvert'])){
