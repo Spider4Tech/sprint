@@ -75,7 +75,8 @@
               	<option value="add_p">ajout</option>
               	<option  value="edit_p">Modification</option>
               </select>
-              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required></br>
+              pièce à fournir : <input type="text" name="entrée1" id="entrée1" placeholder="pièce contrat" maxlength="10" required>
+              compte à editer : <input type="text" name="cpt1" id="cpt1" placeholder="nom contrat" maxlength="10" required></br>
               edition : <input type="text" name="modif2" id="modif2" placeholder="modifier pièce contrat" maxlength="10">
             </p>
             <input type="submit" name="gestionpc" id="formsend">
