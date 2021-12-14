@@ -252,3 +252,11 @@ function afficherErreur($erreur){
     $contenu.="</fieldset>";
     require_once('vue/gabarit.php');
 }
+
+function statcontrat($cmptcontrat){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$cmptcontrat.'</p>';
+    $contenu.="</fieldset>";
+    require_once('vue/gabarit.php');
+}
