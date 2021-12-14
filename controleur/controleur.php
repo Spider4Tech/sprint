@@ -126,7 +126,11 @@ function ctlAffichageBlocage(){
   $conseillers=rechercherTousConseillers();
   blocage_creneau($conseillers);
 }
+function ctlBlocage($){
 
+
+
+}
 function ctlModifDecouvert(){
     $cbs=rechercherTousComptesBancaires();
     afficherComptesSelectDec($cbs);
