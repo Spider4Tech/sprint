@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
        function compare()
        {
          var date3 = document.getElementById("date").value;
@@ -11,7 +11,7 @@
           }
        }
 
-    </script>
+    </script> -->
     <title>directeur</title>
       <meta charset="utf-8">
 	    <link rel="stylesheet"  href="vue/style/style.css" />
@@ -98,7 +98,7 @@
                 <option value="solde_cli">solde des client</option>
               </select>
             date 1 : <input id="date" type="date" name="date" value="2021-12-14" required>
-            date 2 : <input id="date2" type="date" name="date2" value="2021-12-15" onblur="compare();">
+            date 2 : <input id="date2" type="date" name="date2" value="2021-12-15";">
             </p>
             <input type="submit" name="changement2compte" id="formsend"/>
             </form>
