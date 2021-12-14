@@ -205,7 +205,7 @@ function rechercheClientNom($nom,$prenom,$birth){
 }
 function rechercheEmployée($login,$mdp){
     $connexion=getConnect();
-    $requete="SELECT idcompte from compte where login='$login' and mdp='$mdp'";
+    $requete="SELECT id_compte from compte where login='$login' and mdp='$mdp'";
     $resultat=$connexion->query($requete);
     $resultat->setFetchMode(PDO::FETCH_OBJ);
     $selection=$resultat->fetch();
