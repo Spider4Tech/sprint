@@ -77,7 +77,8 @@ function ctlAfficherSelectionConseiller(){
     afficherConseillersSelect($conseillers);
 }
 function ctlAfficherInscription(){
-    inscription();
+    $conseillers=rechercherTousConseillers();
+    inscription($conseillers);
 }
 function ctlResilierContrat(){
   $contrats=rechercherTousContrats();

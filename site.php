@@ -145,6 +145,11 @@ try{
       ctlAjouterCompteBancaire($choix_du_client,$choix_du_type_de_compte);
       ctlGabarit();
     }
+    elseif(isset($_POST['demande_vente_contrat'])){
+      ctlAfficherVenteContrat();
+    }
+
+
     else{
       ctlStart();
     }
