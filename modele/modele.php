@@ -193,6 +193,7 @@ function supprimerUnCompte($entrée){
     $resultat->closeCursor();
 }
 
+
 function rechercheClientNom($nom,$prenom,$birth){
     $connexion=getConnect();
     $requete="SELECT id,adresse,telephone,situation,mail,profession from client where nom='$nom' and prenom='$prenom' and date_de_naissance='$birth'";
@@ -219,7 +220,7 @@ function editionEmployée($id,$login,$mdp){
 }
 function editionClient($id,$tele,$adrr,$situ,$prof,$mail){
     $connexion=getConnect();
-    $requete="UPDATE client SET adresse='$adrr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id='$id'";
+    $requete="UPDATE client SET adresse='$adrr',telephone='$tele',mail='$mail',profession='$prof',situation='$situ' WHERE id_compte='$id'";
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
     return $id;
