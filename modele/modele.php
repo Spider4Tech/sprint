@@ -308,6 +308,15 @@ function supprimerContratpiece($entrée1){
     $resultat=$connexion->query($requete);
     $resultat->closeCursor();
 }
+function recherchePiece($motif){
+    $connexion=getConnect();
+    $requete="SELECT libellé FROM piece_identité where nom='$motif'";
+    $resultat=$connexion->query($requete);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $piece=$resultat->fetchall();
+    $resultat->closeCursor();
+    return $piece;
+}
 function checkSolde($compte,$id){
   $connexion=getConnect();
   $requete="SELECT solde,decouvert_maxi from compte_bancaire where id_client='$id' and nom='$compte'";
@@ -376,4 +385,10 @@ function AjoutDateRDVClient($date,$debut,$fin,$id){
       $id=$key->id_rdv;
     }
     return $id;
+}
+function modificationObjetREV($motif,$id){
+    $connexion=getConnect();
+    $requete="UPDATE rdv SET objet='$motif' where id_rdv='$id'";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
 }
