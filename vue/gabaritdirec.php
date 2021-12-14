@@ -87,8 +87,9 @@
           </fieldset>
         </form>
           <!-- statistique de la banque -->
-          <fieldset>
+
             <form method="post" action="site.php">
+              <fieldset>
             <legend>gestion capital et statistique</legend>
             <p>
               <select name="choix_statistique">
@@ -101,8 +102,9 @@
             date 2 : <input id="date2" type="date" name="date2" value="2021-12-15"/>
             </p>
             <input type="submit" name="changement2compte" id="formsend"/>
-            </form>
+
           </fieldset>
+          <form>
 
 
       <?php
