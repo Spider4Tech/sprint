@@ -148,15 +148,12 @@ try{
     elseif(isset($_POST['demande_vente_contrat'])){
       ctlAfficherVenteContrat();
     }
-<<<<<<< HEAD
     elseif(isset($_POST['validation_vente'])){
       $tarif=$_POST['le_tarif_mensuel'];
       $contrat=$_POST['le_contrat'];
       $client=$_POST['le_client'];
       ctlVendreContrat($client,$contrat,$tarif);
     }
-
-=======
     elseif(isset($_POST['edt'])) {
       $conseiller=$_POST['conseiller'];
       $semaine=$_POST['sem'];
@@ -169,7 +166,7 @@ try{
         ctlContratpc($contrat,$date,$date2);
         ctlGabarit();
     }
->>>>>>> 501540aa65f933a08a831f8e7da0efc2416a046c
+
 
     else{
       ctlStart();
