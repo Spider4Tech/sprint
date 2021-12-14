@@ -207,68 +207,6 @@ function ctlContratpc($contrat,$entrée1,$modif2) {
       }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
-function ctlContratpc($contrat,$entrée,$modif) {
-    if($contrat == "del_p"){
-      supprimerContrat($entrée1);
-    }
-    elseif($contrat == "add_p"){
-      ajouterContrat($entrée1);
-    }
-    elseif($contrat == "edit_p" && !empty($modif2)){
-      editionContrat($entrée1,$modif2);
-    }else{
-
-    }
-  }
