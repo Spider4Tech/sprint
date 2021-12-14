@@ -215,7 +215,7 @@ function ctlContratpc($contrat,$entrée1,$modif2,$cpc) {
           throw new Exception("Entrée des données non valides");
       }
 }
-function ctlContrat($contrat,$entrée,$modif,$cpc) {
+function ctlContrat($contrat,$entrée,$modif) {
     if(!empty($contrat)&&!empty($entrée)){
         if($contrat == "suppression"){
           supprimerContrat($entrée);
