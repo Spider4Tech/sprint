@@ -246,8 +246,8 @@ function statctr2($contrat,$date,$date2) {
         statcontrat($cmptcontrat);
       }
       if($contrat == "nrb_rdv"){
-        $total_client=statctr($date,$date2);
-        statcontrat($total_client);
+        $rdv_reserver=rdv_select($date,$date2);
+         rdvpris($rdv_reserver);
       }
       if($contrat == "total_cli"){
         $totalsolde=statctr($date,$date2);

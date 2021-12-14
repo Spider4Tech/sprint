@@ -308,3 +308,12 @@ function statctr($date,$date2){
   $resultat->closeCursor();
   return $select;
 }
+function rdv_select($date,$date2){
+  $connexion=getConnect();
+  $requete=" SELECT count(objet) FROM rdv WHERE date BETWEEN 'date1' AND 'date2'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
