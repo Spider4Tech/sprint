@@ -240,12 +240,22 @@ function ctlEmploieDuTemps($conseiller,$semaine){
 }
 
 function statctr2($contrat,$date,$date2) {
-  echo 'salut1';
     if(!empty($date) && !empty($date2) && $date < $date2){
       if($contrat == "c_souscris"){
         $cmptcontrat=statctr($date,$date2);
-        echo 'saluteeeee';
         statcontrat($cmptcontrat);
+      }
+      if($contrat == "nrb_rdv"){
+        $total_client=statctr($date,$date2);
+        statcontrat($total_client);
+      }
+      if($contrat == "total_cli"){
+        $totalsolde=statctr($date,$date2);
+        statcontrat($totalsolde);
+      }
+      if($contrat == "solde_cli"){
+        $rdv_reserver=statctr($date,$date2);
+        statcontrat($rdv_reserver);
       }
     }
 }
