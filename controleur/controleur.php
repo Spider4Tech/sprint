@@ -77,8 +77,7 @@ function ctlAfficherSelectionConseiller(){
     afficherConseillersSelect($conseillers);
 }
 function ctlAfficherInscription(){
-    $conseillers=rechercherTousConseillers();
-    inscription($conseillers);
+    inscription();
 }
 function ctlResilierContrat(){
   $contrats=rechercherTousContrats();
@@ -207,7 +206,11 @@ function ctlContrat($contrat,$entrée,$modif,$cpc) {
         throw new Exception("Entrée des données non valides");
       }
 }
-
+function statctr2($date,$date2) {
+    if(!empty($date) && !empty($date2) && $date < $date2){
+        $cmptcontrat=statctr($date,$date2);
+        statcontrat($cmptcontrat);
+    }
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }
