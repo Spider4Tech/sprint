@@ -40,11 +40,12 @@ function affichageClient($client){
     $contenu.="</form>";
     require_once('gabaritagent.php');
 }
-function syntheseClient($client){
+function syntheseClient($client,$conseiller){
     $contenu='<form id="syntheseclient" action="site.php" method="post">';
     $contenu.="<fieldset>";
     $contenu.="<legend>Synthese Client</legend>";
     $contenu.='<p><input type="hidden" value="'.$client->id.'" name="id"/></p>';
+    $contenu.='<p><input type="hidden" value="'.$conseiller->id_conseiller.'" name="conseiller"/></p>';
     $contenu.='<p>Nom :<input type="text" value="'.$client->nom.'"readonly/></p>';
     $contenu.='<p>Prenom :<input type="text" value="'.$client->prenom.'"readonly/></p>';
     $contenu.='<p>Date de naissance :<input type="text" value="'.$client->date_de_naissance.'"readonly/></p>';
@@ -53,7 +54,9 @@ function syntheseClient($client){
     $contenu.='<p>Mail :<input type="text" value="'.$client->mail.'"readonly/></p>';
     $contenu.='<p>Profession :<input type="text" value="'.$client->profession.'"readonly/></p>';
     $contenu.='<p>Situation familiale :<input type="text" value="'.$client->situation.' "readonly/></p>';
-    $contenu.='<p><input type="submit" value="CompteBancaire" name="CompteBancaire"/><input type="submit" value="retour" name="retour"/></p>';
+    $contenu.='<p>Conseiller :<input type="text" value="'.$conseiller->nom.' '.$conseiller->prenom.' "readonly/></p>';
+    $contenu.='<p><input type="submit" value="CompteBancaire" name="CompteBancaire"/><input type="submit" value="retour" name="retour"/>';
+    $contenu.='<input type="submit" value="Emploie du temps" name="edt"/></p>';
     $contenu.="</fieldset>";
     $contenu.="</form>";
     require_once('gabaritagent.php');
