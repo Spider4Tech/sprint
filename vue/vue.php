@@ -278,11 +278,17 @@ function statcontrat($cmptcontrat){
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
-function affichageEDT($rdvs){
+function affichageEDT($rdv){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
-  foreach($rdvs as $ligne){
-      $contenu.='';
+  $contenu.='<legend>Emploie du temps</legend>';
+  foreach($rdv as $ligne){
+      $contenu.='<hr>';
+      $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
+      $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';
+      $contenu.='<p>Date :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
+      $contenu.='<p>Date :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
+      $contenu.='<hr>';
     }
   $contenu.="</fieldset>";
   $contenu.="</form>";

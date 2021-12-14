@@ -227,12 +227,11 @@ function ctlContrat($contrat,$entrée,$modif,$cpc) {
 
 function ctlEmploieDuTemps($conseiller,$semaine){
     if (!empty($conseiller)&&!empty($semaine)){
-        $conse=rechercherTousRDV($conseiller);
-        $piece=explode('-',"$semaine");
-        echo $piece[0].'<br/>';
-        echo $piece[1].'<br/>';
-        echo $piece[2].'<br/>';
-        affichageEDT($conse);
+        $idsemaine=chercherSemaine($semaine);
+        $debut=$idsemaine->Debut;
+        $fin=$idsemaine->Fin;
+        $rdv=rechercherRDVSemaine($conseiller,$debut,$fin);
+        affichageEDT($rdv);
     }
     else{
       throw new Exception ("Aucun conseiller trouvé");

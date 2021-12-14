@@ -153,6 +153,15 @@ function rechercherTousRDV($id_conseiller){
 	$resultat->closeCursor();
 	return $rdvs;
 }
+function rechercherRDVSemaine($id_conseiller,$debut,$fin){
+	$connexion=getConnect();
+	$requete="SELECT * from rdv where id_conseiller='$id_conseiller' and date>='$debut' and date<='$fin'";
+	$resultat=$connexion->query($requete);
+	$resultat->setFetchMode(PDO::FETCH_OBJ);
+	$rdvs=$resultat->fetchall();
+	$resultat->closeCursor();
+	return $rdvs;
+}
 function rechercheEDTDate($date){
   $connexion=getConnect();
 	$requete="SELECT * from rdv where date='$date'";
@@ -302,6 +311,15 @@ function checkSolde($compte,$id){
 function statctr($date,$date2){
   $connexion=getConnect();
   $requete="SELECT count(nom) FROM contrat  WHERE date_ouverture BETWEEN 'date' AND 'date2' group by nom'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
+function chercherSemaine($semaine){
+  $connexion=getConnect();
+  $requete="SELECT * from semaine where Debut<='$semaine' and Fin>='$semaine'";
   $resultat=$connexion->query($requete);
   $resultat->setFetchMode(PDO::FETCH_OBJ);
   $select=$resultat->fetch();
