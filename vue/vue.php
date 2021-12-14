@@ -186,7 +186,7 @@ function afficherSelectionDate(){
 	$contenu.='</form></fieldset>';
 	require_once('gabaritconseil.php');
 }
-function inscription(){
+function inscription($conseillers){
   $contenu='<fieldset>';
   $contenu.='<legend>Inscrire un nouveau client à la banque</legend>';
   $contenu.='<form method="post" action="site.php">';
@@ -198,7 +198,11 @@ function inscription(){
   $contenu.='<p><label for="mail">Email :</label><input type="text" id="mail" name="nouv_mail" maxlength="10" required/></p>';
   $contenu.='<p><label for="profession">Profession</label><input type="text" id="profession" name="nouv_profession" maxlength="10" required/></p>';
   $contenu.='<p><label for="situation">Situation :</label><input type="text" id="situation" name="nouv_situation" maxlength="10" required/></p>';
-  $contenu.='<p><label for="cons">Conseiller :</label><input type="number" id="cons" name="nouv_cons" maxlength="10" min="0" required/></p>';
+  $contenu.='<select name="nouv_cons">';
+  foreach($conseillers as $ligne){
+    $contenu.='<option value="'.$ligne->id_conseiller.'">'.$ligne->id_conseiller.' '.$ligne->prenom.' id du client : '.$ligne->nom.'</option>';
+  }
+  $contenu.='</select>';
   $contenu.='<p><input type="submit" value="Valider" name="validation_nouv_client"/>';
   $contenu.='</form></fieldset>';
   require_once('gabaritconseil.php');

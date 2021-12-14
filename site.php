@@ -89,10 +89,7 @@ try{
     }
     elseif(isset($_POST['gestioncontrat'])){
         $contrat=$_POST['gestionnaire_ctrt'];
-<<<<<<< HEAD
-=======
 
->>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
         $entrée=$_POST['entrée'];
         $modif=$_POST['modif'];
         ctlContrat($contrat,$entrée,$modif);
@@ -149,11 +146,7 @@ try{
       ctlGabarit();
     }
 
-<<<<<<< HEAD
-
-=======
-    }
->>>>>>> 1032f552137b9873b673069ba793f2d67541ab9f
+    
     else{
       ctlStart();
     }
