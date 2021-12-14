@@ -36,6 +36,26 @@
             </p>
           </fieldset>
         </form>
+        <form action="site.php" method='post'>
+          <fieldset>
+            <legend>Prise de Rendez-vous</legend>
+            <p>
+              Date : <input type="date" name="date" required/>
+            </p>
+            <p>
+              Debut : <input type="text" name="debut" required/>
+            </p>
+            <p>
+              Fin : <input type="text" name="fin" required/>
+            </p>
+            <p>
+              Id conseiller : <input type="text" name="id" required/>
+            </p>
+            <p>
+              <input type="submit" value="Envoyer" name="placementhoraire"/>
+            </p>
+          </fieldset>
+        </form>
         <?php
           echo $contenu;
         ?>

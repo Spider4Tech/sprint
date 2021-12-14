@@ -354,3 +354,17 @@ function chercherSemaine($semaine){
   $resultat->closeCursor();
   return $select;
 }
+function AjoutDateRDVClient($date,$debut,$fin,$id){
+    $connexion=getConnect();
+    $requete="INSERT INTO rdv Values (0,'null','$date','$debut','$fin','$id')";
+    $resultat=$connexion->query($requete);
+    $resultat->closeCursor();
+    $requete2="SELECT id_rdv from rdv";
+    $resultat=$connexion->query($requete2);
+    $resultat->setFetchMode(PDO::FETCH_OBJ);
+    $select=$resultat->fetchall();
+    foreach ($select as $key) {
+      $id=$key->id_rdv;
+    }
+    return $id;
+}

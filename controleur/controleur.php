@@ -266,6 +266,12 @@ function statctr2($contrat,$date,$date2) {
       }
     }
 }
+function cltAjoutHorraireClient($date,$debut,$fin,$id){
+    $id=AjoutDateRDVClient($date,$debut,$fin,$id);
+    $compte=rechercherTousTypesComptes();
+    $contrat=rechercherTousContrats();
+    affichageMotif($compte,$contrat);
+}
 function ctlErreur($erreur){
     afficherErreur($erreur);
 }

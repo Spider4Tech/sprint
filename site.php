@@ -172,8 +172,13 @@ try{
     elseif(isset($_POST['blocage_valide'])){
       ctlBlocage();
     }
-
-
+    elseif(isset($_POST['placementhoraire'])){
+        $date=$_POST['date'];
+        $debut=$_POST['debut'];
+        $fin=$_POST['fin'];
+        $id=$_POST['id'];
+        cltAjoutHorraireClient($date,$debut,$fin,$id);
+    }
     else{
       ctlStart();
     }
