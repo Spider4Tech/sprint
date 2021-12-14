@@ -296,11 +296,38 @@ function statcontrat($cmptcontrat){
     $contenu.="</fieldset>";
     require_once('gabaritdirec.php');
 }
+function rdvpris($rdv_reserver){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$rdv_reserver.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function tot_cli($total_client){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$total_client.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
+function tot_solde($totalsolde){
+    $contenu="<fieldset>";
+    $contenu.='<legend class="statctr">stat contrat</legend>';
+    $contenu.='<p>'.$totalsolde.'</p>';
+    $contenu.="</fieldset>";
+    require_once('gabaritdirec.php');
+}
 function affichageEDT($rdvs){
   $contenu='<form action="site.php" method="post">';
   $contenu.="<fieldset>";
+  $contenu.='<legend>Emploie du temps</legend>';
   foreach($rdvs as $ligne){
-      $contenu.='';
+      $contenu.='<hr>';
+      $contenu.='<p>Objet :<input type="text" value="'.$ligne->objet.'" readonly/> </p>';
+      $contenu.='<p>Date :<input type="text" value="'.$ligne->date.'" readonly/> </p>';
+      $contenu.='<p>Heure début :<input type="text" value="'.$ligne->debut.'" readonly/> </p>';
+      $contenu.='<p>Heure fin :<input type="text" value="'.$ligne->fin.'" readonly/> </p>';
+      $contenu.='<hr>';
     }
   $contenu.="</fieldset>";
   $contenu.="</form>";
