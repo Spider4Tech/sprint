@@ -317,3 +317,22 @@ function rdv_select($date,$date2){
   $resultat->closeCursor();
   return $select;
 }
+function compteur_client($date,$date2){
+  $connexion=getConnect();
+  $requete="SELECT count(nom) FROM client  WHERE date == 'date1'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
+
+function solde_total($date,$date2){
+  $connexion=getConnect();
+  $requete="SELECT sum(solde) FROM compte_bancaire WHERE date == 'date1'";
+  $resultat=$connexion->query($requete);
+  $resultat->setFetchMode(PDO::FETCH_OBJ);
+  $select=$resultat->fetch();
+  $resultat->closeCursor();
+  return $select;
+}
