@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!-- <script type="text/javascript">
-       function compare()
-       {
-         var date3 = document.getElementById("date").value;
-         var date4 = document.getElementById("date2").value;
-          if((new Date(date4).getTime() < new Date(date3).getTime())){
-            alert ("la 2eme date doit être supérieur à la 1ere");
-          }
-       }
-
-    </script> -->
+   
     <title>directeur</title>
       <meta charset="utf-8">
 	    <link rel="stylesheet"  href="vue/style/style.css" />
